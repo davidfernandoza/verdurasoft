@@ -14,12 +14,13 @@ if ($password == $confirPassword) {
 
 	// subir foto:
 	if ($_FILES['foto']['name'] != '') {
+
 		$fotoOriginal = $_FILES['foto']['name'];
 		$nombreFoto = strtolower(rand().$fotoOriginal);
 		$cd = $_FILES['foto']['tmp_name'];
 		$ruta = "../../admin/img/avatar/".$fotoOriginal;
 		$destinoFoto = "img/avatar/".$nombreFoto;
-		$resultado = @move_uploaded_file($_FILES["foto"]["tmp_name"], $ruta);
+		$resultado = @move_uploaded_file($cd, $ruta);
 		if (!empty($resultado)){
 			rename($ruta, "../../admin/".$destinoFoto);
 		}
@@ -37,7 +38,7 @@ if ($password == $confirPassword) {
 	$query= "INSERT INTO admins(id, foto, nombre, apellido, email, password, telefono, estado)
 	VALUES('$id', '$destinoFoto', '$nombre', '$apellido', '$email', '$password', '$telefono', 'activo');";
 	$consulta= mysqli_query($conexion,$query);
- 	
+
 	if ($contador == 0) {
 		echo '<script languaje="javascript">
 		var mensaje ="El administrador fue creado correctamente";
