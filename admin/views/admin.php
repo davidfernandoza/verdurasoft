@@ -112,7 +112,7 @@
 
 
 	<div class="container-formulario  registro" id="content-formulario"> <!-- mostrar-formulario -->
-		<form action="" method="" class="form-register"  id="form-register"> <!-- mostrar-->
+		<form action="" method="" class="form-register"  id="form-register" enctype="multipart/form-data"> <!-- mostrar-->
 			<div class="form-title">
 				<h1>Ingresar Administrador </h1>
 			</div>
@@ -149,7 +149,7 @@
 				</div>
 			</div>
 		</form>		
-		<form action="" method="" class="form-actualizar" id="form-actualizar" > <!-- mostrar -->
+		<form action="" method="" class="form-actualizar" id="form-actualizar" enctype="multipart/form-data"> <!-- mostrar -->
 			<div class="form-title">
 				<h1>Editar Administrador </h1>
 			</div>

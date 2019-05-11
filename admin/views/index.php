@@ -57,10 +57,10 @@
 							<a href="user.php">Usuarios</a>
 						</li>
 						<li class="aside-item">
-							<a href="#">Productos</a>
+							<a href="productos.php">Productos</a>
 						</li>
 						<li class="aside-item">
-							<a href="#">Compras</a>
+							<a href="compras.php">Compras</a>
 						</li>
 					</ul>
 					<ul class="aside-list ultimo">
