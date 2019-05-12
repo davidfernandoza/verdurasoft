@@ -100,13 +100,12 @@
 
 
 	<div class="container-formulario  registro" id="content-form"> <!-- mostrar-formulario -->
-		<form action="" method="" class="form-register" id="form-register"> <!-- mostrar-->
+		<form action="../controllers/admins/session.admin.php" method="post" class="form-register" id="form-register"> <!-- mostrar-->
 			<div class="form-title">
 				<h1>Iniciar sesión</h1>
 			</div>
 			<div class="form-content">
 				<input type="number" placeholder="Cedula" name="id" class="full">
-				<input type="text" placeholder="Usuario" name="user" class="full">
 				<input type="password" placeholder="Contraseña" name="password" class="full">
 
 				<div class="cta-group">
@@ -115,7 +114,7 @@
 				</div>
 			</div>
 		</form>		
-		<form action="" method="" class="form-actualizar" id="form-actualizar" > <!-- mostrar -->
+		<form action="../controllers/admins/guardar.admin2.php" method="post" class="form-actualizar" id="form-actualizar" > <!-- mostrar -->
 			<div class="form-title">
 				<h1>Registrate </h1>
 			</div>
@@ -133,13 +132,13 @@
 					<input type="number" placeholder="Celular" class="full" name="telefono">
 					<div class="input-group">
 						<input type="password" placeholder="Contraseña" name="password">
-						<input type="password" placeholder="Repetir contraseña">
+						<input type="password" name="confirPassword" placeholder="Repetir contraseña">
 					</div>
 					<!-- no se como colocar el name del select -->
 					
 					<div class="input-group select">
 						<label for="select">Estado:</label>
-						<select name="" id="">
+						<select name="estado" id="">
 							<option value="">Seleccione un estado</option>
 							<option value="">Activo</option>
 							<option value="">Innactivo</option>
