@@ -1,3 +1,20 @@
+<?php
+
+	session_start();
+	if (isset($_SESSION['ident'])) {
+
+		include('conexion.php');
+		$id = $_SESSION['ident'];
+		$query= "SELECT * FROM admins WHERE id = '$id';";
+		$consulta = mysqli_query($conexion, $query);
+		$mostrar = mysqli_fetch_array($consulta);
+		$query2= "SELECT * FROM compras ";
+		$consulta2 = mysqli_query($conexion, $query2);
+		$mostrar2 = mysqli_fetch_array($consulta2);
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -12,8 +29,8 @@
 		<header class="content-header">
 			<nav class="main-nav">
 				<div class="content-user">
-					<img src="../img/avatar/tiger.jpg" alt="img" class="content-img">
-					<p class="text">Nicol steeven</p>
+					<img src="<?php echo '../'.$mostrar['foto']; ?>" alt="img" class="content-img">
+					<p class="text"> <?php echo $mostrar['nombre']; ?> <?php echo $mostrar['apellido']; ?></p>
 				</div>
 				<div class="container-menu">
 					<div class="todo">
@@ -38,8 +55,8 @@
     				</div>
 					<img class="icon" id="menu" src="../img/user-solid.svg">
 					<ul class="content-menu">
-						<li class="item"><a href="#" class="link">Editar perfil</a></li>
-						<li class="item"><a href="#" class="link">Cerrar sesión</a></li>
+						<li class="item"><a href="../../controllers/admins/editar.admin.php?id= <?php echo $id?>" class="link">Editar perfil</a></li>
+						<li class="item"><a href="../../controllers/admins/session.salir.admin.php" class="link">Cerrar sesión</a></li>
 					</ul>
 				</div>
 			</nav>
@@ -118,7 +135,7 @@
 
 
 	<div class="container-formulario  registro" id="content-formulario"> <!-- mostrar-formulario -->
-		<form action="" method="" class="form-register"  id="form-register" > <!-- mostrar-->
+		<form action="../../guardar.compras.admin.php" method="" class="form-register"  id="form-register" > <!-- mostrar-->
 			<div class="form-title">
 				<h1>Ingresar venta</h1>
 			</div>
@@ -133,14 +150,6 @@
 						<input type="number" placeholder="valor" name="Valor">
 					</div>
 					<input type="number" placeholder="Total" class="full" name="total">
-					<div class="input-group select">
-						<label for="select">Estado:</label>
-						<select name="" id="">
-							<option value="">Seleccione un estado</option>
-							<option value="">Activo</option>
-							<option value="">Innactivo</option>
-						</select>
-					</div>
 					<!-- <input type="password" class="full" placeholder="Contraseña"> -->
 
 					
@@ -194,3 +203,15 @@
 
 </body>
 </html>
+
+
+<?php
+}
+	else{
+		echo '<script languaje="javascript">
+		var mensaje ="Usted no tiene acceso a este contenido, por favor inicie sesión";
+		alert(mensaje);
+		window.location.href= "../index.php"
+		</script>';
+	}
+?>

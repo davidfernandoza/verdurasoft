@@ -9,6 +9,10 @@
 		$consulta = mysqli_query($conexion, $query);
 		$mostrar = mysqli_fetch_array($consulta);
 
+		$query2= "SELECT * FROM usuarios ";
+		$consulta2 = mysqli_query($conexion, $query2);
+		$mostrar2 = mysqli_fetch_array($consulta2);
+
 ?>
 
 
@@ -27,7 +31,7 @@
 		<header class="content-header">
 			<nav class="main-nav">
 				<div class="content-user">
-						<img src="../img/avatar/tiger.jpg" alt="img" class="content-img">
+						<img src="<?php echo '../'.$mostrar['foto']; ?>" alt="img" class="content-img">
 						<p class="text"> <?php echo $mostrar['nombre']; ?> <?php echo $mostrar['apellido']; ?></p>
 				</div>
 				<div class="container-menu">
@@ -103,16 +107,26 @@
 									<th><img src="../img/editar.svg" alt="Editar"></th>
 									<th><img src="../img/borrar.svg" alt="Borrar"></th>
 								</tr>
+								<?php 
+
+										while ($mostrar2 = mysqli_fetch_array($consulta2)) {
+									?>
 								<tr>
-									<td>1088358516</td>
-									<td>nicol</td>
-									<td>steeven</td>
-									<td class="lower-case">nsgomez02@misena.edu.co</td>
-									<td>cra 10 # 30-18</td>
-									<td>3135504351</td>
+									
+
+									<td><?php echo $mostrar2['id']; ?></td>
+									<td><?php echo $mostrar2['nombre']; ?></td>
+									<td><?php echo $mostrar2['apellido']; ?></td>
+									<td class="lower-case"><?php echo $mostrar2['email']; ?></td>
+									<td><?php echo $mostrar2['direccion']; ?></td>
+									<td><?php echo $mostrar2['telefono']; ?></td>
 									<td class="center"><img src="../img/editando.svg" alt="Editando" class="editar-formulario"></td>
 									<td class="center"><img src="../img/borrando.svg" alt="Eliminar" class="eliminar-formulario"></tr></td>
+									<?php
+											}
+										?>
 								</tr>
+									
 							</table>
 						</div>
 						<div class="total">
@@ -126,7 +140,7 @@
 
 
 	<div class="container-formulario  registro" id="content-form"> <!-- mostrar-formulario -->
-		<form action="" method="" class="form-register" id="form-register"> <!-- mostrar-->
+		<form action="../../controllers/admins/guardar.usuario.php" method="post" class="form-register" id="form-register"> <!-- mostrar-->
 			<div class="form-title">
 				<h1>Ingresar Usuario </h1>
 			</div>
@@ -141,17 +155,9 @@
 				<input type="number" class="full" placeholder="Celular" name="telefono">
 				<div class="input-group">
 					<input type="password" placeholder="Contraseña" name="password">
-					<input type="password" placeholder="Repetir contraseña">
+					<input type="password" placeholder="Repetir contraseña" name="confirPassword">
 				</div>
 				<!-- no se como colocar el name del select -->
-				<div class="input-group select">
-					<label for="select">Estado:</label>
-					<select name="" id="">
-						<option value="">Seleccione un estado</option>
-						<option value="">Activo</option>
-						<option value="">Innactivo</option>
-					</select>
-				</div>
 				<div class="cta-group">
 					<input type="reset" value="Cancelar" id="cerrar-ingresar">
 					<input type="submit">

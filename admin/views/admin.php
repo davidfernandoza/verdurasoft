@@ -28,7 +28,7 @@
 		<header class="content-header">
 			<nav class="main-nav">
 				<div class="content-user">
-					<img src="../img/avatar/tiger.jpg" alt="img" class="content-img">
+					<img src="<?php echo '../'.$mostrar['foto']; ?>" alt="img" class="content-img">
 					<p class="text"> <?php echo $mostrar['nombre']; ?> <?php echo $mostrar['apellido']; ?></p>
 				</div>
 				<div class="container-menu">
@@ -101,6 +101,7 @@
 									<th>Apellido</th>
 									<th>Correo eléctronico</th>
 									<th>Teléfono</th>
+									<th>Estado</th>
 								</tr>
 								<tr>
 									<?php 
@@ -114,7 +115,8 @@
 										<td> <?php echo $mostrar2['apellido'];?> </td>
 										<td class="lower-case"><?php echo $mostrar2['email'];?> </td>
 										<td> <?php echo $mostrar2['telefono'];?> </td>
-										</tr></td>
+										<td> <?php echo $mostrar2['estado'];?> </td>
+										<td class="center"><a href="../../controllers/admins/eliminar.admin.php?id=<?php echo $mostrar2['id'] ?>"><img src="../img/borrando.svg" ></tr></td>
 									<?php
 										}
 									?>

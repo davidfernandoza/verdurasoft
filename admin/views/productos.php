@@ -9,6 +9,10 @@
 		$consulta = mysqli_query($conexion, $query);
 		$mostrar = mysqli_fetch_array($consulta);
 
+		$query2= "SELECT * FROM productos ";
+		$consulta2 = mysqli_query($conexion, $query2);
+		$mostrar2 = mysqli_fetch_array($consulta2);
+
 ?>
 
 
@@ -26,7 +30,7 @@
 		<header class="content-header">
 			<nav class="main-nav">
 				<div class="content-user">
-					<img src="../img/avatar/tiger.jpg" alt="img" class="content-img">
+					<img src="<?php echo '../'.$mostrar['foto']; ?>" alt="img" class="content-img">
 					<p class="text"><?php echo $mostrar['nombre']; ?> <?php echo $mostrar['apellido']; ?></p>
 				</div>
 				<div class="container-menu">
@@ -103,17 +107,26 @@
 									<th><img src="../img/editar.svg" alt="Editar"></th>
 									<th><img src="../img/borrar.svg" alt="Borrar"></th>
 								</tr>
+								<?php 
+
+										while ($mostrar2 = mysqli_fetch_array($consulta2)) {
+									?>
 								<tr>
+									
+
 									<td class="sin-fondo"><img src="../img/sin-fondo.png" alt="../img/sin-fondo.png"></td>
 									<td class="sin-fondo">1234</td>
-									<td>silantro</td>
-									<td>es un silantro muy salvaje </td>
-									<td class="lower-case">5000</td>
-									<td>45</td>
-									<td>activo</td>
+									<td> <?php echo $mostrar2['nombre']; ?></td>
+									<td><?php echo $mostrar2['descripcion']; ?> </td>
+									<td class="lower-case"><?php echo $mostrar2['valor']; ?></td>
+									<td><?php echo $mostrar2['cantidad']; ?></td>
+									<td><?php echo $mostrar2['estado']; ?></td>
 									<td class="center"><img src="../img/editando.svg" class="editar-formulario" class="eliminar-formulario" alt="Editando"></td>
 									<td class="center"><img src="../img/borrando.svg" class="eliminar-formulario" class="eliminar-formulario" alt="Eliminar"></tr></td>
 								</tr>
+									<?php
+											}
+										?>
 
 							</table>
 						</div>
@@ -128,18 +141,19 @@
 
 
 	<div class="container-formulario  registro" id="content-formulario"> <!-- mostrar-formulario -->
-		<form action="" method="" class="form-register"  id="form-register"> <!-- mostrar-->
+		<form action="../../controllers/admins/guardar.productos.php" method="post" class="form-register"  id="form-register" enctype="multipart/form-data"> <!-- mostrar-->
 			<div class="form-title">
 				<h1>Ingresar productos </h1>
 			</div>
 			<div class="container-formulario-img">
 				<div class="container-img">
 					<input type="file" name="foto" id="" placeholder="Tu foto">
+					<input type="hidden" name="admin_id" value="<?php echo $id?>">
 				</div>
 				<div class="form-content" id="form-content-register">
 					<div class="input-group">
 						<input type="number" placeholder="codigo" name="id">
-						<input type="text" placeholder="nombre" name="nombre">
+						<input type="text" placeholder="Nombre" name="nombre">
 					</div>
 					<input type="text" placeholder="Descripcion" name="descripcion" class="full">
 					<div class="input-group">
@@ -149,7 +163,7 @@
 					<input type="number" placeholder="Total" name="total" id="total" class="full">
 					<div class="input-group select">
 						<label for="select">Estado:</label>
-						<select name="" id="">
+						<select name="estado" id="">
 							<option value="">Seleccione un estado</option>
 							<option value="">Activo</option>
 							<option value="">Innactivo</option>
@@ -172,7 +186,7 @@
 			<div class="container-formulario-img">
 				<div class="container-img" id="container">
 					<img src="../img/avatar/tiger.jpg" alt="">
-					<input type="file" name="foto" id="" placeholder="Tu foto">
+					<input type="file" name="foto" id="" placeholder="Tu foto" >
 				</div>
 				<div class="form-content" id="form-content-actualizar">
 					<div class="input-group">

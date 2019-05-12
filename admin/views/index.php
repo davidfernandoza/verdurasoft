@@ -27,7 +27,7 @@
 		<header class="content-header">
 			<nav class="main-nav">
 				<div class="content-user">
-						<img src="../img/avatar/tiger.jpg" alt="img" class="content-img">
+						<img src="<?php echo '../'.$mostrar['foto']; ?>" alt="img" class="content-img">
 						<p class="text"> <?php echo $mostrar['nombre']; ?> <?php echo $mostrar['apellido']; ?></p>
 				</div>
 				<div class="container-menu">
