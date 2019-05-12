@@ -119,26 +119,36 @@
 			<div class="form-title">
 				<h1>Registrate </h1>
 			</div>
-			<div class="form-content" id="form-content-actualizar">
-				<input type="number" placeholder="Cedula" name="id" class="full" required>
-				<div class="input-group">
-					<input type="text" placeholder="Nombres">
-					<input type="text" placeholder="Apellidos">
+			<div class="container-formulario-img">
+				<div class="container-img">
+					<input type="file" name="foto" id="" placeholder="Tu foto">
 				</div>
-				<input type="email" class="full" placeholder="Correo electronico">
-				<input type="text" class="full" placeholder="Direccion">
-				<input type="number" class="full" placeholder="Celular">
-				<div class="input-group select">
-					<label for="select">Estado:</label>
-					<select name="" id="">
-						<option value="">Seleccione un estado</option>
-						<option value="">Activo</option>
-						<option value="">Innactivo</option>
-					</select>
-				</div>
-				<div class="cta-group">
-					<input type="reset" value="Cancelar" id="cerrar-registrarse">
-					<input type="submit">
+				<div class="form-content">
+					<input type="number" placeholder="Cédula" name="id" class="full">
+					<div class="input-group">
+						<input type="text" placeholder="Nombres" name="nombre">
+						<input type="text" placeholder="Apellidos" name="apellido">
+					</div>
+					<input type="email" class="full" placeholder="Correo electrónico" name="email">
+					<input type="number" placeholder="Celular" class="full" name="telefono">
+					<div class="input-group">
+						<input type="password" placeholder="Contraseña" name="password">
+						<input type="password" placeholder="Repetir contraseña">
+					</div>
+					<!-- no se como colocar el name del select -->
+					
+					<div class="input-group select">
+						<label for="select">Estado:</label>
+						<select name="" id="">
+							<option value="">Seleccione un estado</option>
+							<option value="">Activo</option>
+							<option value="">Innactivo</option>
+						</select>
+					</div>
+					<div class="cta-group">
+						<input type="reset" value="Cancelar" id="cerrar_ingresar">
+						<input type="submit">
+					</div>
 				</div>
 			</div>
 		</form>

@@ -3,9 +3,9 @@
 <head>
 	<meta charset="UTF-8">
 	<title>VerduraSoft | inicio</title>
-	<link rel="stylesheet" href="../css/index.css">
 	<script src="../js/code_jquery.js"></script>
 	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+	<link rel="stylesheet" href="../css/index.css">
 	
 	
 </head>

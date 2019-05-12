@@ -121,12 +121,12 @@
 					<input type="file" name="foto" id="" placeholder="Tu foto">
 				</div>
 				<div class="form-content">
-					<input type="number" placeholder="Cedula" name="id" class="full">
+					<input type="number" placeholder="Cédula" name="id" class="full">
 					<div class="input-group">
 						<input type="text" placeholder="Nombres" name="nombre">
 						<input type="text" placeholder="Apellidos" name="apellido">
 					</div>
-					<input type="email" class="full" placeholder="Correo electronico" name="email">
+					<input type="email" class="full" placeholder="Correo electrónico" name="email">
 					<input type="number" placeholder="Celular" class="full" name="telefono">
 					<div class="input-group">
 						<input type="password" placeholder="Contraseña" name="password">
