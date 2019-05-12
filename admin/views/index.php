@@ -1,10 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
 	<meta charset="UTF-8">
-	<title>VerduraSoft</title>
+	<title>VerduraSoft | inicio</title>
 	<link rel="stylesheet" href="../css/index.css">
 	<script src="../js/code_jquery.js"></script>
+	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+	
 	
 </head>
 <body>
@@ -39,7 +41,7 @@
 					<img class="icon" id="menu" src="../img/user-solid.svg">
 					<ul class="content-menu">
 						<li class="item"><a href="#" class="link">Editar perfil</a></li>
-						<li class="item"><a href="#" class="link">Cerrar sesion</a></li>
+						<li class="item"><a href="#" class="link">Cerrar sesión</a></li>
 					</ul>
 				</div>
 			</nav>
@@ -75,6 +77,7 @@
 		</section>
 	</div>
 
+	<script src="../js/llegada-login.js"></script>
 	<script src="../js/index.js"></script>
 </body>
 </html>

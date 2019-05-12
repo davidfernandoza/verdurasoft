@@ -312,6 +312,7 @@ section{
 	color:white;
 	padding: 10px;
 	cursor:pointer;
+	text-transform: uppercase;
 }
 .container-info .content-info table img{
 	width: 20px;

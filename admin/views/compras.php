@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
 	<meta charset="UTF-8">
-	<title>VerduraSoft | Productos</title>
+	<title>VerduraSoft | Compras</title>
 	<link rel="stylesheet" href="../css/index.css">
 	<script src="../js/code_jquery.js"></script>
 	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
@@ -57,10 +57,10 @@
 							<a href="user.php">Usuarios</a>
 						</li>
 						<li class="aside-item">
-							<a href="#">Productos</a>
+							<a href="productos.php">Productos</a>
 						</li>
 						<li class="aside-item">
-							<a href="compras.php">Compras</a>
+							<a href="#">Compras</a>
 						</li>
 					</ul>
 					<ul class="aside-list ultimo">
@@ -70,7 +70,7 @@
 			</aside>
 			<article  class="container-article">
 					<div class="input-group">
-						<a href="#" id="ingresar-producto">Ingresar productos</a>
+						<a href="#" id="ingresar-ventas">Ingresar venta</a>
 						<form class="content-search" action="../index.php">
 							<input type="search" name="search" placeholder="Cedula de usuario">
 						</form>
@@ -79,25 +79,29 @@
 						<div class="content-info">
 							  <table border="1px">
 								<tr>
-									<th class="sin-fondo">Foto</th>
-									<th class="sin-fondo">Codigo</th>
-									<th>Nombre</th>
-									<th>Descripción</th>
-									<th>Valor</th>
+									<th class="sin-fondo">codigo usuario</th>
+									<th class="sin-fondo">codigo producto</th>
+									<th>Usuario</th>
+									<th>Producto</th>
+									<th>Factura</th>
 									<th>Cantidad</th>
+									<th>Valor u.</th>
+									<th>Total</th>
 									<th>Estado</th>
 									<th><img src="../img/editar.svg" alt="Editar"></th>
 									<th><img src="../img/borrar.svg" alt="Borrar"></th>
 								</tr>
 								<tr>
-									<td class="sin-fondo"><img src="../img/sin-fondo.png" alt="../img/sin-fondo.png"></td>
 									<td class="sin-fondo">1234</td>
+									<td class="sin-fondo">45321</td>
+									<td>Nicol</td>
 									<td>silantro</td>
-									<td>es un silantro muy salvaje </td>
-									<td class="lower-case">5000</td>
-									<td>45</td>
+									<td>0121</td>
+									<td id="cantidad">15</td>
+									<td id="valor">2</td>
+									<td id="total"></td> <!-- este valor dejarlo totalmente en blanco -->
 									<td>activo</td>
-									<td class="center"><img src="../img/editando.svg" class="editar-formulario" class="eliminar-formulario" alt="Editando"></td>
+									<td class="center"><img src="../img/editando.svg" class="editar-formulario" class="editar-formulario" alt="Editando"></td>
 									<td class="center"><img src="../img/borrando.svg" class="eliminar-formulario" class="eliminar-formulario" alt="Eliminar"></tr></td>
 								</tr>
 
@@ -114,25 +118,21 @@
 
 
 	<div class="container-formulario  registro" id="content-formulario"> <!-- mostrar-formulario -->
-		<form action="" method="" class="form-register"  id="form-register"> <!-- mostrar-->
+		<form action="" method="" class="form-register"  id="form-register" > <!-- mostrar-->
 			<div class="form-title">
-				<h1>Ingresar productos </h1>
+				<h1>Ingresar venta</h1>
 			</div>
-			<div class="container-formulario-img">
-				<div class="container-img">
-					<input type="file" name="foto" id="" placeholder="Tu foto">
-				</div>
-				<div class="form-content" id="form-content-register">
+				<div class="form-content" id="form-content-ingresar">
 					<div class="input-group">
-						<input type="number" placeholder="codigo" name="id">
-						<input type="text" placeholder="nombre" name="nombre">
+						<input type="number" placeholder="codigo usuario" name="id" title="Codigo usuario">
+						<input type="text" placeholder="codigo producto" name="codigo" title="Codigo producto">
 					</div>
-					<input type="text" placeholder="Descripcion" name="descripcion" class="full">
+					<input type="text" placeholder="factura" name="factura" class="full">
 					<div class="input-group">
-						<input type="number" placeholder="Valor" name="valor">
-						<input type="number" placeholder="Cantidad" name="cantidad">
+						<input type="number" placeholder="Cantidad" name="Cantidad">
+						<input type="number" placeholder="valor" name="Valor">
 					</div>
-					<input type="number" placeholder="Total" name="total" id="total" class="full">
+					<input type="number" placeholder="Total" class="full" name="total">
 					<div class="input-group select">
 						<label for="select">Estado:</label>
 						<select name="" id="">
@@ -149,28 +149,22 @@
 						<input type="submit">
 					</div>
 				</div>
-			</div>
 		</form>	
-		<form action="" method="" class="form-actualizar" id="form-actualizar" enctype="multipart/form-data"> <!-- mostrar -->
+		<form action="" method="" class="form-actualizar" id="form-actualizar"> <!-- mostrar -->
 			<div class="form-title">
-				<h1>Editar producto </h1>
+				<h1>Editar venta </h1>
 			</div>
-			<div class="container-formulario-img">
-				<div class="container-img" id="container">
-					<img src="../img/avatar/tiger.jpg" alt="">
-					<input type="file" name="foto" id="" placeholder="Tu foto">
-				</div>
-				<div class="form-content" id="form-content-actualizar">
+			<div class="form-content" id="form-content-actualizar">
 					<div class="input-group">
-						<input type="number" placeholder="codigo" name="id" disabled>
-						<input type="text" placeholder="nombre" name="nombre">
+						<input type="number" placeholder="codigo usuario" name="id" title="Codigo usuario">
+						<input type="text" placeholder="codigo producto" name="codigo" title="Codigo producto">
 					</div>
-					<input type="text" placeholder="Descripcion" name="descripcion" class="full">
+					<input type="text" placeholder="factura" name="factura" class="full">
 					<div class="input-group">
-						<input type="number" placeholder="Valor" name="valor">
-						<input type="number" placeholder="Cantidad" name="cantidad">
+						<input type="number" placeholder="Cantidad" name="Cantidad">
+						<input type="number" placeholder="valor" name="Valor">
 					</div>
-					<input type="number" placeholder="Total" class="full" name="total" id="total">
+					<input type="number" placeholder="Total" class="full" name="total">
 					<div class="input-group select">
 						<label for="select">Estado:</label>
 						<select name="" id="">
@@ -187,7 +181,6 @@
 						<input type="submit">
 					</div>
 				</div>
-			</div>
 		</form>
 
 	</div>
@@ -197,7 +190,7 @@
 
 
 	<script src="../js/index.js"></script>
-	<script src="../js/productos.js"></script>
+	<script src="../js/compras.js"></script>
 
 </body>
 </html>

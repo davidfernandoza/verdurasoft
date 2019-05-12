@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
 	<meta charset="UTF-8">
 	<title>VerduraSoft | Administrador</title>
@@ -39,7 +39,7 @@
 					<img class="icon" id="menu" src="../img/user-solid.svg">
 					<ul class="content-menu">
 						<li class="item"><a href="#" class="link">Editar perfil</a></li>
-						<li class="item"><a href="#" class="link">Cerrar sesion</a></li>
+						<li class="item"><a href="#" class="link">Cerrar sesión</a></li>
 					</ul>
 				</div>
 			</nav>
@@ -57,10 +57,10 @@
 							<a href="user.php">Usuarios</a>
 						</li>
 						<li class="aside-item">
-							<a href="#">Productos</a>
+							<a href="productos.php">Productos</a>
 						</li>
 						<li class="aside-item">
-							<a href="#">Compras</a>
+							<a href="compras.php">Compras</a>
 						</li>
 					</ul>
 					<ul class="aside-list ultimo">
@@ -80,11 +80,11 @@
 							  <table border="1px">
 								<tr>
 									<th class="sin-fondo">Foto</th>
-									<th>Cedula</th>
+									<th>Cédula</th>
 									<th>Nombre</th>
 									<th>Apellido</th>
-									<th>Correo electronico</th>
-									<th>Telefono</th>
+									<th>Correo eléctronico</th>
+									<th>Teléfono</th>
 									<th><img src="../img/editar.svg" alt="Editar"></th>
 									<th><img src="../img/borrar.svg" alt="Borrar"></th>
 								</tr>

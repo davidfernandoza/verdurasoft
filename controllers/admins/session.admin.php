@@ -1,4 +1,9 @@
 <?php
+// cunado se redireccione  para la pagina de Inicio del administrador, por favor agragar a la url #mostrar tal cual esta ahi porfis att Nicol
+
+
+
+
 include('../conexion.php');
 $email = $_POST['email'];
 $password = $_POST['password'];

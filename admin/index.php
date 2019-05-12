@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>Iniciar sesion | verduraSoft</title>
+	<title>Iniciar sesión | verduraSoft</title>
 	<script src="js/code_jquery.js"></script>
 	<link rel="stylesheet" href="css/login.css">
 
@@ -12,8 +12,7 @@
 		<header class="content-header">
 			<nav class="main-nav">
 				<div class="content-user">
-						<img src="../img/avatar/tiger.jpg" alt="img" class="content-img">
-						<p class="text">Nicol steeven</p>
+					<h1 class="text">VerduraSoft</h1>
 				</div>
 				<div class="container-menu">
 					<div class="todo">
@@ -38,7 +37,7 @@
     				</div>
 					<img class="icon" id="menu" src="img/user-solid.svg">
 					<ul class="content-menu">
-						<li class="item"><a href="#" class="link" id="iniciar-sesion">Iniciar Sesion</a></li>
+						<li class="item"><a href="#" class="link" id="iniciar-sesion">Iniciar Sesión</a></li>
 						<li class="item"><a href="#" class="link" id="registrarse-sesion">Registrate</a></li>
 					</ul>
 				</div>
@@ -103,7 +102,7 @@
 	<div class="container-formulario  registro" id="content-form"> <!-- mostrar-formulario -->
 		<form action="" method="" class="form-register" id="form-register"> <!-- mostrar-->
 			<div class="form-title">
-				<h1>Iniciar sesion</h1>
+				<h1>Iniciar sesión</h1>
 			</div>
 			<div class="form-content">
 				<input type="number" placeholder="Cedula" name="id" class="full">
