@@ -85,8 +85,7 @@
 									<th>Apellido</th>
 									<th>Correo eléctronico</th>
 									<th>Teléfono</th>
-									<th><img src="../img/editar.svg" alt="Editar"></th>
-									<th><img src="../img/borrar.svg" alt="Borrar"></th>
+									<th class=""><img src="../img/borrar.svg" alt="Borrar"></th>
 								</tr>
 								<tr>
 									<td class="sin-fondo"><img src="../img/sin-fondo.png" alt="../img/sin-fondo.png"></td>
@@ -95,7 +94,6 @@
 									<td>steeven</td>
 									<td class="lower-case">nsgomez02@misena.edu.co</td>
 									<td>3135504351</td>
-									<td class="center"><img src="../img/editando.svg" class="editar-formulario" class="eliminar-formulario" alt="Editando"></td>
 									<td class="center"><img src="../img/borrando.svg" class="eliminar-formulario" class="eliminar-formulario" alt="Eliminar"></tr></td>
 								</tr>
 

@@ -3,6 +3,11 @@ document.getElementById("menu").addEventListener("click", function(){
  	this.classList.toggle("active")
  })
 
+for (var i = document.getElementsByClassName("link").length - 1; i >= 0; i--) {
+	document.getElementsByClassName("link")[i].addEventListener('click',function(){
+		location.href="admin.php#formulario"
+	})
+}
 
 
 $(document).ready(function(){

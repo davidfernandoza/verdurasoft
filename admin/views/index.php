@@ -14,8 +14,8 @@
 		<header class="content-header">
 			<nav class="main-nav">
 				<div class="content-user">
-						<img src="../img/avatar/tiger.jpg" alt="img" class="content-img">
-						<p class="text">Nicol steeven</p>
+					<img src="../img/avatar/tiger.jpg" alt="img" class="content-img">
+					<p class="text">Nicol steeven</p>
 				</div>
 				<div class="container-menu">
 					<div class="todo">
