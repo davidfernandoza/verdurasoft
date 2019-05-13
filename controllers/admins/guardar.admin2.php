@@ -12,7 +12,6 @@ $destinoFoto = '';
 
 if ($password == $confirPassword) {
 
-	// subir foto:
 	if ($_FILES['foto']['name'] != '') {
 
 		$fotoOriginal = $_FILES['foto']['name'];
@@ -35,30 +34,22 @@ if ($password == $confirPassword) {
 
 	$opciones = [  'cost' => 12, ];
 	$password = password_hash($password, PASSWORD_BCRYPT, $opciones);
+
 	$query= "INSERT INTO admins(id, foto, nombre, apellido, email, password, telefono, estado)
 	VALUES('$id', '$destinoFoto', '$nombre', '$apellido', '$email', '$password', '$telefono', 'activo');";
 	$consulta= mysqli_query($conexion,$query);
-
-	if ($contador == 0) {
-		echo '<script languaje="javascript">
+	echo '<script languaje="javascript">
 		var mensaje ="El administrador fue creado correctamente";
 		alert(mensaje);
-		window.location.href= "../test/loginA.php"
+		window.location.href= "../../admin/index.php"
 		</script>';
-	}
-	else {
-		echo '<script languaje="javascript">
-		var mensaje ="Problemas al subir la foto, creacion de administrador sin avatar asociado.";
-		alert(mensaje);
-		window.location.href= "../test/loginA.php"
-		</script>';
-	}
 }
 else {
 	echo '<script languaje="javascript">
 	var mensaje ="Las contraseñas no coinciden";
 	alert(mensaje);
-	window.location.href= "../test/crearA.php"
+	window.location.href= "../../views/index.php"
 	</script>';
-}
+	}
+
 ?>
