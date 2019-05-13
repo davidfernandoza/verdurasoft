@@ -15,6 +15,10 @@ $consulta = mysqli_query($conexion, $query);
 </head>
 <body>
 
+  <p><a href="../login/login.usuario.php">Login</a></p>
+  <p><a href="../login/registro.usuario.php">Registro ususario</a></p>
+	<p><a href="../../../index.php">Inicio</a></p>
+
   <!-- Galeria -->
   <div class='galeria'>
     <?php
@@ -27,7 +31,7 @@ $consulta = mysqli_query($conexion, $query);
           <figure>
 
             <!-- Foto -->
-            <img src="<?php echo $fila[2] ?>" alt="foto-<?php echo $fila[3] ?>">
+            <img src="<?php echo '../../../admin/'.$fila[2] ?>" alt="foto-<?php echo $fila[3] ?>">
           </figure>
           <div class="contenido_card">
             <div class="info_card">
@@ -48,6 +52,9 @@ $consulta = mysqli_query($conexion, $query);
 
               <!-- Agregar a carrito -->
               <button onclick="addCarrito(<?php echo $fila[0] ?>)" class="agregar">Agregar a carrito</button>
+
+              <!-- Cantidad original de la tarjeta -->
+              <input type="hidden" id="<?php echo 'cantidadTarjeta'.$fila[0];?>" value="<?php echo $fila[5];?>">
             </div>
           </div>
         </div>
@@ -85,7 +92,7 @@ $consulta = mysqli_query($conexion, $query);
                 <td><?php echo $detalle['cantidad'];?></td>
                 <td><?php echo $detalle['precio'];?></td>
                 <td><?php echo $detalle['subtotal'];?></td>
-                <td><button type="button" class="btn btn-sm btn-danger eliminar-producto" id="<?php echo $detalle['id'];?>">Eliminar</button></td>
+                <td><button class="eliminar-producto" onclick="deleteCarrito(<?php echo $detalle['id'];?>)">Eliminar</button></td>
 
                 <!-- Necesario para la suma de cantidades -->
                 <input type="hidden" id="<?php echo 'cantidadActual'.$detalle['id'];?>" value="<?php echo $detalle['cantidad'];?>">
@@ -101,6 +108,10 @@ $consulta = mysqli_query($conexion, $query);
       <?php }else{?>
         <div class="panel-body"> No hay productos agregados</div>
       <?php }?>
+
+      <form action="../../../controllers/carrito/carrito.crud.php?page=3" method="post">
+        <input type="submit" value="Comprar" disabled>
+      </form>
     </div>
 
     <!-- JQuery -->
@@ -110,6 +121,8 @@ $consulta = mysqli_query($conexion, $query);
     <!-- Ajax -->
     <script type="text/javascript">
 
+
+    // Agregar a carrito
     function addCarrito(id){
       let cantidadActual = $(`#cantidadActual${id}`).val();
       if (!cantidadActual) {
@@ -119,28 +132,23 @@ $consulta = mysqli_query($conexion, $query);
         cantidadActual = parseInt(cantidadActual);
       }
       let cantidad = $(`#cantidad${id}`);
-      let cantidadDeiponible = parseInt(cantidad.text())
-
-      console.log(cantidadActual);
-      if(cantidadDeiponible > 0){
+      let cantidadDisponible = parseInt(cantidad.text())
+      if(cantidadDisponible > 0){
         $.ajax({
           url: '../../../controllers/carrito/carrito.crud.php?page=1',
           type: 'post',
           data: {'producto_id':id, 'cantidad':1, 'cantidadActual':cantidadActual},
           dataType: 'json',
           success: function(data) {
-            console.log(data);
             if(data.success==true){
               $(".detalle-producto").load('tabla.php');
-              cantidadDeiponible -= 1
-              cantidad.text(cantidadDeiponible)
+              cantidadDisponible -= 1
+              cantidad.text(cantidadDisponible)
             }
             else{
-              alert(data.msj);
+              alert('Debes de iniciar sesion.');
+              window.location.href= "../login/login.usuario.php"
             }
-          },
-          error: function(jqXHR, textStatus, error) {
-
           }
         });
       }
@@ -148,8 +156,28 @@ $consulta = mysqli_query($conexion, $query);
         alert('Ya no hay mas producto para agregar al carrito.')
       }
     }
-    </script>
-    <script type="text/javascript" src="./../../js/scripts.js">
+
+
+    // quitar de carrito
+    function deleteCarrito(id){
+      let cantidadTarjeta = parseInt($(`#cantidadTarjeta${id}`).val())
+      let cantidad = $(`#cantidad${id}`);
+      cantidadTarjeta
+      $.ajax({
+        url: '../../../controllers/carrito/carrito.crud.php?page=2',
+        type: 'post',
+        data: {'id':id},
+        dataType: 'json'
+      }).done(function(data){
+        if(data.success==true){
+          $(".detalle-producto").load('tabla.php');
+          cantidad.text(cantidadTarjeta)
+        }else{
+          alert('Debes de iniciar sesion.');
+          window.location.href= "../login/login.usuario.php"
+        }
+      })
+    }
     </script>
   </body>
   </html>

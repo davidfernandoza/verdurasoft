@@ -19,7 +19,7 @@ if ($password == $confirPassword) {
 	echo '<script languaje="javascript">
 	var mensaje =" usuario creado correctamente";
 	alert(mensaje);
-	window.location.href= "../test/login.php"
+	window.location.href= "../../public/views/login/login.usuario.php"
 	</script>';
 
 }
@@ -27,7 +27,7 @@ else {
 	echo '<script languaje="javascript">
 	var mensaje ="Las contraseñas no coinciden.";
 	alert(mensaje);
-	window.location.href= "../test/crear.php"
+	window.location.href= "../../public/views/login/registro.usuario.php"
 	</script>';
 }
 

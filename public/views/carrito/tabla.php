@@ -1,6 +1,10 @@
 <?php
 @session_start();
+if(!isset($_SESSION['id_usuario'])){
+	  echo "<script languaje='javascript'>window.location.href= './carrito.php'</script>";
+}
 ?>
+
 <?php if(count($_SESSION['detalle']) > 0){?>
 	<table class="table">
 		<thead>
@@ -24,7 +28,7 @@
 						<td><?php echo $detalle['cantidad'];?></td>
 						<td><?php echo $detalle['precio'];?></td>
 						<td><?php echo $detalle['subtotal'];?></td>
-						<td><button type="button" class="btn btn-sm btn-danger eliminar-producto" id="<?php echo $detalle['id'];?>">Eliminar</button></td>
+						<td><button class="eliminar-producto" onclick="deleteCarrito(<?php echo $detalle['id'];?>)">Eliminar</button></td>
 
 						<!-- Necesario para la suma de cantidades -->
 						<input type="hidden" id="<?php echo 'cantidadActual'.$detalle['id'];?>" value="<?php echo $detalle['cantidad'];?>">
@@ -40,3 +44,6 @@
 	<?php }else{?>
 		<div class="panel-body"> No hay productos agregados</div>
 	<?php }?>
+	<form action="../../../controllers/carrito/carrito.crud.php?page=3" method="post">
+		<input type="submit" value="Comprar">
+	</form>
