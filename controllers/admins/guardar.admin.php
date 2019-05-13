@@ -35,6 +35,7 @@ if ($password == $confirPassword) {
 
 	$opciones = [  'cost' => 12, ];
 	$password = password_hash($password, PASSWORD_BCRYPT, $opciones);
+	
 	$query= "INSERT INTO admins(id, foto, nombre, apellido, email, password, telefono, estado)
 	VALUES('$id', '$destinoFoto', '$nombre', '$apellido', '$email', '$password', '$telefono', 'activo');";
 	$consulta= mysqli_query($conexion,$query);

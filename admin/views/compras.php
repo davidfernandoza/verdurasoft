@@ -1,3 +1,56 @@
+<?php
+
+	session_start();
+	if (isset($_SESSION['ident'])) {
+
+		include('conexion.php');
+		$id = $_SESSION['ident'];
+		$query= "SELECT * FROM admins WHERE id = '$id';";
+		$consulta = mysqli_query($conexion, $query);
+		$mostrar = mysqli_fetch_array($consulta);
+
+		$query2= "SELECT * FROM compras ";
+		$consulta2 = mysqli_query($conexion, $query2);
+		$mostrar2 = mysqli_fetch_array($consulta2);
+		$usuarios_id1 = $mostrar2['usuarios_id'];
+		$productos_id1 = $mostrar2['productos_id'];
+
+		$query3= "SELECT * FROM usuarios WHERE id = '$usuarios_id1';";
+		$consulta3 = mysqli_query($conexion, $query3);
+		$mostrar3 = mysqli_fetch_array($consulta3);
+
+
+		$query4= "SELECT * FROM productos WHERE id = '$productos_id1';";
+		$consulta4 = mysqli_query($conexion, $query4);
+		$mostrar4 = mysqli_fetch_array($consulta4);
+
+
+		if ($result = $conexion->query("SELECT * FROM productos")) {
+
+	    /* determinar el número de filas del resultado */
+	    $row_cnt = $result->num_rows;
+
+	   	
+
+	    /* cerrar el resultset */
+	    $result->close();
+		}
+
+	    if ($result2 = $conexion->query("SELECT * FROM compras")) {
+
+	    /* determinar el número de filas del resultado */
+	    $row_cnt2 = $result2->num_rows-1;
+
+	   
+
+	    /* cerrar el resultset */
+	    $result2->close();
+
+}
+?>
+
+
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -12,8 +65,8 @@
 		<header class="content-header">
 			<nav class="main-nav">
 				<div class="content-user">
-					<img src="../img/avatar/tiger.jpg" alt="img" class="content-img">
-					<p class="text">Nicol steeven</p>
+					<img src="<?php echo '../'.$mostrar['foto']; ?>" alt="img" class="content-img">
+					<p class="text"> <?php echo $mostrar['nombre']; ?> <?php echo $mostrar['apellido']; ?></p>
 				</div>
 				<div class="container-menu">
 					<div class="todo">
@@ -38,8 +91,8 @@
     				</div>
 					<img class="icon" id="menu" src="../img/user-solid.svg">
 					<ul class="content-menu">
-						<li class="item"><a href="#" class="link">Editar perfil</a></li>
-						<li class="item"><a href="#" class="link">Cerrar sesión</a></li>
+						<li class="item"><a href="../../controllers/admins/editar.admin.php?id= <?php echo $id?>" class="link">Editar perfil</a></li>
+						<li class="item"><a href="../../controllers/admins/session.salir.admin.php" class="link">Cerrar sesión</a></li>
 					</ul>
 				</div>
 			</nav>
@@ -64,8 +117,8 @@
 						</li>
 					</ul>
 					<ul class="aside-list ultimo">
-						<a href="#">Productos: 125.211</a>						
-						<a href="#">Compras: 152.224</a>						
+						<a href="#">Productos: <?php echo $row_cnt; ?></a>						
+						<a href="#">Compras:  <?php echo $row_cnt2; ?></a>					
 					</ul>
 			</aside>
 			<article  class="container-article">
@@ -91,19 +144,26 @@
 									<th><img src="../img/editar.svg" alt="Editar"></th>
 									<th><img src="../img/borrar.svg" alt="Borrar"></th>
 								</tr>
+								<?php 
+
+										while ($mostrar2 = mysqli_fetch_array($consulta2)) {
+									?>
 								<tr>
-									<td class="sin-fondo">1234</td>
-									<td class="sin-fondo">45321</td>
-									<td>Nicol</td>
-									<td>silantro</td>
-									<td>0121</td>
-									<td id="cantidad">15</td>
-									<td id="valor">2</td>
+									<td class="sin-fondo"><?php echo $mostrar3['id']; ?></td>
+									<td class="sin-fondo"><?php echo $mostrar4['id']; ?></td>
+									<td><?php echo $mostrar3['nombre']; ?></td>
+									<td><?php echo $mostrar4['nombre']; ?></td>
+									<td><?php echo $mostrar2['factura']; ?></td>
+									<td id="cantidad"><?php echo $mostrar2['cantidad']; ?></td>
+									<td id="valor"><?php echo $mostrar2['valor']; ?></td>
 									<td id="total"></td> <!-- este valor dejarlo totalmente en blanco -->
-									<td>activo</td>
+									<td><?php echo $mostrar2['estado']; ?></td>
 									<td class="center"><img src="../img/editando.svg" class="editar-formulario" class="editar-formulario" alt="Editando"></td>
-									<td class="center"><img src="../img/borrando.svg" class="eliminar-formulario" class="eliminar-formulario" alt="Eliminar"></tr></td>
+									<td class="center"><a href="../../controllers/admins/eliminar.compras.php?id=<?php echo $mostrar2['id']; ?>"><img src="../img/borrando.svg" class="eliminar-formulario" class="eliminar-formulario" alt="Eliminar"></tr></td>
 								</tr>
+								<?php
+											}
+										?>
 
 							</table>
 						</div>
@@ -118,29 +178,22 @@
 
 
 	<div class="container-formulario  registro" id="content-formulario"> <!-- mostrar-formulario -->
-		<form action="" method="" class="form-register"  id="form-register" > <!-- mostrar-->
+		<form action="../../controllers/admins/guardar.compras.php" method="post" class="form-register"  id="form-register" > <!-- mostrar-->
 			<div class="form-title">
 				<h1>Ingresar venta</h1>
 			</div>
 				<div class="form-content" id="form-content-ingresar">
 					<div class="input-group">
-						<input type="number" placeholder="codigo usuario" name="id" title="Codigo usuario">
-						<input type="text" placeholder="codigo producto" name="codigo" title="Codigo producto">
+						<input type="hidden" name="id" value="1">
+						<input type="number" placeholder="codigo usuario" name="id_usuario" title="Codigo usuario">
+						<input type="text" placeholder="codigo producto" name="id_producto" title="Codigo producto">
 					</div>
 					<input type="text" placeholder="factura" name="factura" class="full">
 					<div class="input-group">
-						<input type="number" placeholder="Cantidad" name="Cantidad">
-						<input type="number" placeholder="valor" name="Valor">
+						<input type="number" placeholder="Cantidad" name="cantidad">
+						<input type="number" placeholder="valor" name="valor">
 					</div>
 					<input type="number" placeholder="Total" class="full" name="total">
-					<div class="input-group select">
-						<label for="select">Estado:</label>
-						<select name="" id="">
-							<option value="">Seleccione un estado</option>
-							<option value="">Activo</option>
-							<option value="">Innactivo</option>
-						</select>
-					</div>
 					<!-- <input type="password" class="full" placeholder="Contraseña"> -->
 
 					
@@ -156,26 +209,28 @@
 			</div>
 			<div class="form-content" id="form-content-actualizar">
 					<div class="input-group">
-						<input type="number" placeholder="codigo usuario" name="id" title="Codigo usuario">
-						<input type="text" placeholder="codigo producto" name="codigo" title="Codigo producto">
+						<input type="number" placeholder="codigo usuario" name="usuarios_id" title="Codigo usuario">
+						<input type="text" placeholder="codigo producto" name="productos_id" title="Codigo producto">
 					</div>
 					<input type="text" placeholder="factura" name="factura" class="full">
 					<div class="input-group">
-						<input type="number" placeholder="Cantidad" name="Cantidad">
-						<input type="number" placeholder="valor" name="Valor">
+						<input type="number" placeholder="Cantidad" name="cantidad">
+						<input type="number" placeholder="valor" name="valor">
 					</div>
 					<input type="number" placeholder="Total" class="full" name="total">
 					<div class="input-group select">
 						<label for="select">Estado:</label>
-						<select name="" id="">
+						<select name="estado" id="">
 							<option value="">Seleccione un estado</option>
-							<option value="">Activo</option>
-							<option value="">Innactivo</option>
+							<option value="Activo">Activo</option>
+							<option value="Inactivo">Inactivo</option>
 						</select>
+						
 					</div>
 					<!-- <input type="password" class="full" placeholder="Contraseña"> -->
 
 					
+
 					<div class="cta-group">
 						<input type="reset" value="Cancelar" id="cerrar_editar">
 						<input type="submit">
@@ -194,3 +249,15 @@
 
 </body>
 </html>
+
+
+<?php
+}
+	else{
+		echo '<script languaje="javascript">
+		var mensaje ="Usted no tiene acceso a este contenido, por favor inicie sesión";
+		alert(mensaje);
+		window.location.href= "../index.php"
+		</script>';
+	}
+?>

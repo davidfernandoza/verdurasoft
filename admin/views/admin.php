@@ -11,8 +11,30 @@
 
 		$query2= "SELECT * FROM admins";
 		$consulta2 = mysqli_query($conexion, $query2);
-?>
 
+		if ($result = $conexion->query("SELECT * FROM productos")) {
+
+	    /* determinar el número de filas del resultado */
+	    $row_cnt = $result->num_rows;
+
+	   	
+
+	    /* cerrar el resultset */
+	    $result->close();
+		}
+
+	    if ($result2 = $conexion->query("SELECT * FROM compras")) {
+
+	    /* determinar el número de filas del resultado */
+	    $row_cnt2 = $result2->num_rows-1;
+
+	   
+
+	    /* cerrar el resultset */
+	    $result2->close();
+
+}
+?>
 
 <!DOCTYPE html>
 <html lang="es">
@@ -28,7 +50,7 @@
 		<header class="content-header">
 			<nav class="main-nav">
 				<div class="content-user">
-					<img src="../img/avatar/tiger.jpg" alt="img" class="content-img">
+					<img src="<?php echo '../'.$mostrar['foto']; ?>" alt="img" class="content-img">
 					<p class="text"> <?php echo $mostrar['nombre']; ?> <?php echo $mostrar['apellido']; ?></p>
 				</div>
 				<div class="container-menu">
@@ -80,8 +102,9 @@
 						</li>
 					</ul>
 					<ul class="aside-list ultimo">
-						<a href="#">Productos: 125.211</a>						
-						<a href="#">Compras: 152.224</a>						
+					
+						<a href="#">Productos: <?php echo $row_cnt; ?></a>						
+						<a href="#">Compras:  <?php echo $row_cnt2; ?></a>						
 					</ul>
 			</aside>
 			<article  class="container-article">
@@ -101,6 +124,9 @@
 									<th>Apellido</th>
 									<th>Correo eléctronico</th>
 									<th>Teléfono</th>
+									<th>Estado</th>
+									<th><img src="../img/borrar.svg" alt="Borrar"></th>
+
 								</tr>
 								<tr>
 									<?php 
@@ -114,7 +140,8 @@
 										<td> <?php echo $mostrar2['apellido'];?> </td>
 										<td class="lower-case"><?php echo $mostrar2['email'];?> </td>
 										<td> <?php echo $mostrar2['telefono'];?> </td>
-										</tr></td>
+										<td> <?php echo $mostrar2['estado'];?> </td>
+										<td class="center"><a href="../../controllers/admins/eliminar.admin.php?id=<?php echo $mostrar2['id'] ?>"><img src="../img/borrando.svg" ></a></tr></td>
 									<?php
 										}
 									?>

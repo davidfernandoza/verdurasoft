@@ -113,8 +113,10 @@
 					<input type="submit" value="Iniciar sesion">
 				</div>
 			</div>
-		</form>
-		<form action="../controllers/admins/guardar.admin2.php" method="post" class="form-actualizar" id="form-actualizar" > <!-- mostrar -->
+
+		</form>		
+		<form action="../controllers/admins/guardar.admin2.php" method="post" class="form-actualizar" id="form-actualizar" enctype="multipart/form-data"> <!-- mostrar -->
+
 			<div class="form-title">
 				<h1>Registrate </h1>
 			</div>
