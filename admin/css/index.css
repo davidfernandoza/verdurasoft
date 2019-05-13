@@ -20,12 +20,19 @@ body:after{
 	box-sizing: border-box;
 }
 
+/* scroll*/
+.container::-webkit-scrollbar{
+    width: 8px;     /* Tamaño del scroll en vertical */
+    height: 8px;    /* Tamaño del scroll en horizontal */
+    display: none;  /* Ocultar scroll */
+}
+
+
 .container{
 	position: relative;
 	width: 100%;
 	height: 100vh;
 	background-color: #ccc;
-	overflow-y:scroll;
 }
 
 .content-header{
@@ -33,7 +40,6 @@ body:after{
 	top: 0;
 	left: 0;
 	width: 100%;
-	height: 10vh;
 	background-color: #e95420;	
 	z-index: 100000;
 }
@@ -312,6 +318,7 @@ section{
 	color:white;
 	padding: 10px;
 	cursor:pointer;
+	text-transform: uppercase;
 }
 .container-info .content-info table img{
 	width: 20px;

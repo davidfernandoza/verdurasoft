@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>Iniciar sesion | verduraSoft</title>
+	<title>Iniciar sesión | verduraSoft</title>
 	<script src="js/code_jquery.js"></script>
 	<link rel="stylesheet" href="css/login.css">
 
@@ -12,8 +12,7 @@
 		<header class="content-header">
 			<nav class="main-nav">
 				<div class="content-user">
-						<img src="../img/avatar/tiger.jpg" alt="img" class="content-img">
-						<p class="text">Nicol steeven</p>
+					<h1 class="text">VerduraSoft</h1>
 				</div>
 				<div class="container-menu">
 					<div class="todo">
@@ -38,7 +37,7 @@
     				</div>
 					<img class="icon" id="menu" src="img/user-solid.svg">
 					<ul class="content-menu">
-						<li class="item"><a href="#" class="link" id="iniciar-sesion">Iniciar Sesion</a></li>
+						<li class="item"><a href="#" class="link" id="iniciar-sesion">Iniciar Sesión</a></li>
 						<li class="item"><a href="#" class="link" id="registrarse-sesion">Registrate</a></li>
 					</ul>
 				</div>
@@ -101,13 +100,12 @@
 
 
 	<div class="container-formulario  registro" id="content-form"> <!-- mostrar-formulario -->
-		<form action="" method="" class="form-register" id="form-register"> <!-- mostrar-->
+		<form action="../controllers/admins/session.admin.php" method="post" class="form-register" id="form-register"> <!-- mostrar-->
 			<div class="form-title">
-				<h1>Iniciar sesion</h1>
+				<h1>Iniciar sesión</h1>
 			</div>
 			<div class="form-content">
 				<input type="number" placeholder="Cedula" name="id" class="full">
-				<input type="text" placeholder="Usuario" name="user" class="full">
 				<input type="password" placeholder="Contraseña" name="password" class="full">
 
 				<div class="cta-group">
@@ -116,30 +114,40 @@
 				</div>
 			</div>
 		</form>		
-		<form action="" method="" class="form-actualizar" id="form-actualizar" > <!-- mostrar -->
+		<form action="../controllers/admins/guardar.admin2.php" method="post" class="form-actualizar" id="form-actualizar" > <!-- mostrar -->
 			<div class="form-title">
 				<h1>Registrate </h1>
 			</div>
-			<div class="form-content" id="form-content-actualizar">
-				<input type="number" placeholder="Cedula" name="id" class="full" required>
-				<div class="input-group">
-					<input type="text" placeholder="Nombres">
-					<input type="text" placeholder="Apellidos">
+			<div class="container-formulario-img">
+				<div class="container-img">
+					<input type="file" name="foto" id="" placeholder="Tu foto">
 				</div>
-				<input type="email" class="full" placeholder="Correo electronico">
-				<input type="text" class="full" placeholder="Direccion">
-				<input type="number" class="full" placeholder="Celular">
-				<div class="input-group select">
-					<label for="select">Estado:</label>
-					<select name="" id="">
-						<option value="">Seleccione un estado</option>
-						<option value="">Activo</option>
-						<option value="">Innactivo</option>
-					</select>
-				</div>
-				<div class="cta-group">
-					<input type="reset" value="Cancelar" id="cerrar-registrarse">
-					<input type="submit">
+				<div class="form-content">
+					<input type="number" placeholder="Cédula" name="id" class="full">
+					<div class="input-group">
+						<input type="text" placeholder="Nombres" name="nombre">
+						<input type="text" placeholder="Apellidos" name="apellido">
+					</div>
+					<input type="email" class="full" placeholder="Correo electrónico" name="email">
+					<input type="number" placeholder="Celular" class="full" name="telefono">
+					<div class="input-group">
+						<input type="password" placeholder="Contraseña" name="password">
+						<input type="password" name="confirPassword" placeholder="Repetir contraseña">
+					</div>
+					<!-- no se como colocar el name del select -->
+					
+					<div class="input-group select">
+						<label for="select">Estado:</label>
+						<select name="estado" id="">
+							<option value="">Seleccione un estado</option>
+							<option value="">Activo</option>
+							<option value="">Innactivo</option>
+						</select>
+					</div>
+					<div class="cta-group">
+						<input type="reset" value="Cancelar" id="cerrar_ingresar">
+						<input type="submit">
+					</div>
 				</div>
 			</div>
 		</form>
