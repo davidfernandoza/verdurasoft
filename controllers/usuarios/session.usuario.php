@@ -8,17 +8,32 @@ $consulta = mysqli_query($conexion, $query);
 
 if ($consulta){
   $consulta = mysqli_fetch_row($consulta);
-  var_dump($consulta[4]);
   $hash_BD = $consulta[4];
 
   if (password_verify($password, $hash_BD)) {
-    echo '¡La contraseña es válida!';
+    session_start();
+  	$_SESSION['id_usuario'] = $consulta[0];
+    $_SESSION['nombres'] = $consulta[1];
+    $_SESSION['apellidos'] = $consulta[2];
+    echo '<script languaje="javascript">
+      var mensaje ="Bienvenido ' . $consulta[1] . ' ' . $consulta[2] .'";
+      alert(mensaje);
+      window.location.href= "../../public/views/carrito/carrito.php"
+      </script>';
   }
   else {
-    echo 'La contraseña no es válida.';
+    echo '<script languaje="javascript">
+      var mensaje ="La contraseña no es válida.";
+      alert(mensaje);
+      window.location.href= "../../public/views/login/login.usuario.php"
+      </script>';
   }
 }
 else {
-  echo 'El usuario no existe';
+  echo '<script languaje="javascript">
+    var mensaje ="El usuario no existe";
+    alert(mensaje);
+    window.location.href= "../../public/views/login/login.usuario.php"
+    </script>';
 }
 ?>

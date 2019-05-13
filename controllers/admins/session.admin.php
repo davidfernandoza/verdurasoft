@@ -11,11 +11,9 @@ $password = $_POST['password'];
 
 $query= "SELECT * FROM admins WHERE id = '$id';";
 $consulta = mysqli_query($conexion, $query);
-
 if ($consulta){
   $consulta = mysqli_fetch_row($consulta);
   $hash_BD = $consulta[5];
-
   if (password_verify($password, $hash_BD)) {
 
   	session_start();
@@ -31,7 +29,7 @@ if ($consulta){
     alert(mensaje);
     window.location.href= "../../admin/index.php"
     </script>';
-    
+
   }
 }
 else {
@@ -40,6 +38,6 @@ else {
     alert(mensaje);
     window.location.href= "../../admin/index.php"
     </script>';
-    
+
 }
 ?>

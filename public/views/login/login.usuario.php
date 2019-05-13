@@ -1,3 +1,10 @@
+<?php
+session_start();
+if(isset($_SESSION['id_usuario'])){
+	  echo "<script languaje='javascript'>window.location.href= '../../../index.php' </script>";
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,7 +12,10 @@
 	<title>Login usuario</title>
 </head>
 <body>
-	<form action="../function/login.usuario.php" method="post">
+	<p><a href="./registro.usuario.php">Registro usuario</a></p>
+	<p><a href="../carrito/carrito.php">Productos</a></p>
+	<p><a href="../../../index.php">Inicio</a></p>
+	<form action="../../../controllers/usuarios/session.usuario.php" method="post">
 
     <label>email</label>
     <input type="email" name="email" required>

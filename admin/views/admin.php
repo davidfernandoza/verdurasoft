@@ -146,7 +146,6 @@
 										}
 									?>
 								</tr>
-
 							</table>
 						</div>
 						<div class="total">
