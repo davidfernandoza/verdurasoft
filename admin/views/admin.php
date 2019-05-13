@@ -1,5 +1,21 @@
+<?php
+
+	session_start();
+	if (isset($_SESSION['ident'])) {
+
+		include('conexion.php');
+		$id = $_SESSION['ident'];
+		$query= "SELECT * FROM admins WHERE id = '$id';";
+		$consulta = mysqli_query($conexion, $query);
+		$mostrar = mysqli_fetch_array($consulta);
+
+		$query2= "SELECT * FROM admins";
+		$consulta2 = mysqli_query($conexion, $query2);
+?>
+
+
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
 	<meta charset="UTF-8">
 	<title>VerduraSoft | Administrador</title>
@@ -13,7 +29,7 @@
 			<nav class="main-nav">
 				<div class="content-user">
 					<img src="../img/avatar/tiger.jpg" alt="img" class="content-img">
-					<p class="text">Nicol steeven</p>
+					<p class="text"> <?php echo $mostrar['nombre']; ?> <?php echo $mostrar['apellido']; ?></p>
 				</div>
 				<div class="container-menu">
 					<div class="todo">
@@ -38,8 +54,8 @@
     				</div>
 					<img class="icon" id="menu" src="../img/user-solid.svg">
 					<ul class="content-menu">
-						<li class="item"><a href="#" class="link">Editar perfil</a></li>
-						<li class="item"><a href="#" class="link">Cerrar sesion</a></li>
+						<li class="item"><a href="../../controllers/admins/editar.admin.php?id= <?php echo $id?>" class="link">Editar perfil</a></li>
+						<li class="item"><a href="../../controllers/admins/session.salir.admin.php" class="link">Cerrar sesión</a></li>
 					</ul>
 				</div>
 			</nav>
@@ -57,10 +73,10 @@
 							<a href="user.php">Usuarios</a>
 						</li>
 						<li class="aside-item">
-							<a href="#">Productos</a>
+							<a href="productos.php">Productos</a>
 						</li>
 						<li class="aside-item">
-							<a href="#">Compras</a>
+							<a href="compras.php">Compras</a>
 						</li>
 					</ul>
 					<ul class="aside-list ultimo">
@@ -80,25 +96,29 @@
 							  <table border="1px">
 								<tr>
 									<th class="sin-fondo">Foto</th>
-									<th>Cedula</th>
+									<th>Cédula</th>
 									<th>Nombre</th>
 									<th>Apellido</th>
-									<th>Correo electronico</th>
-									<th>Telefono</th>
-									<th><img src="../img/editar.svg" alt="Editar"></th>
-									<th><img src="../img/borrar.svg" alt="Borrar"></th>
+									<th>Correo eléctronico</th>
+									<th>Teléfono</th>
 								</tr>
 								<tr>
-									<td class="sin-fondo"><img src="../img/sin-fondo.png" alt="../img/sin-fondo.png"></td>
-									<td>1088358516</td>
-									<td>nicol</td>
-									<td>steeven</td>
-									<td class="lower-case">nsgomez02@misena.edu.co</td>
-									<td>3135504351</td>
-									<td class="center"><img src="../img/editando.svg" class="editar-formulario" class="eliminar-formulario" alt="Editando"></td>
-									<td class="center"><img src="../img/borrando.svg" class="eliminar-formulario" class="eliminar-formulario" alt="Eliminar"></tr></td>
-								</tr>
+									<?php 
 
+										while ($mostrar2 = mysqli_fetch_array($consulta2)) {
+
+										?>
+										<td class="sin-fondo"><img src="../img/sin-fondo.png" alt="../img/sin-fondo.png"></td>
+										<td> <?php echo $mostrar2['id']; ?> </td>
+										<td> <?php echo $mostrar2['nombre'];?> </td>
+										<td> <?php echo $mostrar2['apellido'];?> </td>
+										<td class="lower-case"><?php echo $mostrar2['email'];?> </td>
+										<td> <?php echo $mostrar2['telefono'];?> </td>
+										</tr></td>
+									<?php
+										}
+									?>
+								</tr>
 							</table>
 						</div>
 						<div class="total">
@@ -121,12 +141,12 @@
 					<input type="file" name="foto" id="" placeholder="Tu foto">
 				</div>
 				<div class="form-content">
-					<input type="number" placeholder="Cedula" name="id" class="full">
+					<input type="number" placeholder="Cédula" name="id" class="full">
 					<div class="input-group">
 						<input type="text" placeholder="Nombres" name="nombre">
 						<input type="text" placeholder="Apellidos" name="apellido">
 					</div>
-					<input type="email" class="full" placeholder="Correo electronico" name="email">
+					<input type="email" class="full" placeholder="Correo electrónico" name="email">
 					<input type="number" placeholder="Celular" class="full" name="telefono">
 					<div class="input-group">
 						<input type="password" placeholder="Contraseña" name="password">
@@ -195,3 +215,14 @@
 
 </body>
 </html>
+
+<?php
+}
+	else{
+		echo '<script languaje="javascript">
+		var mensaje ="Usted no tiene acceso a este contenido, por favor inicie sesión";
+		alert(mensaje);
+		window.location.href= "../index.php"
+		</script>';
+	}
+?>

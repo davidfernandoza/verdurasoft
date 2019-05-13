@@ -1,3 +1,17 @@
+<?php
+
+	session_start();
+	if (isset($_SESSION['ident'])) {
+
+		include('conexion.php');
+		$id = $_SESSION['ident'];
+		$query= "SELECT * FROM admins WHERE id = '$id';";
+		$consulta = mysqli_query($conexion, $query);
+		$mostrar = mysqli_fetch_array($consulta);
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,7 +28,7 @@
 			<nav class="main-nav">
 				<div class="content-user">
 						<img src="../img/avatar/tiger.jpg" alt="img" class="content-img">
-						<p class="text">Nicol steeven</p>
+						<p class="text"> <?php echo $mostrar['nombre']; ?> <?php echo $mostrar['apellido']; ?></p>
 				</div>
 				<div class="container-menu">
 					<div class="todo">
@@ -39,8 +53,8 @@
     				</div>
 					<img class="icon" id="menu" src="../img/user-solid.svg">
 					<ul class="content-menu">
-						<li class="item"><a href="#" class="link">Editar perfil</a></li>
-						<li class="item"><a href="#" class="link">Cerrar sesion</a></li>
+						<li class="item"><a href="../../controllers/admins/editar.admin.php?id= <?php echo $id?>" class="link">Editar perfil</a></li>
+						<li class="item"><a href="../../controllers/admins/session.salir.admin.php" class="link">Cerrar sesión</a></li>
 					</ul>
 				</div>
 			</nav>
@@ -58,10 +72,10 @@
 							<a href="#">Usuarios</a>
 						</li>
 						<li class="aside-item">
-							<a href="#">Productos</a>
+							<a href="productos.php">Productos</a>
 						</li>
 						<li class="aside-item">
-							<a href="#">Compras</a>
+							<a href="productos.php">Compras</a>
 						</li>
 					</ul>
 					<ul class="aside-list ultimo">
@@ -83,9 +97,9 @@
 									<th>Cedula</th>
 									<th>Nombre</th>
 									<th>Apellido</th>
-									<th>Correo electronico</th>
-									<th>Direccion</th>
-									<th>Telefono</th>
+									<th>Correo electrónico</th>
+									<th>Dirección</th>
+									<th>Télefono</th>
 									<th><img src="../img/editar.svg" alt="Editar"></th>
 									<th><img src="../img/borrar.svg" alt="Borrar"></th>
 								</tr>
@@ -182,3 +196,14 @@
 	<script src="../js/user.js"></script>
 </body>
 </html>
+
+<?php
+}
+	else{
+		echo '<script languaje="javascript">
+		var mensaje ="Usted no tiene acceso a este contenido, por favor inicie sesión";
+		alert(mensaje);
+		window.location.href= "../index.php"
+		</script>';
+	}
+?>
