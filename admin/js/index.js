@@ -5,16 +5,15 @@ document.getElementById("menu").addEventListener("click", function(){
 
 for (var i = document.getElementsByClassName("link").length - 1; i >= 0; i--) {
 	document.getElementsByClassName("link")[i].addEventListener('click',function(){
-		location.href="admin.php#formulario"
+		// location.href="admin.php#formulario"
 	})
 }
-
 
 $(document).ready(function(){
 	var actualizarHora = function(){
 		var fecha = new Date();
 			horas = fecha.getHours(),
-			ampm, 
+			ampm,
 			minutos = fecha.getMinutes(),
 			segundos = fecha.getSeconds(),
 			diaSemana = fecha.getDay(),
@@ -34,7 +33,7 @@ $(document).ready(function(){
 
 		var semana = ['Domingo','Lunes','Martes','Miercoles','Jueves','Viernes','Sabado'];
 		pDiaSemana.textContent = semana[diaSemana];
-	
+
 		pDia.textContent = dia;
 
 		var meses=['Enero','Febrero','Marzo','Abril','Mayo','Junio','Julio','Agosto',',Septiembre','Octrubre','Nombiembre','Diciembre'];
@@ -58,7 +57,7 @@ $(document).ready(function(){
 
 		if (minutos < 10) {minutos ="0" + minutos };
 		if (segundos < 10) {segundos ="0" + segundos };
-		
+
 		pMinutos.textContent = minutos;
 		pSegundos.textContent = segundos;
 	};

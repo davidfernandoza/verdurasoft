@@ -13,6 +13,8 @@ if ($consulta){
   if (password_verify($password, $hash_BD)) {
     session_start();
   	$_SESSION['id_usuario'] = $consulta[0];
+    $_SESSION['nombres'] = $consulta[1];
+    $_SESSION['apellidos'] = $consulta[2];
     echo '<script languaje="javascript">
       var mensaje ="Bienvenido ' . $consulta[1] . ' ' . $consulta[2] .'";
       alert(mensaje);

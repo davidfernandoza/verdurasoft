@@ -6,8 +6,10 @@
 	<script src="js/code_jquery.js"></script>
 	<link rel="stylesheet" href="css/login.css">
 
+
 </head>
 <body>
+
 	<div class="container">
 		<header class="content-header">
 			<nav class="main-nav">
@@ -31,12 +33,13 @@
 								<p id="minutos" class="minutos"></p>
 								<p>:</p>
 								<p id="segundos" class="segundos"></p>
-								<p id="ampm" class="ampm"></p>		
+								<p id="ampm" class="ampm"></p>
 							</div>
 						</div>
-    				</div>
+					</div>
 					<img class="icon" id="menu" src="img/user-solid.svg">
 					<ul class="content-menu">
+						<li class="item"><a href="../index.php" class="link">Pagina Principal</a></li>
 						<li class="item"><a href="#" class="link" id="iniciar-sesion">Iniciar Sesión</a></li>
 						<li class="item"><a href="#" class="link" id="registrarse-sesion">Registrate</a></li>
 					</ul>
@@ -46,57 +49,54 @@
 
 		<div class="slider">
 			<input type="radio" name="slider-select-element" id="element1" checked="checked" />
-            <input type="radio" name="slider-select-element" id="element2" />
-             <input type="radio" name="slider-select-element" id="element3" />
-                
-                <div id="slider-container">
-                    <div id="slider-box">
-                        <div class="slider-element">
-                            <article class="element-uno">
-								<h1>este es mi texto</h1>
-								<h2>este es mi texto</h2>
-								<h3>este es mi texto</h3>
-								<h4>este es mi texto</h4>
-								<h5>este es mi texto</h5>
-								<h6>este es mi texto</h6>
-                            </article>
-                        </div>
-                        <div class="slider-element" >
-                            <article class="element-dos">
-								<h1>este es mi texto</h1>
-								<h2>este es mi texto</h2>
-								<h3>este es mi texto</h3>
-								<h4>este es mi texto</h4>
-								<h5>este es mi texto</h5>
-								<h6>este es mi texto</h6>
-                            </article>
-                        </div>
-                        <div class="slider-element">
-                            <article class="element-tres">
-								<h1>este es mi texto</h1>
-								<h2>este es mi texto</h2>
-								<h3>este es mi texto</h3>
-								<h4>este es mi texto</h4>
-								<h5>este es mi texto</h5>
-								<h6>este es mi texto</h6>
-                            </article>                            
-                        </div>
-                    </div>
-                </div>
-                
-                <div id="slider-arrows">
-                    <label for="element1"></label>
-                    <label for="element2"></label>
-                    <label for="element3"></label>
-                </div>
+			<input type="radio" name="slider-select-element" id="element2" />
+			<input type="radio" name="slider-select-element" id="element3" />
+
+			<div id="slider-container">
+				<div id="slider-box">
+					<div class="slider-element">
+						<article class="element-uno">
+							<h1>este es mi texto</h1>
+							<h2>este es mi texto</h2>
+							<h3>este es mi texto</h3>
+							<h4>este es mi texto</h4>
+							<h5>este es mi texto</h5>
+							<h6>este es mi texto</h6>
+						</article>
+					</div>
+					<div class="slider-element" >
+						<article class="element-dos">
+							<h1>este es mi texto</h1>
+							<h2>este es mi texto</h2>
+							<h3>este es mi texto</h3>
+							<h4>este es mi texto</h4>
+							<h5>este es mi texto</h5>
+							<h6>este es mi texto</h6>
+						</article>
+					</div>
+					<div class="slider-element">
+						<article class="element-tres">
+							<h1>este es mi texto</h1>
+							<h2>este es mi texto</h2>
+							<h3>este es mi texto</h3>
+							<h4>este es mi texto</h4>
+							<h5>este es mi texto</h5>
+							<h6>este es mi texto</h6>
+						</article>
+					</div>
+				</div>
+			</div>
+
+			<div id="slider-arrows">
+				<label for="element1"></label>
+				<label for="element2"></label>
+				<label for="element3"></label>
+			</div>
 		</div>
 
 
 
 	</div>
-
-
-
 
 
 	<div class="container-formulario  registro" id="content-form"> <!-- mostrar-formulario -->
@@ -113,7 +113,7 @@
 					<input type="submit" value="Iniciar sesion">
 				</div>
 			</div>
-		</form>		
+		</form>
 		<form action="../controllers/admins/guardar.admin2.php" method="post" class="form-actualizar" id="form-actualizar" > <!-- mostrar -->
 			<div class="form-title">
 				<h1>Registrate </h1>
@@ -135,7 +135,7 @@
 						<input type="password" name="confirPassword" placeholder="Repetir contraseña">
 					</div>
 					<!-- no se como colocar el name del select -->
-					
+
 					<div class="input-group select">
 						<label for="select">Estado:</label>
 						<select name="estado" id="">
@@ -154,7 +154,7 @@
 
 	</div>
 
-	<script src="js/index.js"></script>
-	<script src="js/login.js"></script>
+	<script src="./js/index.js"></script>
+	<script src="./js/login.js"></script>
 </body>
 </html>

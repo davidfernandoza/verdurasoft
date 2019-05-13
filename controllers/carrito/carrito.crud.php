@@ -46,6 +46,7 @@ if(isset($_SESSION['id_usuario'])){
 		case 3:
 		if ($_SESSION['detalle'] != '') {
 			$factura = rand().$_SESSION['id_usuario'];
+			// var_dump($_SESSION['detalle']);
 			foreach ($_SESSION['detalle'] as $row) {
 				$id = 0;
 				$usuarios_id = $_SESSION['id_usuario'];
@@ -53,22 +54,30 @@ if(isset($_SESSION['id_usuario'])){
 				$cantidad = $row['cantidad'];
 				$valor = $row['subtotal'];
 
-				$query= "SELECT * FROM productos WHERE id = '$productos_id';";
-				$consulta1 = mysqli_query($conexion, $query);
+				$query1= "SELECT * FROM productos WHERE id = '$productos_id';";
+				$consulta1 = mysqli_query($conexion, $query1);
 				$consulta1 = mysqli_fetch_row($consulta1);
 
-				$query = "INSERT INTO compras(id, usuarios_id, productos_id, factura, cantidad, valor, estado)
-				VALUES($id, '$usuarios_id', '$productos_id', '$factura', '$cantidad', '$valor', 'espera';)";
-				$consulta2 = mysqli_query($conexion, $query);
+				$query2 = "INSERT INTO compras(id, usuarios_id, productos_id, factura, cantidad, valor, estado)
+				VALUES($id, '$usuarios_id', '$productos_id', '$factura', '$cantidad', '$valor', 'espera');";
+				var_dump($query2);
+				$consulta2 = mysqli_query($conexion, $query2);
 
-				$query = "UPDATE productos SET cantidad = '$consulta1[5] - $cantidad' WHERE id = '$productos_id';)";
-				$consulta3 = mysqli_query($conexion, $query);
+				$cantidad = $consulta1[5] - $cantidad;
+
+				$query3 = "UPDATE productos SET cantidad = '$cantidad' WHERE id = '$productos_id';";
+				$consulta3 = mysqli_query($conexion, $query3);
+
 			}
+
 			echo '<script languaje="javascript">
 			var mensaje ="La compra fue hecha, haz el pago en un efecti con este codigo:' . $factura .' ";
 			alert(mensaje);
 			window.location.href= "../../public/views/carrito/factura.php"
 			</script>';
+		}
+		else {
+			echo 'none';
 		}
 
 		break;

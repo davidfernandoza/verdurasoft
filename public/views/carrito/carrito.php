@@ -17,6 +17,7 @@ $consulta = mysqli_query($conexion, $query);
 
   <p><a href="../login/login.usuario.php">Login</a></p>
   <p><a href="../login/registro.usuario.php">Registro ususario</a></p>
+  <p><a href="../../../controllers/usuarios/session.salir.usuario.php">Cerrar sesion</a></p>
 	<p><a href="../../../index.php">Inicio</a></p>
 
   <!-- Galeria -->
