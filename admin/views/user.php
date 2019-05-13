@@ -13,7 +13,31 @@
 		$consulta2 = mysqli_query($conexion, $query2);
 		$mostrar2 = mysqli_fetch_array($consulta2);
 
+
+		if ($result = $conexion->query("SELECT * FROM productos")) {
+
+	    /* determinar el número de filas del resultado */
+	    $row_cnt = $result->num_rows;
+
+	   	
+
+	    /* cerrar el resultset */
+	    $result->close();
+		}
+
+	    if ($result2 = $conexion->query("SELECT * FROM compras")) {
+
+	    /* determinar el número de filas del resultado */
+	    $row_cnt2 = $result2->num_rows-1;
+
+	   
+
+	    /* cerrar el resultset */
+	    $result2->close();
+
+}
 ?>
+
 
 
 <!DOCTYPE html>
@@ -83,8 +107,8 @@
 						</li>
 					</ul>
 					<ul class="aside-list ultimo">
-						<a href="#">Productos: 125.211</a>						
-						<a href="#">Compras: 152.224</a>						
+						<a href="#">Productos: <?php echo $row_cnt; ?></a>						
+						<a href="#">Compras:  <?php echo $row_cnt2; ?></a>						
 					</ul>
 			</aside>
 			<article  class="container-article">
@@ -104,6 +128,7 @@
 									<th>Correo electrónico</th>
 									<th>Dirección</th>
 									<th>Télefono</th>
+									<th>Estado</th>
 									<th><img src="../img/editar.svg" alt="Editar"></th>
 									<th><img src="../img/borrar.svg" alt="Borrar"></th>
 								</tr>
@@ -120,8 +145,9 @@
 									<td class="lower-case"><?php echo $mostrar2['email']; ?></td>
 									<td><?php echo $mostrar2['direccion']; ?></td>
 									<td><?php echo $mostrar2['telefono']; ?></td>
+									<td><?php echo $mostrar2['estado']; ?></td>
 									<td class="center"><img src="../img/editando.svg" alt="Editando" class="editar-formulario"></td>
-									<td class="center"><img src="../img/borrando.svg" alt="Eliminar" class="eliminar-formulario"></tr></td>
+									<td class="center"><a href="../../controllers/admins/eliminar.usuario.php?id=<?php echo $mostrar2['id']; ?>"><img src="../img/borrando.svg" alt="Eliminar" class="eliminar-formulario"></a></tr></td>
 									<?php
 											}
 										?>
@@ -164,25 +190,25 @@
 				</div>
 			</div>
 		</form>		
-		<form action="" method="" class="form-actualizar " id="form-actualizar" > <!-- mostrar -->
+		<form action="../../controllers/admins/update.usuario.php" method="post" class="form-actualizar " id="form-actualizar" > <!-- mostrar -->
 			<div class="form-title">
 				<h1>Editar Usuario </h1>
 			</div>
 			<div class="form-content" id="form-content-actualizar">
-				<input type="number" placeholder="Cedula" name="id" class="full" disabled>
+				<input type="number" placeholder="Cedula" name="id" class="full" >
 				<div class="input-group">
-					<input type="text" placeholder="Nombres">
-					<input type="text" placeholder="Apellidos">
+					<input type="text" placeholder="Nombres" name="nombre">
+					<input type="text" placeholder="Apellidos" name="apellido">
 				</div>
-				<input type="email" class="full" placeholder="Correo electronico">
-				<input type="text" class="full" placeholder="Direccion">
-				<input type="number" class="full" placeholder="Celular">
+				<input type="email" class="full" placeholder="Correo electronico" name="email">
+				<input type="text" class="full" placeholder="Direccion" name="direccion">
+				<input type="number" class="full" placeholder="Celular" name="telefono">
 				<div class="input-group select">
 					<label for="select">Estado:</label>
-					<select name="" id="">
+					<select name="estado" id="">
 						<option value="">Seleccione un estado</option>
-						<option value="">Activo</option>
-						<option value="">Innactivo</option>
+						<option value="Activo">Activo</option>
+						<option value="Inactivo">Inactivo</option>
 					</select>
 				</div>
 				<div class="cta-group">

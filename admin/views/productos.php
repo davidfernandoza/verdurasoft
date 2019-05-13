@@ -13,6 +13,31 @@
 		$consulta2 = mysqli_query($conexion, $query2);
 		$mostrar2 = mysqli_fetch_array($consulta2);
 
+		var_dump ($mostrar2['foto']);
+
+
+		if ($result = $conexion->query("SELECT * FROM productos")) {
+
+	    /* determinar el número de filas del resultado */
+	    $row_cnt = $result->num_rows;
+
+	   	
+
+	    /* cerrar el resultset */
+	    $result->close();
+		}
+
+	    if ($result2 = $conexion->query("SELECT * FROM compras")) {
+
+	    /* determinar el número de filas del resultado */
+	    $row_cnt2 = $result2->num_rows-1;
+
+	   
+
+	    /* cerrar el resultset */
+	    $result2->close();
+
+}
 ?>
 
 
@@ -82,8 +107,8 @@
 						</li>
 					</ul>
 					<ul class="aside-list ultimo">
-						<a href="#">Productos: 125.211</a>						
-						<a href="#">Compras: 152.224</a>						
+						<a href="#">Productos: <?php echo $row_cnt; ?></a>						
+						<a href="#">Compras:  <?php echo $row_cnt2; ?></a>					
 					</ul>
 			</aside>
 			<article  class="container-article">
@@ -113,18 +138,17 @@
 									?>
 								<tr>
 									
-
-									<td class="sin-fondo"><img src="../img/sin-fondo.png" alt="../img/sin-fondo.png"></td>
-									<td class="sin-fondo">1234</td>
+									<td class="sin-fondo"><img src="<?php echo '../'.$mostrar2['foto']; ?>" alt="../img/sin-fondo.png"></td>
+									<td class="sin-fondo"><?php echo $mostrar2['id']; ?></td>
 									<td> <?php echo $mostrar2['nombre']; ?></td>
 									<td><?php echo $mostrar2['descripcion']; ?> </td>
 									<td class="lower-case"><?php echo $mostrar2['valor']; ?></td>
 									<td><?php echo $mostrar2['cantidad']; ?></td>
 									<td><?php echo $mostrar2['estado']; ?></td>
 									<td class="center"><img src="../img/editando.svg" class="editar-formulario" class="eliminar-formulario" alt="Editando"></td>
-									<td class="center"><img src="../img/borrando.svg" class="eliminar-formulario" class="eliminar-formulario" alt="Eliminar"></tr></td>
+									<td class="center"><a href="../../controllers/admins/eliminar.productos.php?id=<?php echo $mostrar2['id']; ?>"><img src="../img/borrando.svg" class="eliminar-formulario" class="eliminar-formulario" alt="Eliminar"></a></tr></td>
 								</tr>
-									<?php
+								<?php
 											}
 										?>
 
@@ -144,11 +168,12 @@
 		<form action="../../controllers/admins/guardar.productos.php" method="post" class="form-register"  id="form-register" enctype="multipart/form-data"> <!-- mostrar-->
 			<div class="form-title">
 				<h1>Ingresar productos </h1>
+
 			</div>
 			<div class="container-formulario-img">
 				<div class="container-img">
 					<input type="file" name="foto" id="" placeholder="Tu foto">
-					<input type="hidden" name="admin_id" value="<?php echo $id?>">
+					
 				</div>
 				<div class="form-content" id="form-content-register">
 					<div class="input-group">
@@ -161,14 +186,7 @@
 						<input type="number" placeholder="Cantidad" name="cantidad">
 					</div>
 					<input type="number" placeholder="Total" name="total" id="total" class="full">
-					<div class="input-group select">
-						<label for="select">Estado:</label>
-						<select name="estado" id="">
-							<option value="">Seleccione un estado</option>
-							<option value="">Activo</option>
-							<option value="">Innactivo</option>
-						</select>
-					</div>
+					
 					<!-- <input type="password" class="full" placeholder="Contraseña"> -->
 
 					
@@ -179,18 +197,18 @@
 				</div>
 			</div>
 		</form>	
-		<form action="" method="" class="form-actualizar" id="form-actualizar" enctype="multipart/form-data"> <!-- mostrar -->
+		<form action="../../controllers/admins/update.producto.php" method="post" class="form-actualizar" id="form-actualizar" enctype="multipart/form-data" > <!-- mostrar -->
 			<div class="form-title">
 				<h1>Editar producto </h1>
 			</div>
 			<div class="container-formulario-img">
 				<div class="container-img" id="container">
-					<img src="../img/avatar/tiger.jpg" alt="">
+					<img src="<?php echo '../'.$mostrar2[2]; ?>" alt="">
 					<input type="file" name="foto" id="" placeholder="Tu foto" >
 				</div>
 				<div class="form-content" id="form-content-actualizar">
 					<div class="input-group">
-						<input type="number" placeholder="codigo" name="id" disabled>
+						<input type="number" placeholder="codigo" name="id" >
 						<input type="text" placeholder="nombre" name="nombre">
 					</div>
 					<input type="text" placeholder="Descripcion" name="descripcion" class="full">
@@ -201,10 +219,10 @@
 					<input type="number" placeholder="Total" class="full" name="total" id="total">
 					<div class="input-group select">
 						<label for="select">Estado:</label>
-						<select name="" id="">
+						<select name="estado" id="">
 							<option value="">Seleccione un estado</option>
-							<option value="">Activo</option>
-							<option value="">Innactivo</option>
+							<option value="Activo">Activo</option>
+							<option value="Inactivo">Inactivo</option>
 						</select>
 					</div>
 					<!-- <input type="password" class="full" placeholder="Contraseña"> -->
@@ -213,7 +231,7 @@
 					<div class="cta-group">
 						<input type="reset" value="Cancelar" id="cerrar_editar">
 						<input type="submit">
-					</div>
+
 				</div>
 			</div>
 		</form>

@@ -9,7 +9,31 @@
 		$consulta = mysqli_query($conexion, $query);
 		$mostrar = mysqli_fetch_array($consulta);
 
+
+		if ($result = $conexion->query("SELECT * FROM productos")) {
+
+	    /* determinar el número de filas del resultado */
+	    $row_cnt = $result->num_rows;
+
+	   	
+
+	    /* cerrar el resultset */
+	    $result->close();
+		}
+
+	    if ($result2 = $conexion->query("SELECT * FROM compras")) {
+
+	    /* determinar el número de filas del resultado */
+	    $row_cnt2 = $result2->num_rows-1;
+
+	   
+
+	    /* cerrar el resultset */
+	    $result2->close();
+
+}
 ?>
+
 
 <!DOCTYPE html>
 <html lang="es">
@@ -79,8 +103,8 @@
 						</li>
 					</ul>
 					<ul class="aside-list ultimo">
-							<a href="#">Productos: 125.211</a>						
-							<a href="#">Compras: 152.224</a>						
+						<a href="#">Productos: <?php echo $row_cnt; ?></a>						
+						<a href="#">Compras:  <?php echo $row_cnt2; ?></a>						
 					</ul>
 			</aside>
 			<article  class="container-article">
