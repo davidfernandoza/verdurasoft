@@ -6,154 +6,26 @@
 	<script src="js/code_jquery.js"></script>
 	<link rel="stylesheet" href="css/login.css">
 
-
 </head>
 <body>
 
 	<div class="container">
-		<header class="content-header">
-			<nav class="main-nav">
-				<div class="content-user">
-					<h1 class="text">VerduraSoft</h1>
-				</div>
-				<div class="container-menu">
-					<div class="todo">
-						<div class="caja">
-							<div class="fecha">
-								<p id="diaSemana" class="diaSemana"></p>
-								<p id="dia" class="dia"></p>
-								<p>de</p>
-								<p id="mes" class="mes"></p>
-								<p>del</p>
-								<p id="year" class="year"></p>
-							</div>
-							<div class="reloj">
-								<p id="horas" class="horas"></p>
-								<p>:</p>
-								<p id="minutos" class="minutos"></p>
-								<p>:</p>
-								<p id="segundos" class="segundos"></p>
-								<p id="ampm" class="ampm"></p>
-							</div>
-						</div>
-					</div>
-					<img class="icon" id="menu" src="img/user-solid.svg">
-					<ul class="content-menu">
-						<li class="item"><a href="../index.php" class="link">Pagina Principal</a></li>
-						<li class="item"><a href="#" class="link" id="iniciar-sesion">Iniciar Sesión</a></li>
-						<li class="item"><a href="#" class="link" id="registrarse-sesion">Registrate</a></li>
-					</ul>
-				</div>
-			</nav>
-		</header>
 
-		<div class="slider">
-			<input type="radio" name="slider-select-element" id="element1" checked="checked" />
-			<input type="radio" name="slider-select-element" id="element2" />
-			<input type="radio" name="slider-select-element" id="element3" />
-
-			<div id="slider-container">
-				<div id="slider-box">
-					<div class="slider-element">
-						<article class="element-uno">
-							<h1>este es mi texto</h1>
-							<h2>este es mi texto</h2>
-							<h3>este es mi texto</h3>
-							<h4>este es mi texto</h4>
-							<h5>este es mi texto</h5>
-							<h6>este es mi texto</h6>
-						</article>
-					</div>
-					<div class="slider-element" >
-						<article class="element-dos">
-							<h1>este es mi texto</h1>
-							<h2>este es mi texto</h2>
-							<h3>este es mi texto</h3>
-							<h4>este es mi texto</h4>
-							<h5>este es mi texto</h5>
-							<h6>este es mi texto</h6>
-						</article>
-					</div>
-					<div class="slider-element">
-						<article class="element-tres">
-							<h1>este es mi texto</h1>
-							<h2>este es mi texto</h2>
-							<h3>este es mi texto</h3>
-							<h4>este es mi texto</h4>
-							<h5>este es mi texto</h5>
-							<h6>este es mi texto</h6>
-						</article>
-					</div>
-				</div>
-			</div>
-
-			<div id="slider-arrows">
-				<label for="element1"></label>
-				<label for="element2"></label>
-				<label for="element3"></label>
-			</div>
-		</div>
-
-
-
-	</div>
-
-
-	<div class="container-formulario  registro" id="content-form"> <!-- mostrar-formulario -->
-		<form action="../controllers/admins/session.admin.php" method="post" class="form-register" id="form-register"> <!-- mostrar-->
-			<div class="form-title">
+		<form action="../controllers/admins/session.admin.php" method="post" class="formulario"> <!-- mostrar-->
+			<div class="titulo">
 				<h1>Iniciar sesión</h1>
 			</div>
-			<div class="form-content">
+			<div class="campos">
 				<input type="number" placeholder="Cedula" name="id" class="full">
 				<input type="password" placeholder="Contraseña" name="password" class="full">
 
-				<div class="cta-group">
-					<input type="reset" value="Cancelar" id="cerrar-iniciar">
-					<input type="submit" value="Iniciar sesion">
+				<div class="envio">
+					<a href="../index.php" value="Cancelar" id="cerrar-iniciar" class="Cancelar">Cancelar</a>
+					<input type="submit" value="Iniciar sesion" class="enviar">
 				</div>
 			</div>
 
-		</form>		
-		<form action="../controllers/admins/guardar.admin2.php" method="post" class="form-actualizar" id="form-actualizar" enctype="multipart/form-data"> <!-- mostrar -->
-
-			<div class="form-title">
-				<h1>Registrate </h1>
-			</div>
-			<div class="container-formulario-img">
-				<div class="container-img">
-					<input type="file" name="foto" id="" placeholder="Tu foto">
-				</div>
-				<div class="form-content">
-					<input type="number" placeholder="Cédula" name="id" class="full">
-					<div class="input-group">
-						<input type="text" placeholder="Nombres" name="nombre">
-						<input type="text" placeholder="Apellidos" name="apellido">
-					</div>
-					<input type="email" class="full" placeholder="Correo electrónico" name="email">
-					<input type="number" placeholder="Celular" class="full" name="telefono">
-					<div class="input-group">
-						<input type="password" placeholder="Contraseña" name="password">
-						<input type="password" name="confirPassword" placeholder="Repetir contraseña">
-					</div>
-					<!-- no se como colocar el name del select -->
-
-					<div class="input-group select">
-						<label for="select">Estado:</label>
-						<select name="estado" id="">
-							<option value="">Seleccione un estado</option>
-							<option value="">Activo</option>
-							<option value="">Innactivo</option>
-						</select>
-					</div>
-					<div class="cta-group">
-						<input type="reset" value="Cancelar" id="cerrar_ingresar">
-						<input type="submit">
-					</div>
-				</div>
-			</div>
 		</form>
-
 	</div>
 
 	<script src="./js/index.js"></script>

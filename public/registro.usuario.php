@@ -48,7 +48,7 @@ if(isset($_SESSION['id_usuario'])){
 				<input type="text" placeholder="Escriba su dirección" name="direccion" class="full" required>
 				<input type="number" placeholder="Escriba su telefono" name="telefono" class="full" >
 				<div class="envio">
-					<a href="../../../index.php" value="Cancelar" id="cerrar-iniciar" class="Cancelar">Cancelar</a>
+					<a href="/verdurasoft" value="Cancelar" id="cerrar-iniciar" class="Cancelar">Cancelar</a>
 					<input type="submit" value="Iniciar sesion" class="enviar">
 				</div>
 			</div>

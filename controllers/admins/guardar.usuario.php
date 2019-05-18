@@ -17,7 +17,7 @@ if ($password == $confirPassword) {
 	$opciones = [  'cost' => 12, ];
 	$password = password_hash($password, PASSWORD_BCRYPT, $opciones);
 
-	$query = "INSERT INTO `usuarios` (`id`, `nombre`, `apellido`, `email`, `password`, `direccion`, `telefono`, `estado`) VALUES ('$id', '$nombre', '$apellido', '$email', '$password', '$direccion', '$telefono', 'activo')";
+	$query = "INSERT INTO `usuarios` (`id`, `nombre`, `apellido`, `email`, `password`, `direccion`, `telefono`, `estado`) VALUES (0, '$nombre', '$apellido', '$email', '$password', '$direccion', '$telefono', 'activo')";
 
 	$consulta= mysqli_query($conexion,$query);
 	echo '<script languaje="javascript">
@@ -34,4 +34,3 @@ else {
 	</script>';
 	}
 	?>
-	

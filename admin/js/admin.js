@@ -41,9 +41,3 @@ for (var i = document.getElementsByClassName('eliminar-formulario').length - 1; 
 		}
 	})
 }
-
-document.getElementById("cerrar_editar").addEventListener('click', function(){
-	document.getElementById("content-formulario").classList.remove("mostrar-formulario")
-	document.getElementById("form-actualizar").classList.remove("mostrar")
-})
-

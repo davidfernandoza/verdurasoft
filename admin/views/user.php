@@ -3,15 +3,15 @@
 	session_start();
 	if (isset($_SESSION['ident'])) {
 
-		include('conexion.php');
+		include('../../controllers/conexion.php');
 		$id = $_SESSION['ident'];
 		$query= "SELECT * FROM admins WHERE id = '$id';";
 		$consulta = mysqli_query($conexion, $query);
 		$mostrar = mysqli_fetch_array($consulta);
 
-		$query2= "SELECT * FROM usuarios ";
+		$query2= "SELECT * FROM usuarios";
 		$consulta2 = mysqli_query($conexion, $query2);
-		$mostrar2 = mysqli_fetch_array($consulta2);
+
 
 
 		if ($result = $conexion->query("SELECT * FROM productos")) {
@@ -19,7 +19,7 @@
 	    /* determinar el número de filas del resultado */
 	    $row_cnt = $result->num_rows;
 
-	   	
+
 
 	    /* cerrar el resultset */
 	    $result->close();
@@ -30,7 +30,7 @@
 	    /* determinar el número de filas del resultado */
 	    $row_cnt2 = $result2->num_rows-1;
 
-	   
+
 
 	    /* cerrar el resultset */
 	    $result2->close();
@@ -75,7 +75,7 @@
 								<p id="minutos" class="minutos"></p>
 								<p>:</p>
 								<p id="segundos" class="segundos"></p>
-								<p id="ampm" class="ampm"></p>		
+								<p id="ampm" class="ampm"></p>
 							</div>
 						</div>
     				</div>
@@ -107,8 +107,8 @@
 						</li>
 					</ul>
 					<ul class="aside-list ultimo">
-						<a href="#">Productos: <?php echo $row_cnt; ?></a>						
-						<a href="#">Compras:  <?php echo $row_cnt2; ?></a>						
+						<a href="#">Productos: <?php echo $row_cnt; ?></a>
+						<a href="#">Compras:  <?php echo $row_cnt2; ?></a>
 					</ul>
 			</aside>
 			<article  class="container-article">
@@ -120,39 +120,42 @@
 					</div>
 					<div class="container-info">
 						<div class="content-info">
-							<table border="1px">
-								<tr>
-									<th>Cedula</th>
-									<th>Nombre</th>
-									<th>Apellido</th>
-									<th>Correo electrónico</th>
-									<th>Dirección</th>
-									<th>Télefono</th>
-									<th>Estado</th>
-									<th><img src="../img/editar.svg" alt="Editar"></th>
-									<th><img src="../img/borrar.svg" alt="Borrar"></th>
-								</tr>
-								<?php 
-
-										while ($mostrar2 = mysqli_fetch_array($consulta2)) {
-									?>
-								<tr>
-									
-
-									<td><?php echo $mostrar2['id']; ?></td>
-									<td><?php echo $mostrar2['nombre']; ?></td>
-									<td><?php echo $mostrar2['apellido']; ?></td>
-									<td class="lower-case"><?php echo $mostrar2['email']; ?></td>
-									<td><?php echo $mostrar2['direccion']; ?></td>
-									<td><?php echo $mostrar2['telefono']; ?></td>
-									<td><?php echo $mostrar2['estado']; ?></td>
-									<td class="center"><img src="../img/editando.svg" alt="Editando" class="editar-formulario"></td>
-									<td class="center"><a href="../../controllers/admins/eliminar.usuario.php?id=<?php echo $mostrar2['id']; ?>"><img src="../img/borrando.svg" alt="Eliminar" class="eliminar-formulario"></a></tr></td>
+							<table border="1px" id="table_id">
+								<thead>
+									<tr>
+										<th>Cedula</th>
+										<th>Nombre</th>
+										<th>Apellido</th>
+										<th>Correo electrónico</th>
+										<th>Dirección</th>
+										<th>Télefono</th>
+										<th>Estado</th>
+										<th><img src="../img/editar.svg" alt="Editar"></th>
+										<th><img src="../img/borrar.svg" alt="Borrar"></th>
+									</tr>
+								</thead>
+								<tbody>
 									<?php
-											}
+
+									while ($mostrar2 = mysqli_fetch_array($consulta2)) {
 										?>
-								</tr>
-									
+										<tr>
+
+
+											<td><?php echo $mostrar2['id']; ?></td>
+											<td><?php echo $mostrar2['nombre']; ?></td>
+											<td><?php echo $mostrar2['apellido']; ?></td>
+											<td class="lower-case"><?php echo $mostrar2['email']; ?></td>
+											<td><?php echo $mostrar2['direccion']; ?></td>
+											<td><?php echo $mostrar2['telefono']; ?></td>
+											<td><?php echo $mostrar2['estado']; ?></td>
+											<td class="center"><img src="../img/editando.svg" alt="Editando" class="editar-formulario"></td>
+											<td class="center"><a href="../../controllers/admins/eliminar.usuario.php?id=<?php echo $mostrar2['id']; ?>"><img src="../img/borrando.svg" alt="Eliminar" class="eliminar-formulario"></a></td>
+										</tr>
+											<?php
+										}
+										?>
+								</tbody>
 							</table>
 						</div>
 						<div class="total">
@@ -189,7 +192,7 @@
 					<input type="submit">
 				</div>
 			</div>
-		</form>		
+		</form>
 		<form action="../../controllers/admins/update.usuario.php" method="post" class="form-actualizar " id="form-actualizar" > <!-- mostrar -->
 			<div class="form-title">
 				<h1>Editar Usuario </h1>
@@ -224,8 +227,16 @@
 
 
 
+	<script src="../../public/js/jquery.js"></script>
+	<script src="../js/dataTables.js"></script>
 	<script src="../js/index.js"></script>
 	<script src="../js/user.js"></script>
+
+	<script>
+	$(document).ready( function () {
+		$('#table_id').DataTable();
+	} );
+	</script>
 </body>
 </html>
 

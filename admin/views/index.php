@@ -3,7 +3,7 @@
 	session_start();
 	if (isset($_SESSION['ident'])) {
 
-		include('conexion.php');
+		include('../../controllers/conexion.php');
 		$id = $_SESSION['ident'];
 		$query= "SELECT * FROM admins WHERE id = '$id';";
 		$consulta = mysqli_query($conexion, $query);
@@ -15,7 +15,7 @@
 	    /* determinar el número de filas del resultado */
 	    $row_cnt = $result->num_rows;
 
-	   	
+
 
 	    /* cerrar el resultset */
 	    $result->close();
@@ -26,7 +26,7 @@
 	    /* determinar el número de filas del resultado */
 	    $row_cnt2 = $result2->num_rows-1;
 
-	   
+
 
 	    /* cerrar el resultset */
 	    $result2->close();
@@ -43,8 +43,8 @@
 	<script src="../js/code_jquery.js"></script>
 	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 	<link rel="stylesheet" href="../css/index.css">
-	
-	
+
+
 </head>
 <body>
 	<div class="container">
@@ -71,7 +71,7 @@
 								<p id="minutos" class="minutos"></p>
 								<p>:</p>
 								<p id="segundos" class="segundos"></p>
-								<p id="ampm" class="ampm"></p>		
+								<p id="ampm" class="ampm"></p>
 							</div>
 						</div>
     			</div>
@@ -103,12 +103,12 @@
 						</li>
 					</ul>
 					<ul class="aside-list ultimo">
-						<a href="#">Productos: <?php echo $row_cnt; ?></a>						
-						<a href="#">Compras:  <?php echo $row_cnt2; ?></a>						
+						<a href="#">Productos: <?php echo $row_cnt; ?></a>
+						<a href="#">Compras:  <?php echo $row_cnt2; ?></a>
 					</ul>
 			</aside>
 			<article  class="container-article">
-					
+
 			</article>
 
 		</section>

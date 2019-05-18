@@ -10,15 +10,34 @@ $consulta = mysqli_query($conexion, $query);
 <html lang="en" dir="ltr">
 <head>
   <meta charset="utf-8">
-  <link rel="stylesheet" href="./../../css/estilos.css">
+  <link rel="stylesheet" href="./../../css/carrito.css">
+  <link rel="stylesheet" type="text/css" href="../../css/bootstrap.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Baloo+Bhai" rel="stylesheet">
   <title>Carrito</title>
 </head>
 <body>
-
-  <p><a href="../login/login.usuario.php">Login</a></p>
-  <p><a href="../login/registro.usuario.php">Registro ususario</a></p>
-  <p><a href="../../../controllers/usuarios/session.salir.usuario.php">Cerrar sesion</a></p>
-	<p><a href="../../../index.php">Inicio</a></p>
+  <nav class="BNav navbar navbar-expand-lg navbar-dark menu" id="inicio">
+    <a class="letra" class="navbar-brand" href="#">VerduraSoft</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarColor01">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="../../../index.php">Inicio <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="../login/login.usuario.php">Login</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="../../../controllers/usuarios/session.salir.usuario.php">Cerrar sesion</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="../login/registro.usuario.php">Registrar usuario</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
 
   <!-- Galeria -->
   <div class='galeria'>
@@ -121,6 +140,8 @@ $consulta = mysqli_query($conexion, $query);
 
     <!-- Ajax -->
     <script type="text/javascript">
+
+
     // Agregar a carrito
     function addCarrito(id){
       let cantidadActual = $(`#cantidadActual${id}`).val();
@@ -155,6 +176,8 @@ $consulta = mysqli_query($conexion, $query);
         alert('Ya no hay mas producto para agregar al carrito.')
       }
     }
+
+
     // quitar de carrito
     function deleteCarrito(id){
       let cantidadTarjeta = parseInt($(`#cantidadTarjeta${id}`).val())

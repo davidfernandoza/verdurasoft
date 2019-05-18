@@ -1,14 +1,3 @@
-document.getElementById("ingresar-ventas").addEventListener("click",function(){
-	document.getElementById("content-formulario").classList.add("mostrar-formulario")
-	document.getElementById("form-register").classList.add("mostrar")
-
-})
-
-document.getElementById("cerrar_ingresar").addEventListener("click",function(){
-	document.getElementById("content-formulario").classList.remove("mostrar-formulario")
-	document.getElementById("form-register").classList.remove("mostrar")
-})
-
 
 for (var i = document.getElementsByClassName('eliminar-formulario').length - 1; i >= 0; i--) {
 	document.getElementsByClassName('eliminar-formulario')[i].addEventListener('click', function(){
@@ -36,16 +25,9 @@ for (var i = document.getElementsByClassName('eliminar-formulario').length - 1; 
 	})
 }
 
-document.getElementById('form-register').addEventListener('keyup',function(){
-	
-	precio = document.getElementById('form-content-ingresar').childNodes[5].childNodes[1].value
-	cu = document.getElementById('form-content-ingresar').childNodes[5].childNodes[3].value
-
-	document.getElementById('form-content-ingresar').childNodes[7].value = precio * cu
-})
 var cantidad = document.getElementById("cantidad").innerHTML
 var valor =document.getElementById("valor").innerHTML
-document.getElementById("total").innerHTML = cantidad*valor
+
 
 
 for (var i = document.getElementsByClassName('editar-formulario').length - 1; i >= 0; i--) {
@@ -66,23 +48,5 @@ for (var i = document.getElementsByClassName('editar-formulario').length - 1; i 
 		document.getElementById('form-content-actualizar').childNodes[7].value = precio * cu
 
 
-
-		document.getElementById("content-formulario").classList.add("mostrar-formulario")		
-		document.getElementById("form-actualizar").classList.add("mostrar")
-
 	})
 }
-
-document.getElementById('form-actualizar').addEventListener('keyup',function(){
-	
-	precio = document.getElementById('form-content-actualizar').childNodes[5].childNodes[1].value
-	cu = document.getElementById('form-content-actualizar').childNodes[5].childNodes[3].value
-
-	document.getElementById('form-content-actualizar').childNodes[7].value = precio * cu
-})
-
-
-document.getElementById("cerrar_editar").addEventListener("click",function(){
-	document.getElementById("content-formulario").classList.remove("mostrar-formulario")
-	document.getElementById("form-actualizar").classList.remove("mostrar")
-})

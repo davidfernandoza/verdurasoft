@@ -1,7 +1,7 @@
 <?php
 session_start();
 if(isset($_SESSION['id_usuario'])){
-	  echo "<script languaje='javascript'>window.location.href= '../carrito/carrito.php' </script>";
+	  echo "<script languaje='javascript'>window.location.href= '../../../index.php' </script>";
 }
 ?>
 
@@ -9,8 +9,8 @@ if(isset($_SESSION['id_usuario'])){
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>Crear usuario</title>
-	<link rel="stylesheet" href="../../css/registro_usuario.css">
+	<title>Login usuario</title>
+	<link rel="stylesheet" type="text/css" href="../../css/login_usuario.css">
 	<link rel="stylesheet" type="text/css" href="../../css/bootstrap.min.css">
 	<link href="https://fonts.googleapis.com/css?family=Baloo+Bhai" rel="stylesheet">
 </head>
@@ -29,26 +29,21 @@ if(isset($_SESSION['id_usuario'])){
 					<a class="nav-link" href="../carrito/carrito.php">Productos</a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link" href="../login/login.usuario.php">Ingresar usuario</a>
+					<a class="nav-link" href="./registro.usuario.php">Registro usuario</a>
 				</li>
 			</ul>
 		</div>
 	</nav>
 	<div class="container">
-		<form action="../../../controllers/usuarios/guardar.usuario.php" method="post" class="formulario">
+		<form action="../../../controllers/usuarios/session.usuario.php" method="post" class="formulario">
 			<div class="titulo">
-				<h1>Registrar usuario</h1>
+				<h1>Iniciar sesión</h1>
 			</div>
 			<div class="campos">
-				<input type="text" placeholder="Escriba su nombre" name="nombre" class="full" required>
-				<input type="text" placeholder="Escriba su apellido" name="apellido" class="full" required>
-				<input type="email" placeholder="Escriba su correo" name="email" class="full" required>
-				<input type="password" placeholder="Contraseña" name="password" class="full" required>
-				<input type="password" placeholder="Confirmar contraseña" name="confirPassword" class="full" required>
-				<input type="text" placeholder="Escriba su dirección" name="direccion" class="full" required>
-				<input type="number" placeholder="Escriba su telefono" name="telefono" class="full" >
+				<input type="email" placeholder="Escriba su correo" name="email" class="full" required="">
+				<input type="password" placeholder="Contraseña" name="password" class="full" required="">
 				<div class="envio">
-					<a href="../../../index.php" value="Cancelar" id="cerrar-iniciar" class="Cancelar">Cancelar</a>
+					<a href="/verdurasoft" value="Cancelar" id="cerrar-iniciar" class="Cancelar">Cancelar</a>
 					<input type="submit" value="Iniciar sesion" class="enviar">
 				</div>
 			</div>
