@@ -46,7 +46,7 @@ session_start();
 					</li>
 				<?php }else{?>
 					<li class="nav-item">
-						<a class="nav-link" href="./controllers/usuarios/session.salir.usuario.php">Cerrar sesion</a>
+						<a class="nav-link" href="./controllers/public/session.salir.usuario.php">Cerrar sesion</a>
 					</li>
 
 				<?php }?>
