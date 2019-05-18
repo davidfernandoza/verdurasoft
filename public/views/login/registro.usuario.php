@@ -6,9 +6,11 @@ if(isset($_SESSION['id_usuario'])){
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
 	<meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
 	<title>Crear usuario</title>
 	<link rel="stylesheet" href="../../css/registro_usuario.css">
 	<link rel="stylesheet" type="text/css" href="../../css/bootstrap.min.css">
@@ -35,7 +37,7 @@ if(isset($_SESSION['id_usuario'])){
 		</div>
 	</nav>
 	<div class="container">
-		<form action="../../../controllers/usuarios/guardar.usuario.php" method="post" class="formulario">
+		<form action="../../../controllers/public/guardar.usuario.php" method="post" class="formulario">
 			<div class="titulo">
 				<h1>Registrar usuario</h1>
 			</div>
@@ -49,10 +51,16 @@ if(isset($_SESSION['id_usuario'])){
 				<input type="number" placeholder="Escriba su telefono" name="telefono" class="full" >
 				<div class="envio">
 					<a href="../../../index.php" value="Cancelar" id="cerrar-iniciar" class="Cancelar">Cancelar</a>
-					<input type="submit" value="Iniciar sesion" class="enviar">
+					<input type="submit" value="Registrar" class="enviar">
 				</div>
 			</div>
 		</form>
 	</div>
+
+	<script type="text/javascript" src="../../js/jquery.js">
+	</script>
+	<script type="text/javascript" src="../../js/bootstrap.js">
+	</script>
+
 </body>
 </html>

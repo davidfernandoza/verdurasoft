@@ -7,17 +7,19 @@ $consulta = mysqli_query($conexion, $query);
 ?>
 
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html lang="es" dir="ltr">
 <head>
-  <meta charset="utf-8">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link rel="stylesheet" href="./../../css/estilos.css">
-  <title>Carrito</title>
+  <title>Productos</title>
 </head>
 <body>
 
   <p><a href="../login/login.usuario.php">Login</a></p>
   <p><a href="../login/registro.usuario.php">Registro ususario</a></p>
-  <p><a href="../../../controllers/usuarios/session.salir.usuario.php">Cerrar sesion</a></p>
+  <p><a href="../../../controllers/public/session.salir.usuario.php">Cerrar sesion</a></p>
 	<p><a href="../../../index.php">Inicio</a></p>
 
   <!-- Galeria -->
@@ -110,7 +112,7 @@ $consulta = mysqli_query($conexion, $query);
         <div class="panel-body"> No hay productos agregados</div>
       <?php }?>
 
-      <form action="../../../controllers/carrito/carrito.crud.php?page=3" method="post">
+      <form action="../../../controllers/public/carrito.crud.php?page=3" method="post">
         <input type="submit" value="Comprar" disabled>
       </form>
     </div>
@@ -118,6 +120,10 @@ $consulta = mysqli_query($conexion, $query);
     <!-- JQuery -->
     <script type="text/javascript" src="./../../js/jquery.js">
     </script>
+
+  	<script type="text/javascript" src="../../js/bootstrap.js">
+  	</script>
+
 
     <!-- Ajax -->
     <script type="text/javascript">
@@ -134,7 +140,7 @@ $consulta = mysqli_query($conexion, $query);
       let cantidadDisponible = parseInt(cantidad.text())
       if(cantidadDisponible > 0){
         $.ajax({
-          url: '../../../controllers/carrito/carrito.crud.php?page=1',
+          url: '../../../controllers/public/carrito.crud.php?page=1',
           type: 'post',
           data: {'producto_id':id, 'cantidad':1, 'cantidadActual':cantidadActual},
           dataType: 'json',
@@ -161,7 +167,7 @@ $consulta = mysqli_query($conexion, $query);
       let cantidad = $(`#cantidad${id}`);
       cantidadTarjeta
       $.ajax({
-        url: '../../../controllers/carrito/carrito.crud.php?page=2',
+        url: '../../../controllers/public/carrito.crud.php?page=2',
         type: 'post',
         data: {'id':id},
         dataType: 'json'

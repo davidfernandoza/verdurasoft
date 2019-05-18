@@ -3,11 +3,11 @@ session_start();
 ?>
 
 <!DOCTYPE html>
-<html>
+<html lang="es" dir="ltr">
 <head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta content="text/html; charset=iso-8859-2" http-equiv="Content-Type">
+	<meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
 	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 	<link rel="stylesheet" type="text/css" href="./public/css/bootstrap.min.css">
 	<link href="https://fonts.googleapis.com/css?family=Baloo+Bhai" rel="stylesheet">
@@ -300,6 +300,10 @@ session_start();
 	</footer>
 
 	<!-- Javascript -->
+	<script type="text/javascript" src="./public/js/jquery.js">
+	</script>
+	<script type="text/javascript" src="./public/js/bootstrap.js">
+	</script>
 	<script type="text/javascript" src="./public/js/preguntas.js">
 	</script>
 </body>

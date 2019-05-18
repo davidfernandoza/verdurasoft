@@ -44,6 +44,6 @@ if(!isset($_SESSION['id_usuario'])){
 	<?php }else{?>
 		<div class="panel-body"> No hay productos agregados</div>
 	<?php }?>
-	<form action="../../../controllers/carrito/carrito.crud.php?page=3" method="post">
+	<form action="../../../controllers/public/carrito.crud.php?page=3" method="post">
 		<input type="submit" value="Comprar">
 	</form>
