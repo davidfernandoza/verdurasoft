@@ -27,3 +27,29 @@ body{
     align-items: center;
     font-size: 20px;
 }
+img{
+	width: 370px;
+}
+
+.galeria{
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  width: 70%;
+}
+.card{
+  width: 370px;
+  height: 400px;
+  margin: 10px 10px 10px 10px;
+  border: 1px solid grey;
+  border-radius: 5px;
+}
+.carrito{
+  position: fixed;
+  z-index: 100;
+  right: 0;
+  top: 0;
+  width: 30%;
+  height: 100vh;
+  background-color: #DDD7E7;
+}

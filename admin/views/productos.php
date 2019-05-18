@@ -118,6 +118,7 @@ if (isset($_SESSION['ident'])) {
 							<table border="1px" id="table_id" >
 								<thead>
 									<tr>
+										<th>Codigo</th>
 										<th>Nombre</th>
 										<th>Descripción</th>
 										<th>Valor</th>
@@ -132,6 +133,7 @@ if (isset($_SESSION['ident'])) {
 									while ($mostrar2 = mysqli_fetch_array($consulta2)) {
 										?>
 										<tr>
+											<td> <?php echo $mostrar2['id']; ?></td>
 											<td> <?php echo $mostrar2['nombre']; ?></td>
 											<td><?php echo $mostrar2['descripcion']; ?> </td>
 											<td class="lower-case"><?php echo $mostrar2['valor']; ?></td>
@@ -155,7 +157,6 @@ if (isset($_SESSION['ident'])) {
 			</section>
 		</div>
 
-
 		<div class="container-formulario  registro" id="content-formulario"> <!-- mostrar-formulario -->
 			<form action="../../controllers/admins/guardar.productos.php" method="post" class="form-register"  id="form-register" enctype="multipart/form-data"> <!-- mostrar-->
 				<div class="form-title">
@@ -169,17 +170,17 @@ if (isset($_SESSION['ident'])) {
 					</div>
 					<div class="form-content" id="form-content-register">
 						<div class="input-group">
-							<input type="number" placeholder="codigo" name="id">
-							<input type="text" placeholder="Nombre" name="nombre">
+							<input type="number" placeholder="codigo" name="id" required>
+							<input type="text" placeholder="Nombre" name="nombre" required>
 						</div>
-						<input type="text" placeholder="Descripcion" name="descripcion" class="full">
+						<input type="text" placeholder="Descripcion" name="descripcion" class="full" required>
 						<div class="input-group">
-							<input type="number" placeholder="Valor" name="valor">
+							<input type="number" placeholder="Valor" name="valor" required>
 							<input type="number" placeholder="Cantidad" name="cantidad" required>
 						</div>
 						<input type="number" placeholder="Total" name="total" id="total" class="full">
 
-						<!-- <input type="password" class="full" placeholder="Contraseña"> -->
+						<input type="hidden" name="admin_id" value="<?php echo $mostrar['id']; ?>">
 
 
 						<div class="cta-group">
@@ -210,16 +211,6 @@ if (isset($_SESSION['ident'])) {
 							<input type="number" placeholder="Cantidad" name="cantidad">
 						</div>
 						<input type="number" placeholder="Total" class="full" name="total" id="total">
-						<div class="input-group select">
-							<label for="select">Estado:</label>
-							<select name="estado" id="">
-								<option value="">Seleccione un estado</option>
-								<option value="Activo">Activo</option>
-								<option value="Inactivo">Inactivo</option>
-							</select>
-						</div>
-						<!-- <input type="password" class="full" placeholder="Contraseña"> -->
-
 
 						<div class="cta-group">
 							<input type="reset" value="Cancelar" id="cerrar_editar">

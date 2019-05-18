@@ -13,14 +13,39 @@ $consulta = mysqli_query($conexion, $query);
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link rel="stylesheet" href="./../../css/estilos.css">
+  <link rel="stylesheet" href="./../../css/carrito.css">
   <title>Productos</title>
 </head>
 <body>
 
-  <p><a href="../login/login.usuario.php">Login</a></p>
-  <p><a href="../login/registro.usuario.php">Registro ususario</a></p>
-  <p><a href="../../../controllers/public/session.salir.usuario.php">Cerrar sesion</a></p>
-	<p><a href="../../../index.php">Inicio</a></p>
+  <div class="collapse navbar-collapse" id="navbarColor01">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+        <a class="nav-link" href="../../../index.php">Inicio</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Productos</a>
+      </li>
+      <?php
+      if(!isset($_SESSION['id_usuario'])){
+        ?>
+        <li class="nav-item">
+          <a class="nav-link" href="../../../admin/index.php">Administración</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="../login/registro.usuario.php">Registro usuario</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="../login/login.usuario.php">Login</a>
+        </li>
+      <?php }else{?>
+        <li class="nav-item">
+          <a class="nav-link" href="../../../controllers/public/session.salir.usuario.php">Cerrar sesion</a>
+        </li>
+
+      <?php }?>
+    </ul>
+  </div>
 
   <!-- Galeria -->
   <div class='galeria'>
@@ -48,10 +73,10 @@ $consulta = mysqli_query($conexion, $query);
             <div class="accion_card">
 
               <!-- Precio -->
-              <p>Precio unidad: <span id="<?php echo 'precio'.$fila[0]?>"><?php echo $fila[6] ?></span></p>
+              <p>Precio KG: $<span id="<?php echo 'precio'.$fila[0]?>"><?php echo $fila[6] ?></span> COP</p>
 
               <!-- Cantidad disponible-->
-              <p>Cantidad disponible: <span id="<?php echo 'cantidad'.$fila[0]?>"><?php echo $fila[5] ?></span> </p>
+              <p>Cantidad disponible: <span id="<?php echo 'cantidad'.$fila[0]?>"><?php echo $fila[5] ?></span> KG</p>
 
               <!-- Agregar a carrito -->
               <button onclick="addCarrito(<?php echo $fila[0] ?>)" class="agregar">Agregar a carrito</button>

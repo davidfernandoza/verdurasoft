@@ -1,5 +1,12 @@
 <?php
 session_start();
+$_SESSION['detalle'] = array();
+include './controllers/conexion.php';
+$query1 = "SELECT * FROM productos LIMIT 0, 4";
+$consulta1 = mysqli_query($conexion, $query1);
+
+$query2 = "SELECT * FROM productos LIMIT 5, 4";
+$consulta2 = mysqli_query($conexion, $query2);
 ?>
 
 <!DOCTYPE html>
@@ -65,26 +72,95 @@ session_start();
 			</div>
 		</div>
 	</nav>
-	<div class="slider">
+	<!-- Slider bootstrap -->
+	<div class="bd-example">
+  <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
+    <ol class="carousel-indicators">
+      <li data-target="#carouselExampleCaptions" data-slide-to="0" class="active"></li>
+      <li data-target="#carouselExampleCaptions" data-slide-to="1"></li>
+      <li data-target="#carouselExampleCaptions" data-slide-to="2"></li>
+			<li data-target="#carouselExampleCaptions" data-slide-to="3"></li>
+      <li data-target="#carouselExampleCaptions" data-slide-to="4"></li>
+			<li data-target="#carouselExampleCaptions" data-slide-to="5"></li>
+    </ol>
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img src="./public/img/slider/img1.jpg" class="d-block w-100" alt="...">
+        <div class="carousel-caption d-none d-md-block">
+          <h2 class="text-slider">VerduraSoft.</h2>
+          <p class="text-slider">Déjanos atenderte como te lo mereces.</p>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <img src="./public/img/slider/img2.jpg" class="d-block w-100" alt="...">
+        <div class="carousel-caption d-none d-md-block">
+          <h2 class="text-slider">Productos Frescos.</h2>
+          <p class="text-slider">Los productos mas frescos a tu alcance.</p>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <img src="./public/img/slider/img3.jpg" class="d-block w-100" alt="...">
+        <div class="carousel-caption d-none d-md-block">
+          <h2 class="text-slider">Varios Chefs nos recomiendan.</h2>
+          <p class="text-slider">Somos los mejores del mercado.</p>
+        </div>
+      </div>
+			<div class="carousel-item">
+        <img src="./public/img/slider/img4.jpg" class="d-block w-100" alt="...">
+        <div class="carousel-caption d-none d-md-block">
+          <h2 class="text-slider">El campo a un clic de distancia.</h2>
+          <p class="text-slider">Campesinos trabajan arduamente para que tengas lo mejor.</p>
+        </div>
+      </div>
+			<div class="carousel-item">
+        <img src="./public/img/slider/img5.jpg" class="d-block w-100" alt="...">
+        <div class="carousel-caption d-none d-md-block">
+          <h2 class="text-slider">Formas comodas de pago.</h2>
+          <p class="text-slider">Paga de forma facil y segura.</p>
+        </div>
+      </div>
+    </div>
+    <a class="carousel-control-prev" href="#carouselExampleCaptions" role="button" data-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="carousel-control-next" href="#carouselExampleCaptions" role="button" data-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="sr-only">Next</span>
+    </a>
+  </div>
+</div>
+	<!-- <div class="slider">
 		<input type="radio" name="slider-select-element" id="element1" checked="checked" />
 		<input type="radio" name="slider-select-element" id="element2" />
 		<input type="radio" name="slider-select-element" id="element3" />
 
 		<div id="slider-container">
 			<div id="slider-box">
+
 				<div class="slider-element">
 					<article class="element-uno">
-						<img src="./public/img/img1.jpg" >
+						<img src="./public/img/slider/img1.jpg" >
 					</article>
 				</div>
 				<div class="slider-element" >
 					<article class="element-dos">
-						<img src="./public/img/img2.jpg" >
+						<img src="./public/img/slider/img2.jpg" >
 					</article>
 				</div>
 				<div class="slider-element">
 					<article class="element-tres">
-						<img src="./public/img/img3.jpg" >
+						<img src="./public/img/slider/img3.jpg" >
+					</article>
+				</div>
+				<div class="slider-element">
+					<article class="element-cuatro">
+						<img src="./public/img/slider/img4.jpg" >
+					</article>
+				</div>
+				<div class="slider-element">
+					<article class="element-cinco">
+						<img src="./public/img/slider/img5.jpg" >
 					</article>
 				</div>
 			</div>
@@ -95,7 +171,7 @@ session_start();
 			<label for="element2"></label>
 			<label for="element3"></label>
 		</div>
-	</div>
+	</div> -->
 	<div class="contenedor" id="nosotros">
 		<div class="parrafo">
 			<div>
@@ -144,90 +220,55 @@ session_start();
 	<div class="panel">
 		<p>Hola, buenas tardes, tienes que registrarte para poder realizar la compra.</p>
 	</div>
+
 	<div class="contenedor_galeria" id="galeria">
 		<div class="conte_titulo_galeria">
 			<h2 class="titulo_galeria">GALERÍA</h2>
 		</div>
 		<div class="galeria_linea1">
+			<?php
+			while($fila = mysqli_fetch_row($consulta1)){
+	      if ($fila[5] > 0) {
+	    ?>
 			<ul class="content-img">
 				<div class="img">
-					<img src="./public/img/img8.jpg" alt="imagen img8">
+					<img src="<?php echo './admin/'.$fila[2] ?>" alt="foto-<?php echo $fila[3] ?>">
 				</div>
 				<div class="content">
-					<span>Nombre</span>
-					<p>000000</p>
+					<span><?php echo $fila[3] ?></span>
+					<p><?php echo $fila[6] ?> COP</p>
 				</div>
 			</ul>
-			<ul class="content-img">
-				<div class="img">
-					<img src="./public/img/img8.jpg" alt="imagen img8">
-				</div>
-				<div class="content">
-					<span>Nombre</span>
-					<p>000000</p>
-				</div>
-			</ul>
-			<ul class="content-img">
-				<div class="img">
-					<img src="./public/img/img8.jpg" alt="imagen img8">
-				</div>
-				<div class="content">
-					<span>Nombre</span>
-					<p>000000</p>
-				</div>
-			</ul>
-			<ul class="content-img">
-				<div class="img">
-					<img src="./public/img/img8.jpg" alt="imagen img8">
-				</div>
-				<div class="content">
-					<span>Nombre</span>
-					<p>000000</p>
-				</div>
-			</ul>
+			<?php
+				}
+			}
+			?>
+		</div>
 
-		</div>
 		<div class="galeria_linea2">
+			<?php
+			while($fila2 = mysqli_fetch_row($consulta2)){
+	      if ($fila2[5] > 0) {
+	    ?>
 			<ul class="content-img">
 				<div class="img">
-					<img src="./public/img/img8.jpg" alt="imagen img8">
+					<img src="<?php echo './admin/'.$fila2[2] ?>" alt="foto-<?php echo $fila2[3] ?>">
 				</div>
 				<div class="content">
-					<span>Nombre</span>
-					<p>000000</p>
+					<span><?php echo $fila2[3] ?></span>
+					<p><?php echo $fila2[6] ?> COP</p>
 				</div>
 			</ul>
-			<ul class="content-img">
-				<div class="img">
-					<img src="./public/img/img8.jpg" alt="imagen img8">
-				</div>
-				<div class="content">
-					<span>Nombre</span>
-					<p>000000</p>
-				</div>
-			</ul>
-			<ul class="content-img">
-				<div class="img">
-					<img src="./public/img/img8.jpg" alt="imagen img8">
-				</div>
-				<div class="content">
-					<span>Nombre</span>
-					<p>000000</p>
-				</div>
-			</ul>
-			<ul class="content-img">
-				<div class="img">
-					<img src="./public/img/img8.jpg" alt="imagen img8">
-				</div>
-				<div class="content">
-					<span>Nombre</span>
-					<p>000000</p>
-				</div>
-			</ul>
+			<?php
+				}
+			}
+			?>
 		</div>
+
 		<div class="boton_galeria">
-			<a href="./public/views/carrito/carrito.php">Ver más</a>
+			<a href="./public/views/carrito/carrito.php">Comprar!</a>
 		</div>
+
 	</div>
 	<!--Testimonios-->
 	<div class="titulo_testimonios" id="testimonios">
@@ -236,31 +277,31 @@ session_start();
 
 	<div class="testimonios">
 		<div class="usuario">
-			<img src="./public/img/usuario.png">
+			<img class="foto-testimonio" src="./public/img/Usuarios/usuario1.jpg">
 			<div class="comentario">
 				<p>"Es una excelente empresa, cumplida y rapida con el envio"</p>
 			</div>
 		</div>
 		<div class="usuario">
-			<img src="./public/img/usuario.png">
+			<img class="foto-testimonio" src="./public/img/Usuarios/usuario2.jpg">
 			<div class="comentario">
 				<p>"Excelentes productos frescos y de gran tamaño"</p>
 			</div>
 		</div>
 		<div class="usuario">
-			<img src="./public/img/usuario.png">
+			<img class="foto-testimonio" src="./public/img/Usuarios/usuario3.jpg">
 			<div class="comentario">
-				<p>"Es una empresa grandiosa, te la flexibilidad de cualquier medio de pago"</p>
+				<p>"Es una empresa grandiosa, tiene la flexibilidad de cualquier medio de pago"</p>
 			</div>
 		</div>
 		<div class="usuario">
-			<img src="./public/img/usuario.png">
+			<img class="foto-testimonio" src="./public/img/Usuarios/usuario4.jpg">
 			<div class="comentario">
 				<p>"Gracias por los excelentes productos y lo cumplidos que son para el envio"</p>
 			</div>
 		</div>
 		<div class="usuario">
-			<img src="./public/img/usuario.png">
+			<img class="foto-testimonio" src="./public/img/Usuarios/usuario5.jpg">
 			<div class="comentario">
 				<p>"Siempre los recomendare, son increibles y los productos 100% reales a como lo muestran"</p>
 			</div>
