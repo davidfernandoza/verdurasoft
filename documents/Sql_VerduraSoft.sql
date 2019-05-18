@@ -3,9 +3,11 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 13-05-2019 a las 19:00:50
+-- Tiempo de generación: 18-05-2019 a las 03:01:30
 -- Versión del servidor: 10.1.37-MariaDB
 -- Versión de PHP: 7.3.0
+CREATE DATABASE IF NOT EXISTS `verdurasoft`;
+use `verdurasoft`;
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -63,7 +65,7 @@ CREATE TABLE `compras` (
   `factura` varchar(45) COLLATE utf8_spanish2_ci NOT NULL,
   `cantidad` int(11) NOT NULL,
   `valor` float NOT NULL,
-  `estado` enum('activo','inactivo') COLLATE utf8_spanish2_ci NOT NULL DEFAULT 'activo'
+  `estado` enum('activo','espera','inactivo') COLLATE utf8_spanish2_ci NOT NULL DEFAULT 'espera'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
 
 --
