@@ -24,7 +24,7 @@
 	    if ($result2 = $conexion->query("SELECT * FROM compras")) {
 
 	    /* determinar el número de filas del resultado */
-	    $row_cnt2 = $result2->num_rows-1;
+	    $row_cnt2 = $result2->num_rows;
 
 
 

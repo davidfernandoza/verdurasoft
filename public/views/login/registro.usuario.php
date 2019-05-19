@@ -42,13 +42,13 @@ if(isset($_SESSION['id_usuario'])){
 				<h1>Registrar usuario</h1>
 			</div>
 			<div class="campos">
-				<input type="text" placeholder="Escriba su nombre" name="nombre" class="full" required>
-				<input type="text" placeholder="Escriba su apellido" name="apellido" class="full" required>
-				<input type="email" placeholder="Escriba su correo" name="email" class="full" required>
-				<input type="password" placeholder="Contraseña" name="password" class="full" required>
-				<input type="password" placeholder="Confirmar contraseña" name="confirPassword" class="full" required>
-				<input type="text" placeholder="Escriba su dirección" name="direccion" class="full" required>
-				<input type="number" placeholder="Escriba su telefono" name="telefono" class="full" >
+				<input type="text" placeholder="Escriba su nombre" name="nombre" class="full" required maxlength="50">
+				<input type="text" placeholder="Escriba su apellido" name="apellido" class="full" required maxlength="50">
+				<input type="email" placeholder="Escriba su correo" name="email" class="full" required maxlength="50">
+				<input type="password" placeholder="Contraseña" name="password" class="full" required maxlength="16" minlength="8">
+				<input type="password" placeholder="Confirmar contraseña" name="confirPassword" class="full" required maxlength="16" minlength="8">
+				<input type="text" placeholder="Escriba su dirección" name="direccion" class="full" required maxlength="50">
+				<input type="number" placeholder="Escriba su telefono" name="telefono" class="full" required maxlength="20">
 				<div class="envio">
 					<a href="../../../index.php" value="Cancelar" id="cerrar-iniciar" class="Cancelar">Cancelar</a>
 					<input type="submit" value="Registrar" class="enviar">
