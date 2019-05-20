@@ -188,11 +188,21 @@ article{
     display: flex;
     justify-content: center;
     align-items: center;
+    -webkit-flex-wrap: wrap;
+    -moz-flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+    -o-flex-wrap: wrap;
+    flex-wrap: wrap;
 }
 .galeria_linea2{
     display: flex;
     justify-content: center;
     align-items: center;
+    -webkit-flex-wrap: wrap;
+    -moz-flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+    -o-flex-wrap: wrap;
+    flex-wrap: wrap;
 }
 /*aca inicia la linea 1 de galeria*/
   .galeria_linea1 img {
@@ -362,14 +372,14 @@ article{
 	text-shadow: 1px 1px 4px #000;
 }
 .usuario{
-    display: flex;
-    align-items: center;
-    height: 100px;
-    margin: 0 10px;
-    padding: 25px 30px;
-    margin-bottom: 30px;
+  display: flex;
+  align-items: center;
+  height: 100px;
+  margin: 0 10px;
+  padding: 25px 30px;
+  margin-bottom: 30px;
 	overflow: hidden;
-    background:#fff;
+  background:#fff;
 	box-shadow: 2px 2px 8px #000;
 }
 .usuario img{
@@ -381,6 +391,7 @@ footer{
 
     display: flex;
     align-items: center;
+    justify-content: space-around;
     background:rgba(0,0,0,0.6);
     width: 100%;
     height: 350px;
@@ -403,13 +414,10 @@ footer{
     background: #05B329;
     border:none;
 }
-.mapa{
-    display: flex;
-    width: 100px;
-    justify-content: space-between;
-    align-items: center;
-    margin-left: 200px;
+.mapa iframe{
 
+    width: 400px;
+  
 }
 
 .usuario_log{
@@ -440,3 +448,49 @@ footer{
 .panel{
   padding: 10px 20px;
 }
+
+
+
+
+@media screen and (max-width: 800px){
+  .contenedor{
+    flex-direction: column;
+    height: auto;
+    -ms-align-items: center;
+    align-items: center;
+    padding: 20px;
+
+  }
+  .contenedor .imagen_contenedor,
+  .contenedor .imagen_contenedor2{
+    max-width: 400px;
+  }
+
+
+  /*.contenedor_galeria{*/
+  .galeria_linea1,
+  .galeria_linea2{
+    padding: 0 20px;
+  }
+  
+  footer{
+    display: flex;
+    flex-direction: column;
+    height: auto;
+  }
+  
+  footer .formulario {
+    width: 90%;
+  }
+  
+  footer .mapa{
+    position: relative;
+    max-width: 500px;
+    padding: 50px;
+
+  }
+  footer .mapa iframe{
+  }
+}
+
+

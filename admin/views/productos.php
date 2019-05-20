@@ -202,7 +202,7 @@ if (isset($_SESSION['ident'])) {
 					</div>
 					<div class="form-content" id="form-content-actualizar">
 						<div class="input-group">
-							<input type="number" placeholder="codigo" name="id" >
+							<input type="text" placeholder="codigo" name="id" >
 							<input type="text" placeholder="nombre" name="nombre">
 						</div>
 						<input type="text" placeholder="Descripcion" name="descripcion" class="full">
