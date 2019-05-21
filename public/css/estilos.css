@@ -20,7 +20,7 @@ fieldset{
 	text-shadow: 1px 2px 4px #000;
 }
 .foto-testimonio{
-	border: 2px solid #05B329;
+	border: 2px solid rgba(5, 179, 41);
 	border-radius: 50%;
 }
 @media (min-width: 320px) {
@@ -124,7 +124,7 @@ article{
   cursor: pointer;
   padding: 18px;
   width: 100%;
-  border: 0.1px solid #05B329;
+  border: 0.1px solid rgba(5, 179, 41);
   text-align: left;
   outline: none;
   font-size: 15px;
@@ -182,7 +182,7 @@ article{
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color:#05B329;
+    background-color:rgba(5, 179, 41);
     margin-bottom: 25px;
     margin-top: 30px;
     box-shadow: 1px 1px 4px #000;
@@ -424,7 +424,7 @@ footer{
 .mapa iframe{
 
     width: 400px;
-  
+
 }
 
 .usuario_log{
@@ -479,25 +479,29 @@ footer{
   .galeria_linea2{
     padding: 0 20px;
   }
-  
+
   footer{
     display: flex;
     flex-direction: column;
     height: auto;
   }
-  
+
   footer .formulario {
     width: 90%;
   }
-  
+
   footer .mapa{
     position: relative;
     max-width: 500px;
     padding: 50px;
 
   }
-  footer .mapa iframe{
-  }
+
 }
 
-
+@media (min-width: 992px){
+.navbar-expand-lg .navbar-nav .nav-link {
+    padding-right: .5rem;
+    padding-left: .5rem;
+}
+}

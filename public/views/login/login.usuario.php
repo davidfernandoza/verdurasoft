@@ -12,9 +12,9 @@ if(isset($_SESSION['id_usuario'])){
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
 	<title>Login usuario</title>
-	<link rel="stylesheet" type="text/css" href="../../css/login_usuario.css">
-	<link rel="stylesheet" type="text/css" href="../../css/bootstrap.min.css">
 	<link href="https://fonts.googleapis.com/css?family=Baloo+Bhai" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="../../css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="../../css/login_usuario.css">
 	<link rel="shortcut icon" href="../../img/favicon.png">
 </head>
 <body>

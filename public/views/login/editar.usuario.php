@@ -25,9 +25,9 @@ else{
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
 	<title>Editar usuario</title>
-	<link rel="stylesheet" href="../../css/registro_usuario.css">
-	<link rel="stylesheet" type="text/css" href="../../css/bootstrap.min.css">
 	<link href="https://fonts.googleapis.com/css?family=Baloo+Bhai" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="../../css/bootstrap.min.css">
+	<link rel="stylesheet" href="../../css/registro_usuario.css">
 	<link rel="shortcut icon" href="../../img/favicon.png">
 </head>
 <body>
@@ -56,14 +56,14 @@ else{
 				<h1>Editar usuario</h1>
 			</div>
 			<div class="campos">
-				<input type="text" placeholder="Escriba su nombre" name="nombre" class="full" value="<?php echo $consulta['nombre'] ?>" required>
+				<input type="text" placeholder="Escriba su nombre" name="nombre" class="full" value="<?php echo $consulta['nombre'] ?>" required maxlength="45">
 
-				<input type="text" placeholder="Escriba su apellido" name="apellido" value="<?php echo $consulta['apellido'] ?>" class="full" required>
-				<input type="email" placeholder="Escriba su correo" name="email" value="<?php echo $consulta['email'] ?>" class="full" required>
-				<input type="password" placeholder="Contraseña" name="password" class="full" required>
-				<input type="password" placeholder="Confirmar contraseña" name="confirPassword" class="full" required>
-				<input type="text" placeholder="Escriba su dirección" value="<?php echo $consulta['direccion'] ?>" name="direccion" class="full" required>
-				<input type="number" placeholder="Escriba su telefono" value="<?php echo $consulta['telefono'] ?>" name="telefono" class="full" >
+				<input type="text" placeholder="Escriba su apellido" name="apellido" value="<?php echo $consulta['apellido'] ?>" class="full" required maxlength="45">
+				<input type="email" placeholder="Escriba su correo" name="email" value="<?php echo $consulta['email'] ?>" class="full" required maxlength="150">
+				<input type="password" placeholder="Contraseña" name="password" class="full" required minlength="8" maxlength="16">
+				<input type="password" placeholder="Confirmar contraseña" name="confirPassword" class="full" minlength="8" maxlength="16" required>
+				<input type="text" placeholder="Escriba su dirección" value="<?php echo $consulta['direccion'] ?>" name="direccion" class="full" required maxlength="100">
+				<input type="number" placeholder="Escriba su telefono" value="<?php echo $consulta['telefono'] ?>" name="telefono" class="full" maxlength="100">
 				<input type="hidden" name="id" value="<?php echo $consulta['id'] ?>">
 				<div class="envio">
 					<a href="../../../" value="Cancelar" id="cerrar-iniciar" class="Cancelar">Cancelar</a>

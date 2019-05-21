@@ -12,56 +12,54 @@ $consulta = mysqli_query($conexion, $query);
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link rel="stylesheet" type="text/css" href="../..//css/bootstrap.min.css">
-
+  <link href="https://fonts.googleapis.com/css?family=Baloo+Bhai" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="../../css/bootstrap.min.css">
   <link rel="stylesheet" href="./../../css/estilos.css">
   <link rel="stylesheet" href="./../../css/carrito.css">
   <title>Productos</title>
 </head>
 <body>
 
-  <div class="collapse navbar-collapse" id="navbarColor01">
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item">
-        <a class="nav-link" href="../../../">Inicio</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Productos</a>
-      </li>
-      <?php
-      if(!isset($_SESSION['id_usuario'])){
-        ?>
-        <li class="nav-item">
-          <a class="nav-link" href="../login/registro.usuario.php">Registro</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="../login/login.usuario.php">Iniciar sesión</a>
-        </li>
-      <?php }else{?>
-        <li class="nav-item">
-          <a class="nav-link" href="../../../controllers/public/session.salir.usuario.php">Cerrar sesión</a>
-        </li>
-        <?php } ?>
-        <?php
-        if(!isset($_SESSION['id_usuario'])){
-          ?>
-          <li class="nav-item">
-            <a class="nav-link" href="../../../admin/index.php">Administración</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="../login/registro.usuario.php">Registro usuario</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="../login/login.usuario.php">Login</a>
-          </li>
-        <?php }else{?>
-          <li class="nav-item">
-            <a class="nav-link" href="../../../controllers/public/session.salir.usuario.php">Cerrar sesion</a>
-          </li>
-        <?php }?>
-      </ul>
-    </div>
-  </nav>
+  <nav class="BNav navbar navbar-expand-lg navbar-dark menu" id="inicio">
+		<a class="letra" class="navbar-brand" href="../../../"><img src="../../img/favicon.png" width="50px" class="logo">VerduraSoft</a>
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse" id="navbarColor01">
+			<ul class="navbar-nav mr-auto">
+				<li class="nav-item">
+					<a class="nav-link" href="../../../">Inicio <span class="sr-only">(current)</span></a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="./carrito.php">Productos</a>
+				</li>
+				<?php
+				if(!isset($_SESSION['id_usuario'])){
+					?>
+					<li class="nav-item">
+						<a class="nav-link" href="../login/registro.usuario.php">Registro</a>
+					</li>
+				<?php }else{?>
+					<li class="nav-item">
+						<a class="nav-link" href="../../../controllers/public/session.salir.usuario.php">Cerrar sesion</a>
+					</li>
+
+				<?php }?>
+			</ul>
+			<div>
+				<a class="usuario_log" href="../login/login.usuario.php">
+					<img src="../../../admin/img/avatar/defecto.png" width="30">
+				<?php
+				if(isset($_SESSION['id_usuario'])){
+				?>
+				<p class="name-user"><?php echo $_SESSION['nombres']. ' '.$_SESSION['apellidos']?></p>
+				<?php }else{?>
+				<p class="name-user">Iniciar sesión</p>
+				<?php }?>
+				</a>
+			</div>
+		</div>
+	</nav>
 
 
   <section class="container-carrito">
