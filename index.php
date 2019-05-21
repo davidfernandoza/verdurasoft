@@ -308,12 +308,14 @@ $consulta2 = mysqli_query($conexion, $query2);
 		</div>
 	</div>
 	<footer>
-		<div class="Nombre">VerduraSoft</div>
-		<div class="contenido">
-			<li><a href="#inicio">Inicio</a></li>
-			<li><a href="#nosotros">Nosotros</a></li>
-			<li><a href="#testimonios">Testimonios</a></li>
-			<li><a href="#galeria">Galeria</a></li>
+		<div>
+			<div class="Nombre">VerduraSoft</div>
+			<div class="contenido">
+				<li><a href="#inicio">Inicio</a></li>
+				<li><a href="#nosotros">Nosotros</a></li>
+				<li><a href="#testimonios">Testimonios</a></li>
+				<li><a href="#galeria">Galeria</a></li>
+			</div>
 		</div>
 		<div class="formulario">
 			<form>

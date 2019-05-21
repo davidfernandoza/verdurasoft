@@ -202,6 +202,7 @@ if (isset($_SESSION['ident'])) {
 					</div>
 					<div class="form-content" id="form-content-actualizar">
 						<div class="input-group">
+
 							<input type="number" placeholder="codigo" name="id" readonly="" required="" >
 							<input type="text" placeholder="nombre" name="nombre" required="">
 						</div>

@@ -38,11 +38,11 @@ for (var i = document.getElementsByClassName('editar-formulario').length - 1; i 
 	document.getElementsByClassName('editar-formulario')[i].addEventListener('click', function(){
 		var text = this.parentElement.parentElement.childNodes
 
-		document.getElementById('form-content-actualizar').childNodes[1].childNodes[1].value = text[3].innerHTML
-		document.getElementById('form-content-actualizar').childNodes[1].childNodes[3].value = text[5].innerHTML
-		document.getElementById('form-content-actualizar').childNodes[3].value = text[7].innerHTML
-		document.getElementById('form-content-actualizar').childNodes[5].childNodes[1].value = text[9].innerHTML
-		document.getElementById('form-content-actualizar').childNodes[5].childNodes[3].value = text[11].innerHTML
+		document.getElementById('form-content-actualizar').childNodes[1].childNodes[1].value = text[1].innerHTML
+		document.getElementById('form-content-actualizar').childNodes[1].childNodes[3].value = text[3].innerHTML
+		document.getElementById('form-content-actualizar').childNodes[3].value = text[5].innerHTML
+		document.getElementById('form-content-actualizar').childNodes[5].childNodes[1].value = text[7].innerHTML
+		document.getElementById('form-content-actualizar').childNodes[5].childNodes[3].value = text[9].innerHTML
 
 		precio = document.getElementById('form-content-actualizar').childNodes[5].childNodes[1].value
 		cu = document.getElementById('form-content-actualizar').childNodes[5].childNodes[3].value
