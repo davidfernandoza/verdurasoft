@@ -28,7 +28,7 @@
 	    if ($result2 = $conexion->query("SELECT * FROM compras")) {
 
 	    /* determinar el número de filas del resultado */
-	    $row_cnt2 = $result2->num_rows-1;
+	    $row_cnt2 = $result2->num_rows;
 
 
 
@@ -174,19 +174,18 @@
 				<h1>Ingresar Usuario </h1>
 			</div>
 			<div class="form-content">
-				<input type="number" placeholder="Cedula" name="id" class="full">
+				<input type="number" placeholder="Cedula" name="id" class="full" maxlength="12" required="">
 				<div class="input-group">
-					<input type="text" placeholder="Nombres" name="nombre">
-					<input type="text" placeholder="Apellidos" name="apellido">
+					<input type="text" placeholder="Nombres" name="nombre" required pattern="[A-Za-z]">
+					<input type="text" placeholder="Apellidos" name="apellido" required pattern="[A-Za-z]">
 				</div>
-				<input type="email" class="full" placeholder="Correo electronico" name="email">
-				<input type="text" class="full" placeholder="Direccion" name="direccion">
-				<input type="number" class="full" placeholder="Celular" name="telefono">
+				<input type="email" class="full" placeholder="Correo electronico" name="email" required="">
+				<input type="text" class="full" placeholder="Direccion" name="direccion" required="">
+				<input type="number" class="full" placeholder="Celular" name="telefono" required="">
 				<div class="input-group">
-					<input type="password" placeholder="Contraseña" name="password">
-					<input type="password" placeholder="Repetir contraseña" name="confirPassword">
+					<input type="password" placeholder="Contraseña" name="password" required="">
+					<input type="password" placeholder="Repetir contraseña" name="confirPassword" required="">
 				</div>
-				<!-- no se como colocar el name del select -->
 				<div class="cta-group">
 					<input type="reset" value="Cancelar" id="cerrar-ingresar">
 					<input type="submit">
@@ -198,17 +197,17 @@
 				<h1>Editar Usuario </h1>
 			</div>
 			<div class="form-content" id="form-content-actualizar">
-				<input type="number" placeholder="Cedula" name="id" class="full" >
+				<input type="text" placeholder="Cedula" name="id" class="full" readonly=""  >
 				<div class="input-group">
-					<input type="text" placeholder="Nombres" name="nombre">
-					<input type="text" placeholder="Apellidos" name="apellido">
+					<input type="text" placeholder="Nombres" name="nombre" required>
+					<input type="text" placeholder="Apellidos" name="apellido" required>
 				</div>
-				<input type="email" class="full" placeholder="Correo electronico" name="email">
-				<input type="text" class="full" placeholder="Direccion" name="direccion">
-				<input type="number" class="full" placeholder="Celular" name="telefono">
+				<input type="email" class="full" placeholder="Correo electronico" name="email" required="">
+				<input type="text" class="full" placeholder="Direccion" name="direccion" required="">
+				<input type="number" class="full" placeholder="Celular" name="telefono" required="">
 				<div class="input-group select">
 					<label for="select">Estado:</label>
-					<select name="estado" id="">
+					<select name="estado" id="" required="">
 						<option value="">Seleccione un estado</option>
 						<option value="Activo">Activo</option>
 						<option value="Inactivo">Inactivo</option>
