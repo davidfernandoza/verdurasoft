@@ -1,7 +1,20 @@
 <?php
 session_start();
-if(isset($_SESSION['id_usuario'])){
+if(!isset($_SESSION['id_usuario'])){
 	  echo "<script languaje='javascript'>window.location.href= '../../../' </script>";
+}
+else{
+	require '../../../controllers/conexion.php';
+	$id = $_GET['id'];
+	$query = "SELECT * FROM usuarios WHERE id = '$id'";
+	$consulta = mysqli_query($conexion, $query);
+
+	if($consulta->num_rows == 0){
+		echo "<script languaje='javascript'>window.location.href= '../../../' </script>";
+	}
+	else{
+		$consulta = mysqli_fetch_array($consulta);
+	}
 }
 ?>
 
@@ -11,7 +24,7 @@ if(isset($_SESSION['id_usuario'])){
 	<meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-	<title>Crear usuario</title>
+	<title>Editar usuario</title>
 	<link rel="stylesheet" href="../../css/registro_usuario.css">
 	<link rel="stylesheet" type="text/css" href="../../css/bootstrap.min.css">
 	<link href="https://fonts.googleapis.com/css?family=Baloo+Bhai" rel="stylesheet">
@@ -31,32 +44,30 @@ if(isset($_SESSION['id_usuario'])){
 				<li class="nav-item">
 					<a class="nav-link" href="../carrito/carrito.php">Productos</a>
 				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="./controllers/public/session.salir.usuario.php">Cerrar sesion</a>
+				</li>
 			</ul>
-			<div>
-				<a class="usuario_log" href="../login/login.usuario.php">
-				<img src="../../../admin/img/avatar/defecto.png" width="30">
-				<p class="name-user">Iniciar sesión</p>
-				</a>
-			</div>
 		</div>
-
 	</nav>
 	<div class="container">
-		<form action="../../../controllers/public/guardar.usuario.php" method="post" class="formulario">
+		<form action="../../../controllers/public/editar.usuario.php" method="post" class="formulario">
 			<div class="titulo">
-				<h1>Registrar usuario</h1>
+				<h1>Editar usuario</h1>
 			</div>
 			<div class="campos">
-				<input type="text" placeholder="Escriba su nombre" name="nombre" class="full" required>
-				<input type="text" placeholder="Escriba su apellido" name="apellido" class="full" required>
-				<input type="email" placeholder="Escriba su correo" name="email" class="full" required>
+				<input type="text" placeholder="Escriba su nombre" name="nombre" class="full" value="<?php echo $consulta['nombre'] ?>" required>
+
+				<input type="text" placeholder="Escriba su apellido" name="apellido" value="<?php echo $consulta['apellido'] ?>" class="full" required>
+				<input type="email" placeholder="Escriba su correo" name="email" value="<?php echo $consulta['email'] ?>" class="full" required>
 				<input type="password" placeholder="Contraseña" name="password" class="full" required>
 				<input type="password" placeholder="Confirmar contraseña" name="confirPassword" class="full" required>
-				<input type="text" placeholder="Escriba su dirección" name="direccion" class="full" required>
-				<input type="number" placeholder="Escriba su telefono" name="telefono" class="full" >
+				<input type="text" placeholder="Escriba su dirección" value="<?php echo $consulta['direccion'] ?>" name="direccion" class="full" required>
+				<input type="number" placeholder="Escriba su telefono" value="<?php echo $consulta['telefono'] ?>" name="telefono" class="full" >
+				<input type="hidden" name="id" value="<?php echo $consulta['id'] ?>">
 				<div class="envio">
 					<a href="../../../" value="Cancelar" id="cerrar-iniciar" class="Cancelar">Cancelar</a>
-					<input type="submit" value="Registrar" class="enviar">
+					<input type="submit" value="Editar" class="enviar">
 				</div>
 			</div>
 		</form>

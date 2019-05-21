@@ -3,7 +3,7 @@ include('../conexion.php');
 $email = $_POST['email'];
 $password = $_POST['password'];
 
-$query= "SELECT * FROM usuarios WHERE email = '$email';";
+$query= "SELECT * FROM usuarios WHERE email = '$email' AND estado = 'activo';";
 $consulta = mysqli_query($conexion, $query);
 
 if ($consulta){
@@ -18,7 +18,7 @@ if ($consulta){
     echo '<script languaje="javascript">
       var mensaje ="Bienvenido ' . $consulta[1] . ' ' . $consulta[2] .'";
       alert(mensaje);
-      window.location.href= "../../public/views/carrito/carrito.php"
+      window.location.href= "../../"
       </script>';
   }
   else {

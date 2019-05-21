@@ -1,9 +1,14 @@
+<?php
+session_start();
+session_destroy();
+ ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
 	<title>Iniciar sesión | verduraSoft</title>
-	<script src="js/code_jquery.js"></script>
+	<link rel="stylesheet" href="../public/css/bootstrap.min.css">
+	</script>
 	<link rel="stylesheet" href="css/login.css">
 
 </head>
@@ -20,14 +25,19 @@
 				<input type="password" placeholder="Contraseña" name="password" class="full">
 
 				<div class="envio">
-					<a href="../index.php" value="Cancelar" id="cerrar-iniciar" class="Cancelar">Cancelar</a>
+					<a href="../" value="Cancelar" id="cerrar-iniciar" class="Cancelar">Cancelar</a>
 					<input type="submit" value="Iniciar sesion" class="enviar">
 				</div>
 			</div>
-
+			<hr>
+			<p class="texto">¿No me acuerdo de mi contraseña? <a href="./views/recuperar.password.php">Recuperar contraseña!</a></p>
 		</form>
 	</div>
 
+	<script type="text/javascript" src="../public/js/jquery.js">
+	</script>
+	<script type="text/javascript" src="../public/js/bootstrap.js">
+	</script>
 	<script src="./js/index.js"></script>
 	<script src="./js/login.js"></script>
 </body>

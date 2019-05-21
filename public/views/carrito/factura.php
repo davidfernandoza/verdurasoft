@@ -15,7 +15,7 @@ if(!isset($_SESSION['id_usuario'])){
   <body>
     <h1>Compra realizada</h1>
 	  <p><a href="./carrito.php">Productos</a></p>
-		<p><a href="../../../index.php">Inicio</a></p>
+		<p><a href="../../../">Inicio</a></p>
 
 		<script type="text/javascript" src="../../js/jquery.js">
 		</script>

@@ -6,6 +6,13 @@
 body{
 	background-color: #F2F2F2;
 }
+fieldset{
+	border: 0;
+}
+.logo{
+	position: relative;
+	top: -5px;
+}
 .menu{
 	background: #05B329;
 }

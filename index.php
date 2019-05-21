@@ -15,10 +15,11 @@ $consulta2 = mysqli_query($conexion, $query2);
 	<meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 	<link rel="stylesheet" type="text/css" href="./public/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 	<link href="https://fonts.googleapis.com/css?family=Baloo+Bhai" rel="stylesheet">
 	<link rel="stylesheet" type="text/css" href="./public/css/estilos.css">
+	<link rel="shortcut icon" href="./public/img/favicon.png">
 	<title>VerduraSoft</title>
 </head>
 <body>
@@ -27,14 +28,14 @@ $consulta2 = mysqli_query($conexion, $query2);
 
 
 	<nav class="BNav navbar navbar-expand-lg navbar-dark menu" id="inicio">
-		<a class="letra" class="navbar-brand" href="#">VerduraSoft</a>
+		<a class="letra" class="navbar-brand" href="./"><img src="./public/img/favicon.png" width="50px" class="logo">VerduraSoft</a>
 		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
 			<span class="navbar-toggler-icon"></span>
 		</button>
 		<div class="collapse navbar-collapse" id="navbarColor01">
 			<ul class="navbar-nav mr-auto">
 				<li class="nav-item">
-					<a class="nav-link" href="#">Inicio <span class="sr-only">(current)</span></a>
+					<a class="nav-link" href="./">Inicio <span class="sr-only">(current)</span></a>
 				</li>
 				<li class="nav-item">
 					<a class="nav-link" href="./public/views/carrito/carrito.php">Productos</a>
@@ -43,13 +44,7 @@ $consulta2 = mysqli_query($conexion, $query2);
 				if(!isset($_SESSION['id_usuario'])){
 					?>
 					<li class="nav-item">
-						<a class="nav-link" href="./admin/index.php#">Administración</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="./public/views/login/registro.usuario.php">Registro usuario</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="./public/views/login/login.usuario.php">Login</a>
+						<a class="nav-link" href="./public/views/login/registro.usuario.php">Registro</a>
 					</li>
 				<?php }else{?>
 					<li class="nav-item">
@@ -66,7 +61,7 @@ $consulta2 = mysqli_query($conexion, $query2);
 				?>
 				<p class="name-user"><?php echo $_SESSION['nombres']. ' '.$_SESSION['apellidos']?></p>
 				<?php }else{?>
-				<p class="name-user">Ingresa ya!</p>
+				<p class="name-user">Iniciar sesión</p>
 				<?php }?>
 				</a>
 			</div>
@@ -130,48 +125,6 @@ $consulta2 = mysqli_query($conexion, $query2);
     </a>
   </div>
 </div>
-	<!-- <div class="slider">
-		<input type="radio" name="slider-select-element" id="element1" checked="checked" />
-		<input type="radio" name="slider-select-element" id="element2" />
-		<input type="radio" name="slider-select-element" id="element3" />
-
-		<div id="slider-container">
-			<div id="slider-box">
-
-				<div class="slider-element">
-					<article class="element-uno">
-						<img src="./public/img/slider/img1.jpg" >
-					</article>
-				</div>
-				<div class="slider-element" >
-					<article class="element-dos">
-						<img src="./public/img/slider/img2.jpg" >
-					</article>
-				</div>
-				<div class="slider-element">
-					<article class="element-tres">
-						<img src="./public/img/slider/img3.jpg" >
-					</article>
-				</div>
-				<div class="slider-element">
-					<article class="element-cuatro">
-						<img src="./public/img/slider/img4.jpg" >
-					</article>
-				</div>
-				<div class="slider-element">
-					<article class="element-cinco">
-						<img src="./public/img/slider/img5.jpg" >
-					</article>
-				</div>
-			</div>
-		</div>
-
-		<div id="slider-arrows">
-			<label for="element1"></label>
-			<label for="element2"></label>
-			<label for="element3"></label>
-		</div>
-	</div> -->
 	<div class="contenedor" id="nosotros">
 		<div class="parrafo">
 			<div>
@@ -308,28 +261,39 @@ $consulta2 = mysqli_query($conexion, $query2);
 		</div>
 	</div>
 	<footer>
-		<div class="Nombre">VerduraSoft</div>
+		<div class="Nombre">
+			<img src="./public/img/favicon.png" width="50px" class="logo">VerduraSoft</div>
 		<div class="contenido">
 			<li><a href="#inicio">Inicio</a></li>
 			<li><a href="#nosotros">Nosotros</a></li>
 			<li><a href="#testimonios">Testimonios</a></li>
 			<li><a href="#galeria">Galeria</a></li>
+			<?php
+			if(!isset($_SESSION['id_usuario'])){
+				?>
+				<li>
+					<a href="./admin">Administración</a>
+				</li>
+			<?php } ?>
 		</div>
 		<div class="formulario">
-			<form>
+			<form action="./controllers/public/contacto.user.php" method="post">
 				<fieldset>
 					<div class="form-group text">
 						<label for="exampleInputEmail1">Nombre</label>
-						<input type="text" class="form-control" placeholder="Escriba su nombre">
+						<input name="nombre_from" type="text" class="form-control" placeholder="Escriba su nombre" required>
 					</div>
 					<div class="form-group">
 						<label for="exampleInputEmail1">Correo</label>
-						<input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Ejemplo@VerduraSoft.com">
+						<input name="email_from" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Escriba su correo" required>
 					</div>
 					<div class="form-group">
 						<label for="exampleTextarea">Mensaje</label>
-						<textarea class="form-control" id="exampleTextarea" rows="3"></textarea>
+						<textarea name="mensaje" class="form-control" id="exampleTextarea" rows="3" placeholder="Escriba su mensaje" required></textarea>
 					</div>
+					<input type="hidden" name="asunto" value="Contacto: ">
+					<input type="hidden" name="email_send" value="verdurasoft@gmail.com">
+					<input type="hidden" name="nombre_send" value="VerduraSoft">
 					<button type="submit" class="btn btn-primary">Submit</button>
 				</fieldset>
 			</form>

@@ -176,7 +176,7 @@ else{
 	echo '<script languaje="javascript">
 	var mensaje ="Usted no tiene acceso a este contenido, por favor inicie sesión";
 	alert(mensaje);
-	window.location.href= "../index.php"
+	window.location.href= "../"
 	</script>';
 }
 ?>

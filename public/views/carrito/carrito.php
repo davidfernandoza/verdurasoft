@@ -21,7 +21,7 @@ $consulta = mysqli_query($conexion, $query);
   <div class="collapse navbar-collapse" id="navbarColor01">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item">
-        <a class="nav-link" href="../../../index.php">Inicio</a>
+        <a class="nav-link" href="../../../">Inicio</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="#">Productos</a>
@@ -30,17 +30,14 @@ $consulta = mysqli_query($conexion, $query);
       if(!isset($_SESSION['id_usuario'])){
         ?>
         <li class="nav-item">
-          <a class="nav-link" href="../../../admin/index.php">Administración</a>
+          <a class="nav-link" href="../login/registro.usuario.php">Registro</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="../login/registro.usuario.php">Registro usuario</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="../login/login.usuario.php">Login</a>
+          <a class="nav-link" href="../login/login.usuario.php">Iniciar sesión</a>
         </li>
       <?php }else{?>
         <li class="nav-item">
-          <a class="nav-link" href="../../../controllers/public/session.salir.usuario.php">Cerrar sesion</a>
+          <a class="nav-link" href="../../../controllers/public/session.salir.usuario.php">Cerrar sesión</a>
         </li>
 
       <?php }?>
