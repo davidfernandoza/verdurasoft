@@ -25,7 +25,7 @@ if (isset($_SESSION['ident'])) {
 	if ($result2 = $conexion->query("SELECT * FROM compras")) {
 
 		/* determinar el número de filas del resultado */
-		$row_cnt2 = $result2->num_rows-1;
+		$row_cnt2 = $result2->num_rows;
 
 
 
@@ -161,26 +161,16 @@ if (isset($_SESSION['ident'])) {
 						<input type="file" name="foto" id="" placeholder="Tu foto">
 					</div>
 					<div class="form-content">
-						<input type="number" placeholder="Cédula" name="id" class="full">
+						<input type="number" placeholder="Cédula" name="id" class="full" maxlength="12" required="">
 						<div class="input-group">
-							<input type="text" placeholder="Nombres" name="nombre">
-							<input type="text" placeholder="Apellidos" name="apellido">
+							<input type="text" placeholder="Nombres" name="nombre" maxlength="50" required>
+							<input type="text" placeholder="Apellidos" name="apellido" maxlength="50" required>
 						</div>
-						<input type="email" class="full" placeholder="Correo electrónico" name="email">
-						<input type="number" placeholder="Celular" class="full" name="telefono">
+						<input type="email" class="full" placeholder="Correo electrónico" name="email" maxlength="50" minlength="5" required="">
+						<input type="number" placeholder="Celular" class="full" name="telefono" maxlength="20" minlength="7" required="">
 						<div class="input-group">
-							<input type="password" placeholder="Contraseña" name="password">
-							<input type="password" placeholder="Repetir contraseña" name="confirPassword">
-						</div>
-						<!-- no se como colocar el name del select -->
-
-						<div class="input-group select">
-							<label for="select">Estado:</label>
-							<select name="estado" required>
-								<option value="0" disabled>Seleccione un estado</option>
-								<option value="activo">Activo</option>
-								<option value="inactivo">Innactivo</option>
-							</select>
+							<input type="password" placeholder="Contraseña" name="password" maxlength="16" minlength="8" required=""> 
+							<input type="password" placeholder="Repetir contraseña" name="confirPassword" maxlength="16" minlength="8" required="">
 						</div>
 						<div class="cta-group">
 							<input type="reset" value="Cancelar" id="cerrar_ingresar">

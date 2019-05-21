@@ -1,55 +1,130 @@
-*{
-	margin: 0;
-	padding: 0;
-	box-sizing: border-box;
-}
 body{
-	background-color: #F2F2F2 !important;
-}
-.menu{
-	position:relative;
-	top:0;
-	left: 0;
 	width: 100%;
-    height: 4vw;
-	background: #05B329;
-	padding: 5px 7px;
-	padding-left: 10px;
+}
 
-}
-.letra{
-	font-family: 'Baloo Bhai', cursive;
-	color: white;
-	letter-spacing: 0.5px;
-	text-decoration: none;
-	font-size: 1.2em;
-    display: flex;
-    align-items: center;
-    font-size: 20px;
-}
-img{
-	width: 370px;
+section.container-carrito{
+	background-image: url('../img/general.jpg');
+	background-repeat: no-repeat;
+	background-position: center;
+	-webkit-background-size: cover;
+	background-size: cover;
+	background-attachment: center;
+	display: flex;
+	position: absolute;
+	top: 0;
+	z-index: -1;
+	padding: 20px 0 0;
+	height: 100%;
 }
 
 .galeria{
-  position: relative;
-  display: flex;
-  flex-wrap: wrap;
-  width: 70%;
+	width: 65vw;
+	overflow-y: scroll; 
+	background-color: rgba(217, 217, 217, .5);
+	padding: 30px 0;
 }
+
+.galeria .galeria-content{
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-around;
+	-ms-align-items: center;
+	align-items: center;
+}
+
 .card{
-  width: 370px;
-  height: 400px;
-  margin: 10px 10px 10px 10px;
-  border: 1px solid grey;
-  border-radius: 5px;
+	position: relative;
+	width: 250px;
+	margin: 10px;
 }
+
+
+.card figure{
+	width: 100%;
+	padding: 0;
+	margin: 0;
+}
+
+.card figure img{
+	width: 100%;
+	display: block;
+
+}
+
+.card .contenido_card{
+	background-color: black;
+	text-align: center;
+}
+
+.card .contenido_card .info_card{
+	background-color: rgba(5, 179, 41, .7);
+	padding:  10px 5px;
+
+}
+
+.card .contenido_card .info_card h3{
+	color:white;
+	font-size: 20px;
+	font-weight: 700;
+}
+
+.card .contenido_card .info_card p{
+	color: yellow;
+	font-size: 15px;
+	display: none;
+}
+.card .contenido_card .accion_card{
+	background-color: #fff;
+	padding: 15px 10px;
+}
+
+.card .contenido_card .accion_card button{
+	border: none;
+	border-radius: 5px;
+	background-color: var(--danger);
+	color:white;
+	padding: 10px;
+	transition: all linear .3s;
+	border: double 2px var(--danger);
+
+}
+
+.card .contenido_card .accion_card button:hover{
+	background-color: transparent;
+	color:black;
+	border: solid 2px var(--danger);
+}
+
+
 .carrito{
-  position: fixed;
-  z-index: 100;
-  right: 0;
-  top: 0;
-  width: 30%;
-  height: 100vh;
-  background-color: #DDD7E7;
+	display: flex;
+	justify-content: center;
+	-ms-align-items: center;
+	align-items: center;
+	flex-direction: column;
+	width: 35vw;
+	background-color: rgba(255,255,255,.8);
+}
+
+.carrito table .eliminar-producto{
+	border: none;
+	border-radius: 5px;
+	background-color: var(--danger);
+	color:white;
+	padding: 5px;
+
+}
+
+.carrito table .eliminar-producto:after{
+	content:"X";
+	margin: 5px;
+	padding: 5px;
+}
+
+.carrito form input{
+	border: none;
+	border-radius: 5px;
+	background-color: var(--green);
+	color:white;
+	padding: 5px;
 }

@@ -12,6 +12,8 @@ $consulta = mysqli_query($conexion, $query);
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" type="text/css" href="../..//css/bootstrap.min.css">
+
   <link rel="stylesheet" href="./../../css/estilos.css">
   <link rel="stylesheet" href="./../../css/carrito.css">
   <title>Productos</title>
@@ -39,13 +41,36 @@ $consulta = mysqli_query($conexion, $query);
         <li class="nav-item">
           <a class="nav-link" href="../../../controllers/public/session.salir.usuario.php">Cerrar sesión</a>
         </li>
+        <?php } ?>
+        <?php
+        if(!isset($_SESSION['id_usuario'])){
+          ?>
+          <li class="nav-item">
+            <a class="nav-link" href="../../../admin/index.php">Administración</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="../login/registro.usuario.php">Registro usuario</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="../login/login.usuario.php">Login</a>
+          </li>
+        <?php }else{?>
+          <li class="nav-item">
+            <a class="nav-link" href="../../../controllers/public/session.salir.usuario.php">Cerrar sesion</a>
+          </li>
+        <?php }?>
+      </ul>
+    </div>
+  </nav>
 
-      <?php }?>
-    </ul>
-  </div>
+
+  <section class="container-carrito">
+
 
   <!-- Galeria -->
   <div class='galeria'>
+    <div class="galeria-content">
+
     <?php
     while($fila = mysqli_fetch_row($consulta)){
       if ($fila[5] > 0) {
@@ -87,6 +112,7 @@ $consulta = mysqli_query($conexion, $query);
       }
     }
     ?>
+    </div>
   </div>
 
   <!-- Carrito estatico -->
@@ -95,7 +121,9 @@ $consulta = mysqli_query($conexion, $query);
   <!-- Ese archivo se encuentra en la misma carpeta-->
   <div class="carrito detalle-producto">
     <?php if(count($_SESSION['detalle']) > 0){?>
-      <table class="table">
+      <div class="container-table">
+
+      <table class="table" border="1">
         <thead>
           <tr>
             <th>Productos</th>
@@ -130,6 +158,8 @@ $consulta = mysqli_query($conexion, $query);
             </tr>
           </tbody>
         </table>
+      </div>
+
       <?php }else{?>
         <div class="panel-body"> No hay productos agregados</div>
       <?php }?>
@@ -138,6 +168,7 @@ $consulta = mysqli_query($conexion, $query);
         <input type="submit" value="Comprar" disabled>
       </form>
     </div>
+  </section>
 
     <!-- JQuery -->
     <script type="text/javascript" src="./../../js/jquery.js">
@@ -148,7 +179,7 @@ $consulta = mysqli_query($conexion, $query);
 
 
     <!-- Ajax -->
-    <script type="text/javascript">
+  <script type="text/javascript">
     // Agregar a carrito
     function addCarrito(id){
       let cantidadActual = $(`#cantidadActual${id}`).val();
