@@ -28,7 +28,7 @@ if (isset($_SESSION['ident'])) {
 	if ($result2 = $conexion->query("SELECT * FROM compras")) {
 
 		/* determinar el número de filas del resultado */
-		$row_cnt2 = $result2->num_rows-1;
+		$row_cnt2 = $result2->num_rows;
 
 
 
@@ -202,13 +202,14 @@ if (isset($_SESSION['ident'])) {
 					</div>
 					<div class="form-content" id="form-content-actualizar">
 						<div class="input-group">
-							<input type="text" placeholder="codigo" name="id" >
-							<input type="text" placeholder="nombre" name="nombre">
+
+							<input type="number" placeholder="codigo" name="id" readonly="" required="" >
+							<input type="text" placeholder="nombre" name="nombre" required="">
 						</div>
 						<input type="text" placeholder="Descripcion" name="descripcion" class="full">
 						<div class="input-group">
-							<input type="number" placeholder="Valor" name="valor">
-							<input type="number" placeholder="Cantidad" name="cantidad">
+							<input type="number" placeholder="Valor" name="valor" required="">
+							<input type="number" placeholder="Cantidad" name="cantidad" required="">
 						</div>
 						<input type="number" placeholder="Total" class="full" name="total" id="total">
 
