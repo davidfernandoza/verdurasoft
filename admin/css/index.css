@@ -33,7 +33,7 @@ body:after{
 	top: 0;
 	left: 0;
 	width: 100%;
-	background-color: #e95420;
+	background-color: #05B329;
 	z-index: 100000;
 	padding-right: 20px;
 
@@ -135,6 +135,7 @@ body:after{
 	height: 78px;
 }
 .content-menu {
+	background: #05B329;
 	height: 0;
 	overflow: hidden;
 	transition: all linear .3s;
@@ -148,7 +149,8 @@ body:after{
 }
 
 .content-menu .link:hover{
-	background-color:#e95420 ;
+	background-color:#fff;
+	color: #000;
 }
 
 
@@ -183,9 +185,9 @@ section{
 	color:black;
 }
 .container-aside .aside-list a:hover{
-	background-color: #ff5;
+	background-color: #05B329;
 	padding-left: 25px;
-	color:#E95420;
+	color:#fff;
 }
 
 
@@ -207,11 +209,11 @@ section{
 .container-article .input-group{
 	display: flex;
 	justify-content: space-between;
-	margin: 0 0 15px;
+	margin: 15px 0 15px;
 }
 .input-group a{
 	padding: 10px 20px;
-	background-color: #E95420;
+	background-color: #05B329;
 	color:white;
 	text-decoration: none;
 	border-radius: 8px;
@@ -220,6 +222,8 @@ section{
 .input-group a:hover{
 	box-shadow: 5px 5px 10px rgba(0,0,0,.5);
 	transform: scale(1.02);
+	background-color: #fff;
+	color: #000;
 
 }
 .input-group a:active{
@@ -310,7 +314,7 @@ section{
 	border-collapse: collapse;
 }
 .container-info .content-info table th{
-	background-color:hsla(16, 88%, 52%, 1) ;
+	background-color:#05B329;
 	color:white;
 	padding: 10px;
 	cursor:pointer;
@@ -340,12 +344,13 @@ section{
 	text-align: center;
 }
 .container-info .content-info table tr:nth-child(2n){
-	background-color:hsla(16, 83%, 50%, 0.2) ;
+	background-color:hsla(132, 97%, 36%, 0.1) ;
 }
 
 
 .container-info .content-info table tr:hover td{
-	background-color: hsla(16, 83%, 50%, 0.5);
+	background-color:hsla(132, 97%, 36%, 0.4); 
+	color: #000;
 }
 
 .container-info .total{
