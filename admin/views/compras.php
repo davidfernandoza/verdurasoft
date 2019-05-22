@@ -43,8 +43,9 @@ if (isset($_SESSION['ident'])) {
 	<html lang="es">
 	<head>
 		<meta charset="UTF-8">
-		<title>VerduraSoft | Compras</title>
+		<title>VerduraSoft | Administración</title>
 		<link rel="stylesheet" href="../css/index.css">
+		<link rel="shortcut icon" href="../../public/img/favicon.png">
 		<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 	</head>
 	<body>
@@ -78,7 +79,7 @@ if (isset($_SESSION['ident'])) {
 						</div>
 						<img class="icon" id="menu" src="../img/user-solid.svg">
 						<ul class="content-menu">
-							<li class="item"><a href="../../controllers/admins/editar.admin.php?id= <?php echo $id?>" class="link">Editar perfil</a></li>
+							<li class="item"><a href="./auth/editar.admin.php?id= <?php echo $id?>" class="link">Editar perfil</a></li>
 							<li class="item"><a href="../../controllers/admins/session.salir.admin.php" class="link">Cerrar sesión</a></li>
 						</ul>
 					</div>

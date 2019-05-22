@@ -53,7 +53,7 @@ if(isset($_SESSION['id_usuario'])){
 				<input type="password" placeholder="Contraseña" name="password" class="full" required maxlength="16" minlength="8">
 				<input type="password" placeholder="Confirmar contraseña" name="confirPassword" class="full" required maxlength="16" minlength="8">
 				<input type="text" placeholder="Escriba su dirección" name="direccion" class="full" required maxlength="100">
-				<input type="number" placeholder="Escriba su telefono" name="telefono" class="full" maxlength="20">
+				<input type="number" placeholder="Escriba su telefono" name="telefono" class="full" max="999999999999999" min="10000000">
 				<div class="envio">
 					<a href="../../../" value="Cancelar" id="cerrar-iniciar" class="Cancelar">Cancelar</a>
 					<input type="submit" value="Registrar" class="enviar">

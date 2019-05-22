@@ -294,7 +294,7 @@ $consulta2 = mysqli_query($conexion, $query2);
 					<input type="hidden" name="asunto" value="Contacto: ">
 					<input type="hidden" name="email_send" value="verdurasoft@gmail.com">
 					<input type="hidden" name="nombre_send" value="VerduraSoft">
-					<button type="submit" class="btn btn-primary">Submit</button>
+					<button type="submit" class="btn btn-primary">Enviar</button>
 				</fieldset>
 			</form>
 		</div>

@@ -5,7 +5,7 @@ $SendEmail = new SendEmail;
 
 
 $id = $_POST['id'];
-$query = "SELECT * FROM admins WHERE id = '$id'";
+$query = "SELECT * FROM admins WHERE id = '$id' AND estado = 'activo'";
 $consulta = mysqli_query($conexion, $query);
 if ($consulta->num_rows != 0) {
   $consulta = mysqli_fetch_array($consulta);
@@ -27,7 +27,7 @@ if ($consulta->num_rows != 0) {
 
 
     $mensaje = 'Ten un caluroso saludo de VerduraSoft tu distribuidor de verduras online, por lo que hemos notado te has olvidado la contraseña ¿cierto?. No hay ningún problema, se te restauro la contraseña olvidada por otra temporal. Puedes iniciar sesión con tu Cedula: <strong>"'.$id.'"</strong> y esta contraseña: <strong>"'.$password_num.'"</strong>. <br> <strong>NO OLVIDES CAMBIAR DE CONTRASEÑA CUANDO ESTÉS DENTRO DE LA ADMINISTRACIÓN DE VERDURASOFT.</strong>';
-    $asunto = 'Restauracion de password: ';
+    $asunto = 'Restablecimiento de password: ';
 
     $respuesta = $SendEmail->email($nombreFrom, $emailFrom, $nombreSend, $emailSend, $mensaje, $asunto);
 
@@ -51,7 +51,7 @@ else{
   echo '<script languaje="javascript">
   var mensaje ="El administrador no existe en nuestra base de datos.";
   alert(mensaje);
-  window.location.href= "../../admin/views/recuperar.password.php"
+  window.location.href= "../../admin/views/auth/recuperar.password.php"
   </script>';
 }
 

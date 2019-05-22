@@ -1,6 +1,4 @@
 <?php
-// cunado se redireccione  para la pagina de Inicio del administrador, por favor agragar a la url #mostrar tal cual esta ahi porfis att Nicol
-
 include('../conexion.php');
 $id = $_POST['id'];
 $password = $_POST['password'];
@@ -13,7 +11,8 @@ if ($consulta->num_rows > 0){
   $consulta = mysqli_fetch_row($consulta);
   $hash_BD = $consulta[5];
   if (password_verify($password, $hash_BD)) {
-
+    session_start();
+    session_destroy();
   	session_start();
   	$_SESSION['ident'] = $id;
 
@@ -23,7 +22,7 @@ if ($consulta->num_rows > 0){
   }
 	else {
     echo '<script languaje="javascript">
-    var mensaje ="Contraseña incorrecta";
+    var mensaje ="Credenciales incorrectas.";
     alert(mensaje);
     window.location.href= "../../admin/index.php"
     </script>';
@@ -32,7 +31,7 @@ if ($consulta->num_rows > 0){
 }
 else {
   echo '<script languaje="javascript">
-    var mensaje ="El administrador no existe";
+    var mensaje ="Credenciales incorrectas.";
     alert(mensaje);
     window.location.href= "../../admin/index.php"
     </script>';
