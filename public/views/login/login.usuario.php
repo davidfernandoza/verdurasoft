@@ -44,8 +44,8 @@ if(isset($_SESSION['id_usuario'])){
 				<h1>Iniciar sesión</h1>
 			</div>
 			<div class="campos">
-				<input type="email" placeholder="Escriba su correo" name="email" class="full" required="">
-				<input type="password" placeholder="Contraseña" name="password" class="full" required="">
+				<input type="email" placeholder="Escriba su correo" name="email" class="full" required maxlength="150">
+				<input type="password" placeholder="Contraseña" name="password" class="full" required >
 				<div class="envio">
 					<a href="../../../" value="Cancelar" id="cerrar-iniciar" class="Cancelar">Cancelar</a>
 					<input type="submit" value="Iniciar sesion" class="enviar">

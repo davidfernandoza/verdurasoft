@@ -45,7 +45,7 @@ else{
 					<a class="nav-link" href="../carrito/carrito.php">Productos</a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link" href="./controllers/public/session.salir.usuario.php">Cerrar sesion</a>
+					<a class="nav-link" href="../../../controllers/public/session.salir.usuario.php">Cerrar sesion</a>
 				</li>
 			</ul>
 		</div>
@@ -63,7 +63,7 @@ else{
 				<input type="password" placeholder="Contraseña" name="password" class="full" required minlength="8" maxlength="16">
 				<input type="password" placeholder="Confirmar contraseña" name="confirPassword" class="full" minlength="8" maxlength="16" required>
 				<input type="text" placeholder="Escriba su dirección" value="<?php echo $consulta['direccion'] ?>" name="direccion" class="full" required maxlength="100">
-				<input type="number" placeholder="Escriba su telefono" value="<?php echo $consulta['telefono'] ?>" name="telefono" class="full" maxlength="100">
+				<input type="number" placeholder="Escriba su telefono" value="<?php echo $consulta['telefono'] ?>" name="telefono" class="full" max="999999999999999" min="10000000">
 				<input type="hidden" name="id" value="<?php echo $consulta['id'] ?>">
 				<div class="envio">
 					<a href="../../../" value="Cancelar" id="cerrar-iniciar" class="Cancelar">Cancelar</a>

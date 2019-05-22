@@ -39,9 +39,11 @@ if (isset($_SESSION['ident'])) {
 	<html lang="es">
 	<head>
 		<meta charset="UTF-8">
-		<title>VerduraSoft | Administrador</title>
+		<title>VerduraSoft | Administración</title>
 
 		<link rel="stylesheet" href="../css/index.css">
+		<link rel="shortcut icon" href="../../public/img/favicon.png">
+		<link rel="stylesheet" href="../css/dataTables.css">
 		<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 	</head>
 	<body>
@@ -75,7 +77,7 @@ if (isset($_SESSION['ident'])) {
 						</div>
 						<img class="icon" id="menu" src="../img/user-solid.svg">
 						<ul class="content-menu">
-							<li class="item"><a href="../../controllers/admins/editar.admin.php?id= <?php echo $id?>" class="link">Editar perfil</a></li>
+							<li class="item"><a href="./auth/editar.admin.php?id= <?php echo $id?>" class="link">Editar perfil</a></li>
 							<li class="item"><a href="../../controllers/admins/session.salir.admin.php" class="link">Cerrar sesión</a></li>
 						</ul>
 					</div>
@@ -167,9 +169,9 @@ if (isset($_SESSION['ident'])) {
 							<input type="text" placeholder="Apellidos" name="apellido" maxlength="50" required>
 						</div>
 						<input type="email" class="full" placeholder="Correo electrónico" name="email" maxlength="50" minlength="5" required="">
-						<input type="number" placeholder="Celular" class="full" name="telefono" maxlength="20" minlength="7" required="">
+						<input type="number" placeholder="Telefono" class="full" name="telefono" min="1000000" max="999999999999999" required="">
 						<div class="input-group">
-							<input type="password" placeholder="Contraseña" name="password" maxlength="16" minlength="8" required=""> 
+							<input type="password" placeholder="Contraseña" name="password" maxlength="16" minlength="8" required="">
 							<input type="password" placeholder="Repetir contraseña" name="confirPassword" maxlength="16" minlength="8" required="">
 						</div>
 						<div class="cta-group">

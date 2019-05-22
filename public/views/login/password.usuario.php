@@ -49,7 +49,7 @@ if(isset($_SESSION['id_usuario'])){
 				<h1 class="h2">Recuperar contraseña</h1>
 			</div>
 			<div class="campos">
-				<input type="email" placeholder="Escriba su correo" name="email" class="full" required="">
+				<input type="email" placeholder="Escriba su correo" name="email" class="full" required maxlength="150">
 					<a href="./login.usuario.php" value="Cancelar" id="cerrar-iniciar" class="Cancelar">Cancelar</a>
 					<input type="submit" value="Enviar" class="enviar">
 

@@ -5,7 +5,7 @@ $SendEmail = new SendEmail;
 
 
 $email = $_POST['email'];
-$query = "SELECT * FROM usuarios WHERE email = '$email'";
+$query = "SELECT * FROM usuarios WHERE email = '$email' AND estado = 'activo'";
 $consulta = mysqli_query($conexion, $query);
 if ($consulta->num_rows != 0) {
   $consulta = mysqli_fetch_array($consulta);
@@ -28,7 +28,7 @@ if ($consulta->num_rows != 0) {
 
 
     $mensaje = 'Ten un caluroso saludo de VerduraSoft tu distribuidor de verduras online, por lo que hemos notado se te ha olvidado la contraseña ¿cierto?. No hay ningún problema, se te restauro la contraseña olvidada por otra temporal. Puedes iniciar sesión con tu correo: <strong>"'.$consulta['email'].'"</strong> y esta contraseña: <strong>"'.$password_num.'"</strong>. <br> <strong>NO OLVIDES CAMBIAR DE CONTRASEÑA CUANDO ESTÉS DENTRO DE VERDURASOFT.</strong>';
-    $asunto = 'Restauracion de password: ';
+    $asunto = 'Restablecimiento de password: ';
 
     $respuesta = $SendEmail->email($nombreFrom, $emailFrom, $nombreSend, $emailSend, $mensaje, $asunto);
 

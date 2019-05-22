@@ -16,6 +16,7 @@ $consulta = mysqli_query($conexion, $query);
   <link rel="stylesheet" type="text/css" href="../../css/bootstrap.min.css">
   <link rel="stylesheet" href="./../../css/estilos.css">
   <link rel="stylesheet" href="./../../css/carrito.css">
+  	<link rel="shortcut icon" href="../../img/favicon.png">
   <title>Productos</title>
 </head>
 <body>
