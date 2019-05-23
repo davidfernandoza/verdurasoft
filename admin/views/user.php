@@ -158,9 +158,9 @@
 								</tbody>
 							</table>
 						</div>
-						<div class="total">
+						<!-- <div class="total">
 							<span><p>Total:</p> 245</span>
-						</div>
+						</div> -->
 					</div>
 			</article>
 
