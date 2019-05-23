@@ -12,6 +12,14 @@ if (isset($_SESSION['ident'])) {
 	$query2= "select c.id as id_compras, c.factura as factura, c.cantidad as cantidad, c.valor as valor, c.estado as estado, p.id as id_productos, p.nombre as nombre_productos, u.id as id_usuarios, u.nombre as nombre_usuarios from compras as c left join usuarios as u on u.id = c.usuarios_id left join productos as p on p.id = c.productos_id;";
 	$consulta2 = mysqli_query($conexion, $query2);
 
+	$consulta3 = "SELECT SUM(valor) as TotalPrecios FROM compras WHERE estado = 'activo' ";
+	$resultado3 = $conexion -> query($consulta3);
+	$fila = $resultado3->fetch_assoc(); //que te devuelve un array asociativo con el nombre del campo
+
+	$TotalPrecios = $fila['TotalPrecios'];
+
+
+
 
 	if ($result = $conexion->query("SELECT * FROM productos")) {
 
@@ -146,9 +154,9 @@ if (isset($_SESSION['ident'])) {
 
 							</table>
 						</div>
-						<!-- <div class="total">
-						<span><p>Total:</p> 245</span>
-					</div> -->
+						<div class="total">
+						<span><p>Total recaudado:</p> <?php echo $TotalPrecios ;?></span>
+					</div>
 				</div>
 			</article>
 
