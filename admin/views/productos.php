@@ -46,6 +46,7 @@ if (isset($_SESSION['ident'])) {
 		<title>VerduraSoft | Administración</title>
 		<link rel="stylesheet" href="../css/index.css">
 		<link rel="shortcut icon" href="../../public/img/favicon.png">
+		<link rel="stylesheet" href="../css/dataTables.css">
 		<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 	</head>
 	<body>
