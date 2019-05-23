@@ -25,7 +25,7 @@ else {
 			<link rel="shortcut icon" href="../../../public/img/favicon.png">
 
 			<!-- faltan los estilos para esta vista -->
-			<link rel="stylesheet" href="">
+			<link rel="stylesheet" href="../../css/editar_admin.css">
 
 			<link rel="shortcut icon" href="../../public/img/favicon.png">
 			<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
@@ -34,6 +34,7 @@ else {
 		<body>
 
 			<!-- Contenedor formulario -->
+		<div class="contenedortotalform">
 			<div class="container-formulario  registro" > <!-- mostrar-formulario -->
 				<form action="../../../controllers/admins/update.admin.php" method="post" class="form-register"   enctype="multipart/form-data"> <!-- mostrar-->
 					<div class="form-title">
@@ -50,7 +51,7 @@ else {
 							<div class="input-group">
 
 								<!-- nombres -->
-								<input type="text" placeholder="Nombres" name="nombre" maxlength="45" required value="<?php echo $fila['nombre']  ?>" >
+								<input type="text" class="nombre" placeholder="Nombres" name="nombre" maxlength="45" required value="<?php echo $fila['nombre']  ?>" >
 
 								<!-- apellidos -->
 								<input type="text" placeholder="Apellidos" name="apellido" maxlength="50" required value="<?php echo $fila['apellido']?>" >
@@ -75,13 +76,14 @@ else {
 								<input type="hidden" name="id" value="<?php echo $fila['id']  ?>" >
 
 								<!-- botones -->
-								<a href="../">Cancelar</a>
+								<a href="../admin.php" class="Cancelar">Cancelar</a>
 								<input type="submit" value="Actualizar">
 							</div>
 						</div>
 					</div>
 				</form>
 			</div>
+		</div>
 		</body>
 		</html>
 		<?php

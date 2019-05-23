@@ -46,6 +46,7 @@
 	<meta charset="UTF-8">
 	<title>VerduraSoft | Administración</title>
 	<link rel="stylesheet" href="../css/index.css">
+	<link rel="stylesheet" href="../css/dataTables.css">
 	<script src="../js/code_jquery.js"></script>
 	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 	<link rel="shortcut icon" href="../../public/img/favicon.png">
@@ -158,9 +159,6 @@
 								</tbody>
 							</table>
 						</div>
-						<!-- <div class="total">
-							<span><p>Total:</p> 245</span>
-						</div> -->
 					</div>
 			</article>
 
