@@ -418,7 +418,7 @@ section{
 
 .form-title{
 	width: 100%;
-	background-color: #E95420;
+	background-color: #05B329;
 	text-align: center;
 }
 
@@ -442,7 +442,7 @@ section{
 .form-content input{
 	padding: 10px 10px;
 	margin:5px;
-	outline-color: #E95420;
+	outline-color: #05B329;
 	font-size: 15px;
 	box-shadow: none;
 }
