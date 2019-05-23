@@ -123,7 +123,6 @@
 							<table border="1px" id="table_id">
 								<thead>
 									<tr>
-										<th>Cedula</th>
 										<th>Nombre</th>
 										<th>Apellido</th>
 										<th>Correo electrónico</th>
@@ -140,9 +139,6 @@
 									while ($mostrar2 = mysqli_fetch_array($consulta2)) {
 										?>
 										<tr>
-
-
-											<td><?php echo $mostrar2['id']; ?></td>
 											<td><?php echo $mostrar2['nombre']; ?></td>
 											<td><?php echo $mostrar2['apellido']; ?></td>
 											<td class="lower-case"><?php echo $mostrar2['email']; ?></td>
@@ -157,9 +153,6 @@
 										?>
 								</tbody>
 							</table>
-						</div>
-						<div class="total">
-							<span><p>Total:</p> 245</span>
 						</div>
 					</div>
 			</article>
@@ -230,11 +223,7 @@
 	<script src="../js/dataTables.js"></script>
 	<script src="../js/index.js"></script>
 	<script src="../js/user.js"></script>
-
-	<script>
-	$(document).ready( function () {
-		$('#table_id').DataTable();
-	} );
+	<script src="../js/config.js">
 	</script>
 </body>
 </html>

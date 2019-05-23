@@ -126,11 +126,11 @@ if (isset($_SESSION['ident'])) {
 										<th><img src="../img/borrar.svg" alt="Borrar"></th>
 									</tr>
 								</thead>
-									<?php
+								<?php
 
-									while ($mostrar2 = mysqli_fetch_array($consulta2)) {
+								while ($mostrar2 = mysqli_fetch_array($consulta2)) {
 
-										?>
+									?>
 									<tr>
 										<td> <?php echo $mostrar2['id']; ?> </td>
 										<td> <?php echo $mostrar2['nombre'];?> </td>
@@ -140,9 +140,9 @@ if (isset($_SESSION['ident'])) {
 										<td> <?php echo $mostrar2['estado'];?> </td>
 										<td class="center"><a href="../../controllers/admins/eliminar.admin.php?id=<?php echo $mostrar2['id'] ?>"><img src="../img/borrando.svg" ></a></td>
 									</tr>
-										<?php
-									}
-									?>
+									<?php
+								}
+								?>
 
 							</table>
 						</div>
@@ -190,11 +190,7 @@ if (isset($_SESSION['ident'])) {
 		<script src="../js/dataTables.js"></script>
 		<script src="../js/index.js"></script>
 		<script src="../js/admin.js"></script>
-
-		<script>
-		$(document).ready( function () {
-			$('#table_id').DataTable();
-		} );
+		<script src="../js/config.js">
 		</script>
 
 	</body>

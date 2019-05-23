@@ -262,7 +262,8 @@ $consulta2 = mysqli_query($conexion, $query2);
 	</div>
 	<footer>
 		<div class="Nombre">
-			<img src="./public/img/favicon.png" width="50px" class="logo">VerduraSoft</div>
+		<a href="./"><img src="./public/img/favicon.png" width="50px" class="logo"> VerduraSoft</a>	
+		</div>
 		<div class="contenido">
 			<li><a href="#inicio">Inicio</a></li>
 			<li><a href="#nosotros">Nosotros</a></li>

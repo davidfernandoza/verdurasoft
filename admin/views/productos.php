@@ -229,11 +229,7 @@ if (isset($_SESSION['ident'])) {
 			<script src="../js/dataTables.js"></script>
 			<script src="../js/index.js"></script>
 			<script src="../js/productos.js"></script>
-
-			<script>
-			$(document).ready( function () {
-				$('#table_id').DataTable();
-			} );
+			<script src="../js/config.js">
 			</script>
 
 		</body>

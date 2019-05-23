@@ -73,7 +73,8 @@ if(isset($_SESSION['id_usuario'])){
 			echo '<script languaje="javascript">
 			var mensaje ="La compra fue hecha, haz el pago en un Efecty con este codigo:' . $factura .' ";
 			alert(mensaje);
-			window.location.href= "../../public/views/carrito/factura.php"
+			window.location.href= "../../"
+			window.open("../../public/views/carrito/factura.php?factura='.$factura.'", "_blank")
 			</script>';
 		}
 		else {
