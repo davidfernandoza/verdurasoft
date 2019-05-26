@@ -8,8 +8,8 @@ $query= "SELECT * FROM admins WHERE id = '$id' AND estado = 'activo';";
 $consulta = mysqli_query($conexion, $query);
 
 if ($consulta->num_rows > 0){
-  $consulta = mysqli_fetch_row($consulta);
-  $hash_BD = $consulta[5];
+  $consulta = mysqli_fetch_array($consulta);
+  $hash_BD = $consulta['password'];
   if (password_verify($password, $hash_BD)) {
     session_start();
     session_destroy();

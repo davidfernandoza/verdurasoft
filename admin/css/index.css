@@ -349,7 +349,7 @@ section{
 
 
 .container-info .content-info table tr:hover td{
-	background-color:hsla(132, 97%, 36%, 0.4); 
+	background-color:hsla(132, 97%, 36%, 0.4);
 	color: #000;
 }
 
@@ -360,7 +360,7 @@ section{
 
 .container-info .total p{
 	padding: 10px 20px;
-	background-color: #E95420;
+	background-color: #05B329;
 	display: inline-block;
 	color:white;
 }

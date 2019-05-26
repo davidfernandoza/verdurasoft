@@ -1,56 +1,88 @@
-.dataTables_length{
-	margin-bottom: 10px;
+.container-info{
+	justify-content: flex-start;
+	align-items: flex-start;
 }
-.dataTables_filter{
+#ingresar-producto, #ingresar-admin, #ingresar-usuario{
+	position: absolute;
+	top: 50px;
+	left: 35px;
+	z-index: 100;
+}
+.dataTables_wrapper{
 	margin-bottom: 10px;
 	display: flex;
-	justify-content: center;
-	align-items: center;
-	margin-left: 70%;
+  width: 100%;
+  flex-wrap: wrap;
+
 }
+.dataTables_filter {
+	width: 100%;
+}
+.dataTables_filter label{
+	float: right;
+}
+
 .dataTables_filter input{
-	border-radius: 4px;
-	outline: none;
-	margin-left: 2px;
+margin: 0 10px 50px 0;
+padding: 10px 15px 10px 15px;
+border-radius: 50px;
+outline: 0;
+border: 0;
+font-size: 14px;
+width: 250px;
+transition: .5s;
 }
-.next{
-	background-color: #05B329;
-	color: #fff;
-	border-radius: 4px;
-	overflow: hidden;
-	border:1px solid #000;
-	padding: 5px 10px;
-	margin-right:10px;
+
+.dataTables_filter input:hover, .dataTables_filter input:focus {
+margin: 0 10px 50px 0;
+padding: 10px 15px 10px 15px;
+border-radius: 50px;
+outline: 0;
+border: 0;
+font-size: 14px;
+width: 260px;
+box-shadow: 5px 2px 6px grey;
 }
-.previous{
-	background-color: #05B329;
-	color: #fff;
-	border-radius: 4px;
-	overflow: hidden;
-	border:1px solid #000;
-	padding: 5px 10px;
-	margin-right:10px;
+
+
+.dataTable {
+  width: 100%;
+	margin-bottom: 18px;
+	background-color:  #ccc;
+	z-index: 150;
 }
-.next:hover{
-	background: #fff;
-	color: #000;
+
+
+.dataTables_info{
+	width: 50%;
 }
-.previous:hover{
-	background: #fff;
-	color: #000;
+.dataTables_paginate{
+	width: 50%;
+	display: flex;
+	justify-content: flex-end;
+	align-items: center;
+
 }
 .paginate_button{
-	padding: 2px;
+	padding: 7px;
 	background-color: #05B329;
 	color: #fff;
-	border-radius: 4px;
-	margin-right: 5px;
-	border:1px solid #000;
+	border-radius: 8px;
+	margin-right: 8px;
+	cursor:pointer;
+	position: relative;
+	right: 0px;
+	transition: .5s;
 }
-.dataTables_paginate {
-	margin: 25px 0;
+
+.paginate_button:hover{
+	background: #fff;
+	color: #000;
+	cursor:pointer;
+	box-shadow: 5px 2px 6px grey;
+
 }
-.dataTables_info{
-	margin: 15px 0;
+
+.no-mostrar{
+	display: none;
 }
-	

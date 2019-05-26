@@ -7,7 +7,6 @@ $email = $_POST['email'];
 $password = $_POST['password'];
 $confirPassword = $_POST['confirPassword'];
 $telefono = $_POST['telefono'];
-$estado = $_POST['estado'];
 $contador = 0;
 $destinoFoto = '';
 
@@ -32,7 +31,7 @@ else{
 			window.location.href= "../../admin/views/admin.php"
 			</script>';
 		}
-	
+
 	else{
 
 	if ($password == $confirPassword) {
@@ -62,7 +61,7 @@ else{
 		$password = password_hash($password, PASSWORD_BCRYPT, $opciones);
 
 		$query= "INSERT INTO admins(id, foto, nombre, apellido, email, password, telefono, estado)
-		VALUES('$id', '$destinoFoto', '$nombre', '$apellido', '$email', '$password', '$telefono', '$estado');";
+		VALUES('$id', '$destinoFoto', '$nombre', '$apellido', '$email', '$password', '$telefono', 'activo');";
 		$consulta= mysqli_query($conexion,$query);
 
 		if ($contador == 0) {

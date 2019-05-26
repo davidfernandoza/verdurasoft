@@ -7,18 +7,18 @@ $query= "SELECT * FROM usuarios WHERE email = '$email' AND estado = 'activo';";
 $consulta = mysqli_query($conexion, $query);
 
 if ($consulta->num_rows != 0) {
-  $consulta = mysqli_fetch_row($consulta);
-  $hash_BD = $consulta[4];
+  $consulta = mysqli_fetch_array($consulta);
+  $hash_BD = $consulta['password'];
 
   if (password_verify($password, $hash_BD)) {
     session_start();
     session_destroy();
     session_start();
-  	$_SESSION['id_usuario'] = $consulta[0];
-    $_SESSION['nombres'] = $consulta[1];
-    $_SESSION['apellidos'] = $consulta[2];
+  	$_SESSION['id_usuario'] = $consulta['id'];
+    $_SESSION['nombres'] = $consulta['nombre'];
+    $_SESSION['apellidos'] = $consulta['apellido'];
     echo '<script languaje="javascript">
-      var mensaje ="Bienvenido ' . $consulta[1] . ' ' . $consulta[2] .'";
+      var mensaje ="Bienvenido ' . $consulta['nombre'] . ' ' . $consulta['apellido'] .'";
       alert(mensaje);
       window.location.href= "../../"
       </script>';

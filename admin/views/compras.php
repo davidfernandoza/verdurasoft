@@ -9,7 +9,7 @@ if (isset($_SESSION['ident'])) {
 	$consulta = mysqli_query($conexion, $query);
 	$mostrar = mysqli_fetch_array($consulta);
 
-	$query2= "select c.id as id_compras, c.factura as factura, c.cantidad as cantidad, c.valor as valor, c.estado as estado, p.id as id_productos, p.nombre as nombre_productos, u.id as id_usuarios, u.nombre as nombre_usuarios from compras as c left join usuarios as u on u.id = c.usuarios_id left join productos as p on p.id = c.productos_id;";
+	$query2= "select c.fecha as fecha, c.id as id_compras, c.factura as factura, c.cantidad as cantidad, c.valor as valor, c.estado as estado, p.id as id_productos, p.nombre as nombre_productos, u.id as id_usuarios, u.nombre as nombre_usuarios from compras as c left join usuarios as u on u.id = c.usuarios_id left join productos as p on p.id = c.productos_id;";
 	$consulta2 = mysqli_query($conexion, $query2);
 
 	$consulta3 = "SELECT SUM(valor) as TotalPrecios FROM compras WHERE estado = 'activo' ";
@@ -128,9 +128,11 @@ if (isset($_SESSION['ident'])) {
 										<th>Producto</th>
 										<th>Factura</th>
 										<th>Cantidad</th>
-										<th>Valor Total</th>
+										<th>Subtotales</th>
 										<th>Estado</th>
+										<th>Fecha</th>
 										<th><img src="../img/borrar.svg" alt="Borrar"></th>
+										<th><img src="../img/check.svg" alt="Agregar"></th>
 									</tr>
 								</thead>
 								<?php
@@ -144,10 +146,15 @@ if (isset($_SESSION['ident'])) {
 										<td id="cantidad"><?php echo $mostrar2['cantidad']; ?></td>
 										<td id="valor"><?php echo $mostrar2['valor']; ?></td>
 										<td><?php echo $mostrar2['estado']; ?></td>
+										<td><?php
+											$fecha = date("d/m/Y", strtotime( $mostrar2['fecha'] ));
+										 echo $fecha ; ?></td>
 										<td class="center">
-											<a href="../../controllers/admins/eliminar.compras.php?id=<?php echo $mostrar2['id_compras']; ?>"><img src="../img/borrando.svg" class="eliminar-formulario" class="eliminar-formulario" alt="Eliminar">
+											<a href="../../controllers/admins/eliminar.compras.php?factura=<?php echo $mostrar2['factura']; ?>"><img src="../img/borrando.svg" class="eliminar-formulario" class="eliminar-formulario" alt="Eliminar">
 											</a>
 										</td>
+											<td class="center"><a href="../../controllers/admins/activar.compras.php?factura=<?php echo $mostrar2['factura'] ?>"><img src="../img/plus.svg" alt="Activar" class="activar-formulario"></a>
+											</td>
 									</tr>
 									<?php
 								}
@@ -156,7 +163,14 @@ if (isset($_SESSION['ident'])) {
 							</table>
 						</div>
 						<div class="total">
-						<span><p>Total recaudado:</p> <?php echo $TotalPrecios ;?></span>
+						<span><p>Total recaudado: <?php
+						if ($TotalPrecios) {
+							echo '$ ' . $TotalPrecios;
+						}
+						else{
+							echo '$ ' . 0;
+						}
+						 ;?></p> </span>
 					</div>
 				</div>
 			</article>

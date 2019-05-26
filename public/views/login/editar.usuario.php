@@ -56,14 +56,14 @@ else{
 				<h1>Editar usuario</h1>
 			</div>
 			<div class="campos">
-				<input type="text" placeholder="Escriba su nombre" name="nombre" class="full" value="<?php echo $consulta['nombre'] ?>" required maxlength="45">
-
-				<input type="text" placeholder="Escriba su apellido" name="apellido" value="<?php echo $consulta['apellido'] ?>" class="full" required maxlength="45">
-				<input type="email" placeholder="Escriba su correo" name="email" value="<?php echo $consulta['email'] ?>" class="full" required maxlength="150">
-				<input type="password" placeholder="Contraseña" name="password" class="full" required minlength="8" maxlength="16">
-				<input type="password" placeholder="Confirmar contraseña" name="confirPassword" class="full" minlength="8" maxlength="16" required>
-				<input type="text" placeholder="Escriba su dirección" value="<?php echo $consulta['direccion'] ?>" name="direccion" class="full" required maxlength="100">
-				<input type="number" placeholder="Escriba su telefono" value="<?php echo $consulta['telefono'] ?>" name="telefono" class="full" max="999999999999999" min="10000000">
+				<input type="number" placeholder="Cédula/Nit" title="Cédula/Nit" name="cc" class="full" required max="999999999999999" min="10000000" value="<?php echo $consulta['cc'] ?>">
+				<input type="text" placeholder="Nombres" title="Nombres" name="nombre" class="full" value="<?php echo $consulta['nombre'] ?>" required maxlength="45">
+				<input type="text" placeholder="Apellidos" name="apellido" title="Apellidos" value="<?php echo $consulta['apellido'] ?>" class="full" required maxlength="45">
+				<input type="email" placeholder="Correo Electrónico" title="Correo Electrónico" name="email" value="<?php echo $consulta['email'] ?>" class="full" required maxlength="150">
+				<input type="password" placeholder="Contraseña" title="Contraseña" name="password" class="full" required minlength="8" maxlength="16">
+				<input type="password" placeholder="Confirmar Contraseña" title="Confirmar Contraseña" name="confirPassword" class="full" minlength="8" maxlength="16" required>
+				<input type="text" placeholder="Dirección-Ciudad-Departamento" title="Dirección-Ciudad-Departamento" value="<?php echo $consulta['direccion'] ?>" name="direccion" class="full" required maxlength="100">
+				<input type="number" placeholder="Telefono/Celular" title="Telefono/Celular" value="<?php echo $consulta['telefono'] ?>" name="telefono" class="full" max="999999999999999" min="10000000">
 				<input type="hidden" name="id" value="<?php echo $consulta['id'] ?>">
 				<div class="envio">
 					<a href="../../../" value="Cancelar" id="cerrar-iniciar" class="Cancelar">Cancelar</a>

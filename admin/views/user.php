@@ -115,23 +115,23 @@
 			<article  class="container-article">
 					<div class="input-group">
 						<a href="#" id="ingresar-usuario">Ingresar usuario</a>
-						<form class="content-search" action="../index.html">
-							<input type="search" name="search" placeholder="Cedula de usuario">
-						</form>
 					</div>
 					<div class="container-info">
 						<div class="content-info">
 							<table border="1px" id="table_id">
 								<thead>
 									<tr>
+										<th>CC/NIT</th>
 										<th>Nombre</th>
 										<th>Apellido</th>
 										<th>Correo electrónico</th>
 										<th>Dirección</th>
-										<th>Télefono</th>
 										<th>Estado</th>
+										<th>Télefono</th>
 										<th><img src="../img/editar.svg" alt="Editar"></th>
 										<th><img src="../img/borrar.svg" alt="Borrar"></th>
+										<th><img src="../img/check.svg" alt="Agregar"></th>
+										<th class="no-mostrar">id</th>
 									</tr>
 								</thead>
 								<tbody>
@@ -140,14 +140,17 @@
 									while ($mostrar2 = mysqli_fetch_array($consulta2)) {
 										?>
 										<tr>
+											<td><?php echo $mostrar2['cc']; ?></td>
 											<td><?php echo $mostrar2['nombre']; ?></td>
 											<td><?php echo $mostrar2['apellido']; ?></td>
 											<td class="lower-case"><?php echo $mostrar2['email']; ?></td>
 											<td><?php echo $mostrar2['direccion']; ?></td>
-											<td><?php echo $mostrar2['telefono']; ?></td>
 											<td><?php echo $mostrar2['estado']; ?></td>
+											<td><?php echo $mostrar2['telefono']; ?></td>
 											<td class="center"><img src="../img/editando.svg" alt="Editando" class="editar-formulario"></td>
 											<td class="center"><a href="../../controllers/admins/eliminar.usuario.php?id=<?php echo $mostrar2['id']; ?>"><img src="../img/borrando.svg" alt="Eliminar" class="eliminar-formulario"></a></td>
+											<td class="center"><a href="../../controllers/admins/activar.usuario.php?id=<?php echo $mostrar2['id']; ?>"><img src="../img/plus.svg" alt="Activar" class="eliminar-formulario"></a></td>
+											<td class="no-mostrar"><?php echo $mostrar2['id']; ?></td>
 										</tr>
 											<?php
 										}
@@ -164,21 +167,22 @@
 
 	<div class="container-formulario  registro" id="content-form"> <!-- mostrar-formulario -->
 		<form action="../../controllers/admins/guardar.usuario.php" method="post" class="form-register" id="form-register"> <!-- mostrar-->
+
 			<div class="form-title">
 				<h1>Ingresar Usuario </h1>
 			</div>
 			<div class="form-content">
-				<input type="number" placeholder="Cedula" name="id" class="full" maxlength="12" required="">
+				<input type="number" placeholder="Cédula/Nit" name="cc" class="full" max="999999999999999" min="10000000" required="">
 				<div class="input-group">
-					<input type="text" placeholder="Nombres" name="nombre" required pattern="[A-Za-z]">
-					<input type="text" placeholder="Apellidos" name="apellido" required pattern="[A-Za-z]">
+					<input type="text" placeholder="Nombres" name="nombre" required  maxlength="45">
+					<input type="text" placeholder="Apellidos" name="apellido" required  maxlength="45">
 				</div>
-				<input type="email" class="full" placeholder="Correo electronico" name="email" required="">
-				<input type="text" class="full" placeholder="Direccion" name="direccion" required="">
-				<input type="number" class="full" placeholder="Celular" name="telefono" required="">
+				<input type="email" class="full" placeholder="Correo Electronico" name="email" required="" maxlength="150">
+				<input type="text" class="full" placeholder="Dirección-Ciudad-Departamento" name="direccion" required="" maxlength="100">
+				<input type="number" class="full" placeholder="Telefono/Celular" name="telefono" required="" max="999999999999999" min="10000000">
 				<div class="input-group">
-					<input type="password" placeholder="Contraseña" name="password" required="">
-					<input type="password" placeholder="Repetir contraseña" name="confirPassword" required="">
+					<input type="password" placeholder="Contraseña" name="password" required="" minlength="8" maxlength="16">
+					<input type="password" placeholder="Repetir Contraseña" name="confirPassword" required="" minlength="8" maxlength="16">
 				</div>
 				<div class="cta-group">
 					<input type="reset" value="Cancelar" id="cerrar-ingresar">
@@ -186,28 +190,31 @@
 				</div>
 			</div>
 		</form>
+
+<!-- Actualizar -->
 		<form action="../../controllers/admins/update.usuario.php" method="post" class="form-actualizar " id="form-actualizar" > <!-- mostrar -->
+
 			<div class="form-title">
 				<h1>Editar Usuario </h1>
 			</div>
+
 			<div class="form-content" id="form-content-actualizar">
-				<input type="text" placeholder="Cedula" name="id" class="full" readonly=""  >
+				<!-- cedula o nit -->
+				<input type="number" placeholder="Cédula/Nit" title="Cédula/Nit" name="cc" class="full" max="999999999999999" min="10000000" required="">
 				<div class="input-group">
-					<input type="text" placeholder="Nombres" name="nombre" required>
-					<input type="text" placeholder="Apellidos" name="apellido" required>
+					<!-- Nombre -->
+					<input type="text" placeholder="Nombres" name="nombre" title="Nombres" required  maxlength="45">
+					<!-- Apellidos -->
+					<input type="text" placeholder="Apellidos" name="apellido" title="Apellidos" required  maxlength="45">
 				</div>
-				<input type="email" class="full" placeholder="Correo electronico" name="email" required="">
-				<input type="text" class="full" placeholder="Direccion" name="direccion" required="">
-				<input type="number" class="full" placeholder="Celular" name="telefono" required="">
-				<div class="input-group select">
-					<label for="select">Estado:</label>
-					<select name="estado" id="" required="">
-						<option value="">Seleccione un estado</option>
-						<option value="Activo">Activo</option>
-						<option value="Inactivo">Inactivo</option>
-					</select>
-				</div>
+				<!-- email -->
+				<input type="email" class="full" placeholder="Correo Electronico" title="Correo Electronico" name="email" required="" maxlength="150">
+				<!-- Direccion -->
+				<input type="text" class="full" placeholder="Dirección-Ciudad-Departamento" title="Dirección-Ciudad-Departamento" name="direccion" required="" maxlength="100">
+				<!-- Telefono -->
+				<input type="number" class="full" placeholder="Telefono/Celular" title="Telefono/Celular" name="telefono" required="" max="999999999999999" min="10000000">
 				<div class="cta-group">
+					<input type="hidden" name="id" >
 					<input type="reset" value="Cancelar" id="cerrar-actualizar">
 					<input type="submit">
 				</div>
@@ -215,10 +222,6 @@
 		</form>
 
 	</div>
-
-
-
-
 
 	<script src="../../public/js/jquery.js"></script>
 	<script src="../js/dataTables.js"></script>

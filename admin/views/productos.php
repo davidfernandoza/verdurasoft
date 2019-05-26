@@ -128,6 +128,7 @@ if (isset($_SESSION['ident'])) {
 										<th>Estado</th>
 										<th><img src="../img/editar.svg" alt="Editar"></th>
 										<th><img src="../img/borrar.svg" alt="Borrar"></th>
+										<th><img src="../img/check.svg" alt="Agregar"></th>
 									</tr>
 								</thead>
 								<tbody>
@@ -144,6 +145,8 @@ if (isset($_SESSION['ident'])) {
 											<td class="center"><img src="../img/editando.svg" class="editar-formulario" class="eliminar-formulario" alt="Editando">
 											</td>
 											<td class="center"><a href="../../controllers/admins/eliminar.productos.php?id=<?php echo $mostrar2['id']; ?>"><img src="../img/borrando.svg" class="eliminar-formulario" class="eliminar-formulario" alt="Eliminar"></a></td>
+											<td class="center"><a href="../../controllers/admins/activar.productos.php?id=<?php echo $mostrar2['id'] ?>&cantidad=<?php echo $mostrar2['cantidad'] ?>"><img src="../img/plus.svg" alt="Activar" class="activar-formulario"></a>
+											</td>
 										</tr>
 										<?php
 									}
@@ -172,7 +175,7 @@ if (isset($_SESSION['ident'])) {
 					</div>
 					<div class="form-content" id="form-content-register">
 						<div class="input-group">
-							<input type="number" placeholder="codigo" name="id" required>
+							<input type="number" placeholder="Codigo" name="id" required>
 							<input type="text" placeholder="Nombre" name="nombre" required>
 						</div>
 						<input type="text" placeholder="Descripcion" name="descripcion" class="full" required>

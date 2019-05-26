@@ -124,6 +124,7 @@ if (isset($_SESSION['ident'])) {
 										<th>Teléfono</th>
 										<th>Estado</th>
 										<th><img src="../img/borrar.svg" alt="Borrar"></th>
+										<th><img src="../img/check.svg" alt="Agregar"></th>
 									</tr>
 								</thead>
 								<?php
@@ -139,6 +140,7 @@ if (isset($_SESSION['ident'])) {
 										<td> <?php echo $mostrar2['telefono'];?> </td>
 										<td> <?php echo $mostrar2['estado'];?> </td>
 										<td class="center"><a href="../../controllers/admins/eliminar.admin.php?id=<?php echo $mostrar2['id'] ?>"><img src="../img/borrando.svg" ></a></td>
+										<td class="center"><a href="../../controllers/admins/activar.admin.php?id=<?php echo $mostrar2['id'] ?>"><img src="../img/plus.svg" alt="Activar" class="activar-formulario"></a></td>
 									</tr>
 									<?php
 								}

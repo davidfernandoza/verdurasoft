@@ -2,6 +2,9 @@ $(document).ready( function () {
 
   $('#table_id').DataTable({
     "paging": true,
+    pageLength : 5,
+
+  // lengthMenu: [[5, 10, 20, -1], [5, 10, 20, 'Todos']],
     "lengthChange": false,
     "searching": true,
     "order": [[ 5, 'asc']],
