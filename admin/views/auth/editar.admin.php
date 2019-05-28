@@ -38,45 +38,56 @@ else {
 			<div class="container-formulario  registro" > <!-- mostrar-formulario -->
 				<form action="../../../controllers/admins/update.admin.php" method="post" class="form-register"   enctype="multipart/form-data"> <!-- mostrar-->
 					<div class="form-title">
-						<h1>Editar Administrador </h1>
+						<h1>Editar Perfil </h1>
 					</div>
 
 					<div class="container-formulario-img">
-						<div class="container-img">
 
-							<!-- elegir foto -->
-							<input type="file" name="foto" id="" placeholder="Tu foto">
+						<div class="container-img" id="container">
+							<div class="img_contenedor">
+								<img id="agregar_img" src="../../<?php echo $fila['foto']?>">
+							</div>
+							<input type="file" name="foto" id="agregar_foto" >
+
+							<!-- foto actual -->
+							<input type="hidden" name="foto_old" value="<?php echo $fila['foto']?>">
 						</div>
+
 						<div class="form-content">
+
+							<!-- id - cedula -->
+							<input type="number" placeholder="Cédula" name="id_new" max="999999999999999" min="1000000" required value="<?php echo $fila['id']  ?>" title="Cédula">
+							<input type="hidden" name="id" value="<?php echo $fila['id']  ?>" >
+
 							<div class="input-group">
 
 								<!-- nombres -->
-								<input type="text" class="nombre" placeholder="Nombres" name="nombre" maxlength="45" required value="<?php echo $fila['nombre']  ?>" >
+								<input type="text" class="nombre" placeholder="Nombres" name="nombre" maxlength="45" required value="<?php echo $fila['nombre']  ?>" title="Nombres">
 
 								<!-- apellidos -->
-								<input type="text" placeholder="Apellidos" name="apellido" maxlength="50" required value="<?php echo $fila['apellido']?>" >
+								<input type="text" placeholder="Apellidos" name="apellido" maxlength="50" required value="<?php echo $fila['apellido']?>" title="Apellidos">
 
 							</div>
 
 							<!-- Email -->
-							<input type="email" class="full" placeholder="Correo electrónico" name="email" maxlength="150" minlength="5" required value="<?php echo $fila['email']  ?>" >
+							<input type="email" class="full" placeholder="Correo electrónico" name="email" maxlength="150" minlength="5" required value="<?php echo $fila['email']  ?>" title="Correo Electrónico">
 
 							<!-- Telefono -->
-							<input type="number" placeholder="Telefono" class="full" name="telefono" max="999999999999999" min="1000000" required value="<?php echo $fila['telefono']  ?>">
+							<input type="number" placeholder="Telefono/Celular" class="full" name="telefono" max="999999999999999" min="1000000" required value="<?php echo $fila['telefono']  ?>" title="Telefono/Celular">
 							<div class="input-group">
 
 								<!-- password -->
-								<input type="password" placeholder="Contraseña" name="password" maxlength="16" minlength="8" required>
+								<input type="password" placeholder="Contraseña Actual" name="password" maxlength="16" minlength="8" required title="Contraseña Actual">
 
-								<!-- confirmar password -->
-								<input type="password" placeholder="Repetir contraseña" name="confirPassword" maxlength="16" minlength="8" required>
+								<input type="hidden" name="password_db" value="<?php echo $fila['password']?>" >
+
 							</div>
 							<div class="cta-group">
 								<!-- id oculto-->
 								<input type="hidden" name="id" value="<?php echo $fila['id']  ?>" >
 
 								<!-- botones -->
-								<a href="../admin.php" class="Cancelar">Cancelar</a>
+								<a href="../" class="Cancelar">Cancelar</a>
 								<input type="submit" value="Actualizar">
 							</div>
 						</div>
@@ -84,6 +95,39 @@ else {
 				</form>
 			</div>
 		</div>
+
+		<script src="../../../public/js/jquery.js"></script>
+		<script type="text/javascript">
+		$(window).on('load', function(){
+
+			$(function() {
+				$('#agregar_foto').change(function(e) {
+					addImage(e);
+				});
+
+
+				function addImage(e){
+					var file = e.target.files[0],
+					imageType = /image.*/;
+
+					if (!file.type.match(imageType))
+					return;
+
+					var reader = new FileReader();
+					reader.onload = fileOnload;
+					reader.readAsDataURL(file);
+				}
+
+				function fileOnload(e) {
+					var result=e.target.result;
+					$('#agregar_img').attr("src",result);
+				}
+
+			});
+
+		});
+
+		</script>
 		</body>
 		</html>
 		<?php

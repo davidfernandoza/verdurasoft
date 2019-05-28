@@ -4,13 +4,11 @@ $cc = $_POST['cc'];
 $nombre = $_POST['nombre'];
 $apellido = $_POST['apellido'];
 $email = $_POST['email'];
-$password = $_POST['password'];
-$confirPassword = $_POST['confirPassword'];
 $direccion = $_POST['direccion'];
 $telefono = $_POST['telefono'];
 
 
-// validar correo existente.
+// validar correo o cc existente.
 $query_validator = "SELECT * FROM usuarios WHERE email = '$email' or cc = '$cc'";
 $consulta_validator = mysqli_query($conexion, $query_validator);
 if ($consulta_validator->num_rows != 0) {
@@ -21,11 +19,10 @@ if ($consulta_validator->num_rows != 0) {
 	</script>';
 }
 else {
-	if ($password == $confirPassword) {
 
 		// Encriptar password
 		$opciones = [  'cost' => 12, ];
-		$password = password_hash($password, PASSWORD_BCRYPT, $opciones);
+		$password = password_hash($cc, PASSWORD_BCRYPT, $opciones);
 
 		$query= "INSERT INTO usuarios (id, cc, nombre, apellido, email, password, direccion, telefono, estado)VALUES('0', $cc, '$nombre', '$apellido', '$email' , '$password', '$direccion' , '$telefono', 'activo');";
 
@@ -45,14 +42,6 @@ else {
 			window.location.href= "../../admin/views/user.php"
 			</script>';
 		}
-	}
-	else {
-		echo '<script languaje="javascript">
-		var mensaje ="Las contraseñas no coinciden.";
-		alert(mensaje);
-		window.location.href= "../../admin/views/user.php"
-		</script>';
-	}
 }
 
 ?>

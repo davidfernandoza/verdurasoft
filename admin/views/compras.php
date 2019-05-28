@@ -88,8 +88,15 @@ if (isset($_SESSION['ident'])) {
 						</div>
 						<img class="icon" id="menu" src="../img/user-solid.svg">
 						<ul class="content-menu">
-							<li class="item"><a href="./auth/editar.admin.php?id= <?php echo $id?>" class="link">Editar perfil</a></li>
-							<li class="item"><a href="../../controllers/admins/session.salir.admin.php" class="link">Cerrar sesión</a></li>
+							<li class="item">
+								<a href="./auth/editar.admin.php?id= <?php echo $id?>" class="link">Editar perfil</a>
+							</li>
+							<li class="item">
+								<a href="./auth/editar.password.php?id= <?php echo $id?>" class="link">Cambiar Contraseña</a>
+							</li>
+							<li class="item">
+								<a href="../../controllers/admins/session.salir.admin.php" class="link">Cerrar Sesión</a>
+							</li>
 						</ul>
 					</div>
 				</nav>

@@ -34,7 +34,7 @@ else {
  *{
  	font-family: 'Verdana';
  }
-	.boton{
+	.boton, #atras{
 		margin-bottom: 50px;
 		margin-left: 5px;
 		margin-top:100px;
@@ -46,8 +46,9 @@ else {
 		font-size: 15px;
 		border: 1px solid #05B329;
 		font-weight: bold;
+		text-decoration: none;
 	}
-	.boton:hover{
+	.boton:hover, #atras:hover{
 		background-color: white;
 		color: #05B329;
 		cursor: pointer;
@@ -197,7 +198,17 @@ else {
 
 
 			</font>
+			<?php  ?>
+			<a id="atras" href="../../views/carrito/carrito.php">Atras</a>
 			<input class="boton" name="Imprimir" type="submit" value="Imprimir" onclick="this.style.visibility='hidden' ; print(); this.style.visibility=''"/>
 		</center>
+		<script type="text/javascript" src="../../js/browser.js">
+		</script>
+		<script type="text/javascript">
+			let atras = document.getElementById('atras');
+			if(bowser.name != "Firefox"){
+				atras.parentNode.removeChild(atras);
+			}
+		</script>
 	</body>
 	</html>

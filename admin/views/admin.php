@@ -77,8 +77,15 @@ if (isset($_SESSION['ident'])) {
 						</div>
 						<img class="icon" id="menu" src="../img/user-solid.svg">
 						<ul class="content-menu">
-							<li class="item"><a href="./auth/editar.admin.php?id= <?php echo $id?>" class="link">Editar perfil</a></li>
-							<li class="item"><a href="../../controllers/admins/session.salir.admin.php" class="link">Cerrar sesión</a></li>
+							<li class="item">
+								<a href="./auth/editar.admin.php?id= <?php echo $id?>" class="link">Editar perfil</a>
+							</li>
+							<li class="item">
+								<a href="./auth/editar.password.php?id= <?php echo $id?>" class="link">Cambiar Contraseña</a>
+							</li>
+							<li class="item">
+								<a href="../../controllers/admins/session.salir.admin.php" class="link">Cerrar Sesión</a>
+							</li>
 						</ul>
 					</div>
 				</nav>
@@ -161,8 +168,11 @@ if (isset($_SESSION['ident'])) {
 					<h1>Ingresar Administrador </h1>
 				</div>
 				<div class="container-formulario-img">
-					<div class="container-img">
-						<input type="file" name="foto" id="" placeholder="Tu foto">
+					<div class="container-img" id="container">
+						<div class="img_contenedor">
+							<img id="agregar_img" src="../img/avatar/defecto.png">
+						</div>
+						<input type="file" name="foto" id="agregar_foto" >
 					</div>
 					<div class="form-content">
 						<input type="number" placeholder="Cédula" name="id" class="full" maxlength="12" required="">
@@ -172,10 +182,6 @@ if (isset($_SESSION['ident'])) {
 						</div>
 						<input type="email" class="full" placeholder="Correo electrónico" name="email" maxlength="50" minlength="5" required="">
 						<input type="number" placeholder="Telefono" class="full" name="telefono" min="1000000" max="999999999999999" required="">
-						<div class="input-group">
-							<input type="password" placeholder="Contraseña" name="password" maxlength="16" minlength="8" required="">
-							<input type="password" placeholder="Repetir contraseña" name="confirPassword" maxlength="16" minlength="8" required="">
-						</div>
 						<div class="cta-group">
 							<input type="reset" value="Cancelar" id="cerrar_ingresar">
 							<input type="submit">
@@ -193,6 +199,41 @@ if (isset($_SESSION['ident'])) {
 		<script src="../js/index.js"></script>
 		<script src="../js/admin.js"></script>
 		<script src="../js/config.js">
+		</script>
+		<script type="text/javascript">
+		$(window).on('load', function(){
+
+			$(function() {
+				$('#agregar_foto').change(function(e) {
+					addImage(e);
+				});
+
+
+				function addImage(e){
+					var file = e.target.files[0],
+					imageType = /image.*/;
+
+					if (!file.type.match(imageType))
+					return;
+
+					var reader = new FileReader();
+					reader.onload = fileOnload;
+					reader.readAsDataURL(file);
+				}
+
+				function fileOnload(e) {
+					var result=e.target.result;
+					$('#agregar_img').attr("src",result);
+				}
+
+			});
+
+			let cerrar = document.getElementById('cerrar_ingresar')
+			cerrar.addEventListener('click', ()=>{
+				$('#agregar_img').attr("src", "../img/avatar/defecto.png");
+			})
+		});
+
 		</script>
 
 	</body>

@@ -1,0 +1,6 @@
+if($_FILES['imagefile']['type'] == "image/jpg"){
+
+   $gdImage = imagecreatefromjpeg("../".$value['logo']);//Logotipo JPG
+
+}
+if($_FILES["imagefile"]["type"] == "image/png"){

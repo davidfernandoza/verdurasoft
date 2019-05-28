@@ -80,8 +80,15 @@ if (isset($_SESSION['ident'])) {
 						</div>
 						<img class="icon" id="menu" src="../img/user-solid.svg">
 						<ul class="content-menu">
-							<li class="item"><a href="./auth/editar.admin.php?id= <?php echo $id?>" class="link">Editar perfil</a></li>
-							<li class="item"><a href="../../controllers/admins/session.salir.admin.php" class="link">Cerrar sesión</a></li>
+							<li class="item">
+								<a href="./auth/editar.admin.php?id= <?php echo $id?>" class="link">Editar perfil</a>
+							</li>
+							<li class="item">
+								<a href="./auth/editar.password.php?id= <?php echo $id?>" class="link">Cambiar Contraseña</a>
+							</li>
+							<li class="item">
+								<a href="../../controllers/admins/session.salir.admin.php" class="link">Cerrar Sesión</a>
+							</li>
 						</ul>
 					</div>
 				</nav>
@@ -123,12 +130,13 @@ if (isset($_SESSION['ident'])) {
 										<th>Codigo</th>
 										<th>Nombre</th>
 										<th>Descripción</th>
-										<th>Valor</th>
-										<th>Cantidad</th>
+										<th>Valor KG</th>
+										<th>Cantidad KG</th>
 										<th>Estado</th>
 										<th><img src="../img/editar.svg" alt="Editar"></th>
 										<th><img src="../img/borrar.svg" alt="Borrar"></th>
 										<th><img src="../img/check.svg" alt="Agregar"></th>
+										<th class="no-mostrar"></th>
 									</tr>
 								</thead>
 								<tbody>
@@ -147,6 +155,7 @@ if (isset($_SESSION['ident'])) {
 											<td class="center"><a href="../../controllers/admins/eliminar.productos.php?id=<?php echo $mostrar2['id']; ?>"><img src="../img/borrando.svg" class="eliminar-formulario" class="eliminar-formulario" alt="Eliminar"></a></td>
 											<td class="center"><a href="../../controllers/admins/activar.productos.php?id=<?php echo $mostrar2['id'] ?>&cantidad=<?php echo $mostrar2['cantidad'] ?>"><img src="../img/plus.svg" alt="Activar" class="activar-formulario"></a>
 											</td>
+											<td class="no-mostrar"><?php echo $mostrar2['foto']; ?></td>
 										</tr>
 										<?php
 									}
@@ -170,7 +179,10 @@ if (isset($_SESSION['ident'])) {
 				</div>
 				<div class="container-formulario-img">
 					<div class="container-img">
-						<input type="file" name="foto" id="" placeholder="Tu foto">
+						<div class="contenedor_img">
+							<img src="../../admin/img/productos/defecto.jpg" id="img_agregar">
+						</div>
+						<input type="file" name="foto" id="foto_agregar" placeholder="Tu foto">
 
 					</div>
 					<div class="form-content" id="form-content-register">
@@ -180,8 +192,8 @@ if (isset($_SESSION['ident'])) {
 						</div>
 						<input type="text" placeholder="Descripcion" name="descripcion" class="full" required>
 						<div class="input-group">
-							<input type="number" placeholder="Valor" name="valor" required>
-							<input type="number" placeholder="Cantidad" name="cantidad" required>
+							<input type="number" placeholder="Valor KG" name="valor" required>
+							<input type="number" placeholder="Cantidad KG" name="cantidad" required>
 						</div>
 						<input type="number" placeholder="Total" name="total" id="total" class="full">
 
@@ -200,25 +212,31 @@ if (isset($_SESSION['ident'])) {
 				<div class="form-title">
 					<h1>Editar producto </h1>
 				</div>
+
 				<div class="container-formulario-img">
 					<div class="container-img" id="container">
-						<img src="<?php echo '../'.$mostrar2[2]; ?>" alt="">
-						<input type="file" name="foto" id="" placeholder="Tu foto" >
+						<div class="contenedor_img">
+							<img id="img_editar">
+						</div>
+						<input type="file" name="foto" id="foto_editar" >
 					</div>
 					<div class="form-content" id="form-content-actualizar">
 						<div class="input-group">
 
-							<input type="text" placeholder="codigo" name="id" readonly="" required="" >
-							<input type="text" placeholder="nombre" name="nombre" required="">
+							<input type="text" placeholder="codigo" name="id" required="" title="Codigo" >
+							<input type="text" placeholder="nombre" name="nombre" required="" title="Nombre">
 						</div>
-						<input type="text" placeholder="Descripcion" name="descripcion" class="full">
+						<input type="text" placeholder="Descripcion" name="descripcion" class="full" title="Descripcion">
 						<div class="input-group">
-							<input type="number" placeholder="Valor" name="valor" required="">
-							<input type="number" placeholder="Cantidad" name="cantidad" required="">
+							<input type="number" placeholder="Valor KG" name="valor" required="" title="Valor KG">
+							<input type="number" placeholder="Cantidad KG" name="cantidad" required="" title="Cantidad KG">
 						</div>
-						<input type="number" placeholder="Total" class="full" name="total" id="total">
+						<input type="number" placeholder="Total" class="full" name="total" id="total" title="Total">
 
 						<div class="cta-group">
+							<input type="hidden" name="id_old">
+							<input type="hidden" name="nombre_old">
+							<input type="hidden" name="foto_old">
 							<input type="reset" value="Cancelar" id="cerrar_editar">
 							<input type="submit">
 
@@ -235,6 +253,62 @@ if (isset($_SESSION['ident'])) {
 			<script src="../js/productos.js"></script>
 			<script src="../js/config.js">
 			</script>
+			<script type="text/javascript">
+			$(window).on('load', function(){
+
+				$(function() {
+					$('#foto_agregar').change(function(e) {
+						addImage(e);
+					});
+
+					$('#foto_editar').change(function(e) {
+						addImageEdit(e);
+					});
+
+					function addImage(e){
+						var file = e.target.files[0],
+						imageType = /image.*/;
+
+						if (!file.type.match(imageType))
+						return;
+
+						var reader = new FileReader();
+						reader.onload = fileOnload;
+						reader.readAsDataURL(file);
+					}
+
+					function fileOnload(e) {
+						var result=e.target.result;
+						$('#img_agregar').attr("src",result);
+					}
+
+					function addImageEdit(e){
+						var file = e.target.files[0],
+						imageType = /image.*/;
+
+						if (!file.type.match(imageType))
+						return;
+
+						var reader = new FileReader();
+						reader.onload = fileOnloadEditar;
+						reader.readAsDataURL(file);
+					}
+
+					function fileOnloadEditar(e) {
+						var result=e.target.result;
+						$('#img_editar').attr("src",result);
+					}
+				});
+
+				let cerrar = document.getElementById('cerrar_ingresar')
+				cerrar.addEventListener('click', ()=>{
+					$('#img_agregar').attr("src",'../../admin/img/productos/defecto.jpg');
+				})
+			});
+
+			</script>
+
+
 
 		</body>
 		</html>

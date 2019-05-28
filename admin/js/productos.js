@@ -38,31 +38,54 @@ for (var i = document.getElementsByClassName('editar-formulario').length - 1; i 
 	document.getElementsByClassName('editar-formulario')[i].addEventListener('click', function(){
 		var text = this.parentElement.parentElement.childNodes
 
+		// Foto
+		document.getElementById('img_editar').src = '../' + text[19].innerHTML
+
+		// Codigo
 		document.getElementById('form-content-actualizar').childNodes[1].childNodes[1].value = text[1].innerHTML
+
+		// Nombre
 		document.getElementById('form-content-actualizar').childNodes[1].childNodes[3].value = text[3].innerHTML
+
+		// Descripcion
 		document.getElementById('form-content-actualizar').childNodes[3].value = text[5].innerHTML
+
+		// Valor
 		document.getElementById('form-content-actualizar').childNodes[5].childNodes[1].value = text[7].innerHTML
+
+		// Cantidad
 		document.getElementById('form-content-actualizar').childNodes[5].childNodes[3].value = text[9].innerHTML
+
+		// id hidden
+		document.getElementById('form-content-actualizar').childNodes[9].childNodes[1].value = text[1].innerHTML
+
+		// nombre hidden
+		document.getElementById('form-content-actualizar').childNodes[9].childNodes[3].value = text[3].innerHTML
+
+		// foto hidden
+		document.getElementById('form-content-actualizar').childNodes[9].childNodes[5].value = text[19].innerHTML
 
 		precio = document.getElementById('form-content-actualizar').childNodes[5].childNodes[1].value
 		cu = document.getElementById('form-content-actualizar').childNodes[5].childNodes[3].value
 
+
+
 		document.getElementById('form-content-actualizar').childNodes[7].value = precio * cu
-		
-		document.getElementById("content-formulario").classList.add("mostrar-formulario")		
+
+		document.getElementById("content-formulario").classList.add("mostrar-formulario")
 		document.getElementById("form-actualizar").classList.add("mostrar")
 	})
 }
 
 document.getElementById('form-actualizar').addEventListener('keyup',function(){
-	
+
 		precio = document.getElementById('form-content-actualizar').childNodes[5].childNodes[1].value
 		cu = document.getElementById('form-content-actualizar').childNodes[5].childNodes[3].value
 
 		document.getElementById('form-content-actualizar').childNodes[7].value = precio * cu
 })
 document.getElementById('form-content-register').addEventListener('keyup',function(){
-	
+
 		precio = document.getElementById('form-content-register').childNodes[5].childNodes[1].value
 		cu = document.getElementById('form-content-register').childNodes[5].childNodes[3].value
 
@@ -76,5 +99,3 @@ document.getElementById("cerrar_editar").addEventListener("click",function(){
 	document.getElementById("content-formulario").classList.remove("mostrar-formulario")
 	document.getElementById("form-actualizar").classList.remove("mostrar")
 })
-
-

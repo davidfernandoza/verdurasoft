@@ -82,8 +82,15 @@
     				</div>
 					<img class="icon" id="menu" src="../img/user-solid.svg">
 					<ul class="content-menu">
-						<li class="item"><a href="./auth/editar.admin.php?id= <?php echo $id?>" class="link">Editar perfil</a></li>
-						<li class="item"><a href="../../controllers/admins/session.salir.admin.php" class="link">Cerrar sesión</a></li>
+						<li class="item">
+							<a href="./auth/editar.admin.php?id= <?php echo $id?>" class="link">Editar perfil</a>
+						</li>
+						<li class="item">
+							<a href="./auth/editar.password.php?id= <?php echo $id?>" class="link">Cambiar Contraseña</a>
+						</li>
+						<li class="item">
+							<a href="../../controllers/admins/session.salir.admin.php" class="link">Cerrar Sesión</a>
+						</li>
 					</ul>
 				</div>
 			</nav>
@@ -180,10 +187,6 @@
 				<input type="email" class="full" placeholder="Correo Electronico" name="email" required="" maxlength="150">
 				<input type="text" class="full" placeholder="Dirección-Ciudad-Departamento" name="direccion" required="" maxlength="100">
 				<input type="number" class="full" placeholder="Telefono/Celular" name="telefono" required="" max="999999999999999" min="10000000">
-				<div class="input-group">
-					<input type="password" placeholder="Contraseña" name="password" required="" minlength="8" maxlength="16">
-					<input type="password" placeholder="Repetir Contraseña" name="confirPassword" required="" minlength="8" maxlength="16">
-				</div>
 				<div class="cta-group">
 					<input type="reset" value="Cancelar" id="cerrar-ingresar">
 					<input type="submit">

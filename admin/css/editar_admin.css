@@ -3,6 +3,27 @@
 	padding: 0;
 	box-sizing: border-box;
 }
+
+.container-img{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.img_contenedor{
+	overflow: hidden;
+	position: relative;
+	top: -20px;
+	border-radius: 50%;
+	width: 200px;
+	height: 200px;
+	border: 1px solid grey;
+}
+.img_contenedor img{
+	width: 210px;
+	height: 210px;
+}
+
 .contenedortotalform{
 	width: 100%;
 	height: 100vh;
@@ -14,12 +35,17 @@
 	align-items: center;
 
 }
+
+
 .registro{
 	background: #fff;
 	border-radius: 4px;
 	overflow: hidden;
 	width: 600px;
 	height: 380px;
+	display:flex;
+	flex-direction: column;
+	justify-content: space-between;
 }
 .form-title{
 	background: #05B329;
@@ -47,7 +73,6 @@
 .container-formulario-img .container-img img{
 	padding-bottom: 10px;
 	display: block;
-	width: 400px;
 }
 .form-content input{
 	margin: 8px;

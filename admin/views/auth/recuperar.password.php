@@ -1,7 +1,12 @@
 <?php
 session_start();
-session_destroy();
- ?>
+if (isset($_SESSION['ident'])) {
+	echo '<script languaje="javascript">
+	window.location.href= "../"
+	</script>';
+}
+else {
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -40,3 +45,6 @@ session_destroy();
 	<script src="../../js/login.js"></script>
 </body>
 </html>
+<?php
+}
+ ?>

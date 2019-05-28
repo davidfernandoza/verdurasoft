@@ -70,12 +70,20 @@ if(isset($_SESSION['id_usuario'])){
 
 			}
 
-			echo '<script languaje="javascript">
+			echo '
+			<script src="../../public/js/browser.js"></script>
+			<script languaje="javascript">
 			var mensaje ="La solicitud de compra fue hecha, haz el pago en un Efecty con la siguiente factura.";
 			alert(mensaje);
-			window.location.href= "../../"
-			window.open("../../public/views/carrito/factura.php?factura='.$factura.'", "_blank")
+			if (bowser.name == "Firefox") {
+				window.location.href= "../../public/views/carrito/factura.php?factura='.$factura.'"
+			}
+			else {
+				window.location.href= "../../"
+				window.open("../../public/views/carrito/factura.php?factura='.$factura.'", "_blank")
+			}
 			</script>';
+
 		}
 		else {
 			echo 'none';

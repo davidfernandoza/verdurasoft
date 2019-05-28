@@ -46,7 +46,7 @@ CREATE TABLE `admins` (
 --
 
 INSERT INTO `admins` (`id`, `foto`, `nombre`, `apellido`, `email`, `password`, `telefono`, `estado`) VALUES
-(1093225188, '/img/avatar/david.jpg', 'David Fernando', 'Torres Zapata (ADMIN)', 'fernando.zapata.live@gmail.com', '$2y$12$hTqhz5Yjd8YiLQgb7.BBsev1FKy7.v8seO.uY0J7No/.tFQqVb5uS', '3107148905', 'activo');
+(1093225188, 'img/avatar/david.jpg', 'David Fernando', 'Torres Zapata (ADMIN)', 'fernando.zapata.live@gmail.com', '$2y$12$hTqhz5Yjd8YiLQgb7.BBsev1FKy7.v8seO.uY0J7No/.tFQqVb5uS', '3107148905', 'activo');
 
 -- --------------------------------------------------------
 

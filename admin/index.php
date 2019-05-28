@@ -1,3 +1,12 @@
+<?php
+session_start();
+if (isset($_SESSION['ident'])) {
+	echo '<script languaje="javascript">
+	window.location.href= "./views/"
+	</script>';
+}
+else {
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -41,3 +50,7 @@
 	<script src="./js/login.js"></script>
 </body>
 </html>
+
+<?php
+}
+ ?>
