@@ -179,14 +179,14 @@
 				<h1>Ingresar Usuario </h1>
 			</div>
 			<div class="form-content">
-				<input type="number" placeholder="Cédula/Nit" name="cc" class="full" max="999999999999999" min="10000000" required="">
+				<input type="number" placeholder="Cédula/Nit" name="cc" class="full" max="999999999999" min="10000" required="">
 				<div class="input-group">
-					<input type="text" placeholder="Nombres" name="nombre" required  maxlength="45">
-					<input type="text" placeholder="Apellidos" name="apellido" required  maxlength="45">
+					<input type="text" placeholder="Nombres" name="nombre" required  maxlength="44">
+					<input type="text" placeholder="Apellidos" name="apellido" required  maxlength="44">
 				</div>
-				<input type="email" class="full" placeholder="Correo Electronico" name="email" required="" maxlength="150">
-				<input type="text" class="full" placeholder="Dirección-Ciudad-Departamento" name="direccion" required="" maxlength="100">
-				<input type="number" class="full" placeholder="Telefono/Celular" name="telefono" required="" max="999999999999999" min="10000000">
+				<input type="email" class="full" placeholder="Correo Electronico" name="email" required="" maxlength="149">
+				<input type="text" class="full" placeholder="Dirección-Ciudad-Departamento" name="direccion" required="" maxlength="99">
+				<input type="number" class="full" placeholder="Telefono/Celular" name="telefono" required="" max="99999999999999" min="10000000">
 				<div class="cta-group">
 					<input type="reset" value="Cancelar" id="cerrar-ingresar">
 					<input type="submit">
@@ -203,19 +203,19 @@
 
 			<div class="form-content" id="form-content-actualizar">
 				<!-- cedula o nit -->
-				<input type="number" placeholder="Cédula/Nit" title="Cédula/Nit" name="cc" class="full" max="999999999999999" min="10000000" required="">
+				<input type="number" placeholder="Cédula/Nit" title="Cédula/Nit" name="cc" class="full" max="999999999999" min="10000" required="">
 				<div class="input-group">
 					<!-- Nombre -->
-					<input type="text" placeholder="Nombres" name="nombre" title="Nombres" required  maxlength="45">
+					<input type="text" placeholder="Nombres" name="nombre" title="Nombres" required  maxlength="44">
 					<!-- Apellidos -->
-					<input type="text" placeholder="Apellidos" name="apellido" title="Apellidos" required  maxlength="45">
+					<input type="text" placeholder="Apellidos" name="apellido" title="Apellidos" required  maxlength="44">
 				</div>
 				<!-- email -->
-				<input type="email" class="full" placeholder="Correo Electronico" title="Correo Electronico" name="email" required="" maxlength="150">
+				<input type="email" class="full" placeholder="Correo Electronico" title="Correo Electronico" name="email" required="" maxlength="149">
 				<!-- Direccion -->
-				<input type="text" class="full" placeholder="Dirección-Ciudad-Departamento" title="Dirección-Ciudad-Departamento" name="direccion" required="" maxlength="100">
+				<input type="text" class="full" placeholder="Dirección-Ciudad-Departamento" title="Dirección-Ciudad-Departamento" name="direccion" required="" maxlength="99">
 				<!-- Telefono -->
-				<input type="number" class="full" placeholder="Telefono/Celular" title="Telefono/Celular" name="telefono" required="" max="999999999999999" min="10000000">
+				<input type="number" class="full" placeholder="Telefono/Celular" title="Telefono/Celular" name="telefono" required="" max="99999999999999" min="10000000">
 				<div class="cta-group">
 					<input type="hidden" name="id" >
 					<input type="reset" value="Cancelar" id="cerrar-actualizar">

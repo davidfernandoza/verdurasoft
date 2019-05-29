@@ -41,7 +41,7 @@ if ($consulta->num_rows != 0) {
     }
     else{
       echo '<script languaje="javascript">
-      var mensaje ="Problemas al enviar la contraseña a su correo, intenta mas tarde.";
+      var mensaje ="Hubo un problema al enviar la contraseña a su correo, intenta mas tarde.";
       alert(mensaje);
       window.location.href= "../../public/views/login/password.usuario.php"
       </script>';

@@ -7,8 +7,6 @@ $cc = $_POST['cc'];
 $nombre = $_POST['nombre'];
 $apellido = $_POST['apellido'];
 $email = $_POST['email'];
-$password = $_POST['password'];
-$confirPassword = $_POST['confirPassword'];
 $direccion = $_POST['direccion'];
 $telefono = $_POST['telefono'];
 
@@ -43,39 +41,24 @@ if ($consulta_validator->num_rows != 0) {
 
 }
 
+$query= "UPDATE usuarios SET cc = '$cc', nombre = '$nombre', apellido = '$apellido', email = '$email', direccion = '$direccion', telefono = '$telefono', estado = 'activo' WHERE id ='$id';";
 
-	if ($password == $confirPassword) {
-
-		$opciones = [  'cost' => 12, ];
-		$password = password_hash($password, PASSWORD_BCRYPT, $opciones);
-
-		$query= "UPDATE usuarios SET nombre = '$nombre', apellido = '$apellido', email = '$email', password = '$password', direccion = '$direccion', telefono = '$telefono', estado = 'activo' WHERE id ='$id';";
-
-		$consulta = mysqli_query($conexion,$query);
-		if ($consulta) {
-			$_SESSION['nombres'] = $nombre;
-			$_SESSION['apellidos'] = $apellido;
-			echo '<script languaje="javascript">
-			var mensaje ="Usuario editado correctamente.";
-			alert(mensaje);
-			window.location.href= "../../"
-			</script>';
-		}
-		else {
-			echo '<script languaje="javascript">
-			var mensaje ="Problemas al editar el usuario, intentalo mas tarde.";
-			alert(mensaje);
-			window.location.href= "../../public/views/login/editar.usuario.php?id='.$id.'"
-			</script>';
-		}
-
-	}
-	else {
-		echo '<script languaje="javascript">
-		var mensaje ="Las contraseñas no coinciden.";
-		alert(mensaje);
-		window.location.href= "../../public/views/login/editar.usuario.php?id='.$id.'"
-		</script>';
-	}
+$consulta = mysqli_query($conexion,$query);
+if ($consulta) {
+	$_SESSION['nombres'] = $nombre;
+	$_SESSION['apellidos'] = $apellido;
+	echo '<script languaje="javascript">
+	var mensaje ="Usuario editado correctamente.";
+	alert(mensaje);
+	window.location.href= "../../"
+	</script>';
+}
+else {
+	echo '<script languaje="javascript">
+	var mensaje ="Hubo un problema al editar el usuario, intentalo mas tarde.";
+	alert(mensaje);
+	window.location.href= "../../public/views/login/editar.usuario.php?id='.$id.'"
+	</script>';
+}
 
 ?>

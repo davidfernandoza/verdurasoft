@@ -34,7 +34,7 @@ if(isset($_SESSION['id_usuario'])){
 			</ul>
 			<div>
 				<a class="usuario_log" href="../login/login.usuario.php">
-				<img src="../../../admin/img/avatar/defecto.png" width="30">
+				<img src="../../../admin/img/avatar/defecto/defecto.png" width="30">
 				<p class="name-user">Iniciar sesión</p>
 				</a>
 			</div>

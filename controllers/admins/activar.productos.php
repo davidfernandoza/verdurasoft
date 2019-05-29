@@ -8,14 +8,14 @@ if ($cantidad > 0) {
 	$consulta= mysqli_query($conexion,$query);
 	if ($consulta) {
 		echo '<script languaje="javascript">
-		var mensaje ="El producto fue ACTIVADO correctamente";
+		var mensaje ="El producto fue activado correctamente";
 		alert(mensaje);
 		window.location.href= "../../admin/views/productos.php"
 		</script>';
 	}
 	else {
 		echo '<script languaje="javascript">
-		var mensaje ="El producto no se pudo ACTIVAR, intenta mas tarde.";
+		var mensaje ="El producto no se pudo activar, intenta mas tarde.";
 		alert(mensaje);
 		window.location.href= "../../admin/views/productos.php"
 		</script>';
@@ -23,7 +23,7 @@ if ($cantidad > 0) {
 }
 else {
 	echo '<script languaje="javascript">
-	var mensaje ="El producto no se puede ACTIVAR ya que no existen unidades.";
+	var mensaje ="El producto no se puede activar ya que no existen unidades.";
 	alert(mensaje);
 	window.location.href= "../../admin/views/productos.php"
 	</script>';

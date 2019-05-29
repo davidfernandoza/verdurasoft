@@ -56,35 +56,33 @@ else {
 						<div class="form-content">
 
 							<!-- id - cedula -->
-							<input type="number" placeholder="Cédula" name="id_new" max="999999999999999" min="1000000" required value="<?php echo $fila['id']  ?>" title="Cédula">
+							<input type="number" placeholder="Cédula" name="cc_new" max="999999999999" min="100000" required value="<?php echo $fila['cc']  ?>" title="Cédula">
+							<input type="hidden" name="cc" value="<?php echo $fila['cc']  ?>" >
 							<input type="hidden" name="id" value="<?php echo $fila['id']  ?>" >
-
 							<div class="input-group">
 
 								<!-- nombres -->
-								<input type="text" class="nombre" placeholder="Nombres" name="nombre" maxlength="45" required value="<?php echo $fila['nombre']  ?>" title="Nombres">
+								<input type="text" class="nombre" placeholder="Nombres" name="nombre" maxlength="44" required value="<?php echo $fila['nombre']  ?>" title="Nombres">
 
 								<!-- apellidos -->
-								<input type="text" placeholder="Apellidos" name="apellido" maxlength="50" required value="<?php echo $fila['apellido']?>" title="Apellidos">
+								<input type="text" placeholder="Apellidos" name="apellido" maxlength="44" required value="<?php echo $fila['apellido']?>" title="Apellidos">
 
 							</div>
 
 							<!-- Email -->
-							<input type="email" class="full" placeholder="Correo electrónico" name="email" maxlength="150" minlength="5" required value="<?php echo $fila['email']  ?>" title="Correo Electrónico">
+							<input type="email" class="full" placeholder="Correo electrónico" name="email" maxlength="149" minlength="5" required value="<?php echo $fila['email']  ?>" title="Correo Electrónico">
 
 							<!-- Telefono -->
-							<input type="number" placeholder="Telefono/Celular" class="full" name="telefono" max="999999999999999" min="1000000" required value="<?php echo $fila['telefono']  ?>" title="Telefono/Celular">
+							<input type="number" placeholder="Telefono/Celular" class="full" name="telefono" max="99999999999999" min="1000000" required value="<?php echo $fila['telefono']  ?>" title="Telefono/Celular">
 							<div class="input-group">
 
 								<!-- password -->
-								<input type="password" placeholder="Contraseña Actual" name="password" maxlength="16" minlength="8" required title="Contraseña Actual">
+								<input type="password" placeholder="Contraseña Actual" name="password" required title="Contraseña Actual">
 
 								<input type="hidden" name="password_db" value="<?php echo $fila['password']?>" >
 
 							</div>
 							<div class="cta-group">
-								<!-- id oculto-->
-								<input type="hidden" name="id" value="<?php echo $fila['id']  ?>" >
 
 								<!-- botones -->
 								<a href="../" class="Cancelar">Cancelar</a>

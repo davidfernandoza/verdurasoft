@@ -7,6 +7,7 @@ $consulta1 = mysqli_query($conexion, $query1);
 
 $query2 = "SELECT * FROM productos LIMIT 5, 4";
 $consulta2 = mysqli_query($conexion, $query2);
+
 ?>
 
 <!DOCTYPE html>
@@ -48,14 +49,14 @@ $consulta2 = mysqli_query($conexion, $query2);
 					</li>
 				<?php }else{?>
 					<li class="nav-item">
-						<a class="nav-link" href="./controllers/public/session.salir.usuario.php">Cerrar sesion</a>
+						<a class="nav-link" href="./controllers/public/session.salir.usuario.php">Cerrar Sesión</a>
 					</li>
 
 				<?php }?>
 			</ul>
 			<div>
 				<a class="usuario_log" href="./public/views/login/login.usuario.php">
-					<img src="./admin/img/avatar/defecto.png" width="30">
+					<img src="./admin/img/avatar/defecto/defecto.png" width="30">
 				<?php
 				if(isset($_SESSION['id_usuario'])){
 				?>
@@ -179,16 +180,16 @@ $consulta2 = mysqli_query($conexion, $query2);
 		</div>
 		<div class="galeria_linea1">
 			<?php
-			while($fila = mysqli_fetch_row($consulta1)){
-	      if ($fila[5] > 0) {
+			while($fila = mysqli_fetch_array($consulta1)){
+	      if ($fila['cantidad'] > 0) {
 	    ?>
 			<ul class="content-img">
 				<div class="img">
-					<img src="<?php echo './admin/'.$fila[2] ?>" alt="foto-<?php echo $fila[3] ?>">
+					<img src="<?php echo './admin/'.$fila['foto'] ?>" alt="foto-<?php echo $fila['nombre'] ?>">
 				</div>
 				<div class="content">
-					<span><?php echo $fila[3] ?></span>
-					<p><?php echo $fila[6] ?> COP</p>
+					<span><?php echo $fila['nombre'] ?></span>
+					<p><?php echo $fila['valor'] ?></p>
 				</div>
 			</ul>
 			<?php
@@ -199,16 +200,16 @@ $consulta2 = mysqli_query($conexion, $query2);
 
 		<div class="galeria_linea2">
 			<?php
-			while($fila2 = mysqli_fetch_row($consulta2)){
-	      if ($fila2[5] > 0) {
+			while($fila2 = mysqli_fetch_array($consulta2)){
+	      if ($fila2['cantidad'] > 0) {
 	    ?>
 			<ul class="content-img">
 				<div class="img">
-					<img src="<?php echo './admin/'.$fila2[2] ?>" alt="foto-<?php echo $fila2[3] ?>">
+					<img src="<?php echo './admin/'.$fila2['foto'] ?>" alt="foto-<?php echo $fila2['nombre'] ?>">
 				</div>
 				<div class="content">
-					<span><?php echo $fila2[3] ?></span>
-					<p><?php echo $fila2[6] ?> COP</p>
+					<span><?php echo $fila2['nombre'] ?></span>
+					<p><?php echo $fila2['valor'] ?></p>
 				</div>
 			</ul>
 			<?php

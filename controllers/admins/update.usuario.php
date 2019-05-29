@@ -40,8 +40,7 @@ if ($consulta_validator->num_rows != 0) {
 
 }
 
-
-		$query= "UPDATE usuarios SET nombre = '$nombre', apellido = '$apellido', email = '$email', direccion = '$direccion', telefono = '$telefono', estado = 'activo' WHERE id ='$id';";
+		$query= "UPDATE usuarios SET cc = '$cc', nombre = '$nombre', apellido = '$apellido', email = '$email', direccion = '$direccion', telefono = '$telefono', estado = 'activo' WHERE id ='$id';";
 
 		$consulta = mysqli_query($conexion,$query);
 		if ($consulta) {
@@ -53,7 +52,7 @@ if ($consulta_validator->num_rows != 0) {
 		}
 		else {
 			echo '<script languaje="javascript">
-			var mensaje ="Problemas al editar el usuario, intentalo mas tarde.";
+			var mensaje ="Hubo un problema al editar el usuario, intentalo mas tarde.";
 			alert(mensaje);
 			window.location.href= "../../admin/views/user.php"
 			</script>';

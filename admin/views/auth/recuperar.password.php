@@ -28,7 +28,7 @@ else {
 				<h1 class="h3">Recuperar contraseña</h1>
 			</div>
 			<div class="campos">
-				<input type="number" placeholder="Cédula" name="id" class="full" required max="99999999999" min="0">
+				<input type="number" placeholder="Cédula" name="id" class="full" required max="999999999999" min="100000">
 				<div class="envio">
 					<a href="../../" value="Cancelar" id="cerrar-iniciar" class="Cancelar">Cancelar</a>
 					<input type="submit" value="Enviar" class="enviar">

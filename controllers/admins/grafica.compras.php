@@ -1,6 +1,5 @@
 <?php
 require('../conexion.php');
-// $query = "SELECT * FROM compras ";
 
 $query = "SELECT SUM(c.valor) AS valor, DATE_FORMAT(c.fecha, '%d/%m/%Y') AS fecha FROM compras AS c WHERE estado = 'activo' GROUP BY fecha";
 $consulta = mysqli_query($conexion, $query);

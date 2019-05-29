@@ -18,7 +18,7 @@ if ($consulta->num_rows != 0) {
     $_SESSION['nombres'] = $consulta['nombre'];
     $_SESSION['apellidos'] = $consulta['apellido'];
     echo '<script languaje="javascript">
-      var mensaje ="Bienvenido ' . $consulta['nombre'] . ' ' . $consulta['apellido'] .'";
+      var mensaje ="Hola ' . $consulta['nombre'] . ' ' . $consulta['apellido'] .'";
       alert(mensaje);
       window.location.href= "../../"
       </script>';

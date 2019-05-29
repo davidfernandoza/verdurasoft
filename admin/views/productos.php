@@ -137,6 +137,7 @@ if (isset($_SESSION['ident'])) {
 										<th><img src="../img/borrar.svg" alt="Borrar"></th>
 										<th><img src="../img/check.svg" alt="Agregar"></th>
 										<th class="no-mostrar"></th>
+										<th class="no-mostrar"></th>
 									</tr>
 								</thead>
 								<tbody>
@@ -144,8 +145,8 @@ if (isset($_SESSION['ident'])) {
 									while ($mostrar2 = mysqli_fetch_array($consulta2)) {
 										?>
 										<tr>
-											<td> <?php echo $mostrar2['id']; ?></td>
-											<td> <?php echo $mostrar2['nombre']; ?></td>
+											<td><?php echo $mostrar2['codigo']; ?></td>
+											<td><?php echo $mostrar2['nombre']; ?></td>
 											<td><?php echo $mostrar2['descripcion']; ?> </td>
 											<td class="lower-case"><?php echo $mostrar2['valor']; ?></td>
 											<td><?php echo $mostrar2['cantidad']; ?></td>
@@ -156,6 +157,7 @@ if (isset($_SESSION['ident'])) {
 											<td class="center"><a href="../../controllers/admins/activar.productos.php?id=<?php echo $mostrar2['id'] ?>&cantidad=<?php echo $mostrar2['cantidad'] ?>"><img src="../img/plus.svg" alt="Activar" class="activar-formulario"></a>
 											</td>
 											<td class="no-mostrar"><?php echo $mostrar2['foto']; ?></td>
+											<td class="no-mostrar"><?php echo $mostrar2['id']; ?></td>
 										</tr>
 										<?php
 									}
@@ -180,22 +182,22 @@ if (isset($_SESSION['ident'])) {
 				<div class="container-formulario-img">
 					<div class="container-img">
 						<div class="contenedor_img">
-							<img src="../../admin/img/productos/defecto.jpg" id="img_agregar">
+							<img src="../../admin/img/productos/defecto/defecto.jpg" id="img_agregar">
 						</div>
 						<input type="file" name="foto" id="foto_agregar" placeholder="Tu foto">
 
 					</div>
 					<div class="form-content" id="form-content-register">
 						<div class="input-group">
-							<input type="number" placeholder="Codigo" name="id" required>
-							<input type="text" placeholder="Nombre" name="nombre" required>
+							<input type="number" placeholder="Codigo" name="id" required max="99999999999999" min="1">
+							<input type="text" placeholder="Nombre" name="nombre" required maxlength="44">
 						</div>
-						<input type="text" placeholder="Descripcion" name="descripcion" class="full" required>
-						<div class="input-group">
-							<input type="number" placeholder="Valor KG" name="valor" required>
-							<input type="number" placeholder="Cantidad KG" name="cantidad" required>
+						<input type="text" placeholder="Descripcion" name="descripcion" class="full" required maxlength="299">
+						<div class="input-group valor_cantidad">
+							<input type="number" placeholder="Valor KG" name="valor" required  max="9999999999" min="0">
+							<input type="number" placeholder="Cantidad KG" name="cantidad" required  max="9999999999" min="0">
 						</div>
-						<input type="number" placeholder="Total" name="total" id="total" class="full">
+						<input type="number" placeholder="Total" name="total" id="total" class="full" readonly>
 
 						<input type="hidden" name="admin_id" value="<?php echo $mostrar['id']; ?>">
 
@@ -223,20 +225,21 @@ if (isset($_SESSION['ident'])) {
 					<div class="form-content" id="form-content-actualizar">
 						<div class="input-group">
 
-							<input type="text" placeholder="codigo" name="id" required="" title="Codigo" >
-							<input type="text" placeholder="nombre" name="nombre" required="" title="Nombre">
+							<input type="text" placeholder="codigo" name="codigo" required="" title="Codigo" max="999999999999" min="1">
+							<input type="text" placeholder="nombre" name="nombre" required="" title="Nombre" maxlength="44">
 						</div>
-						<input type="text" placeholder="Descripcion" name="descripcion" class="full" title="Descripcion">
-						<div class="input-group">
-							<input type="number" placeholder="Valor KG" name="valor" required="" title="Valor KG">
-							<input type="number" placeholder="Cantidad KG" name="cantidad" required="" title="Cantidad KG">
+						<input type="text" placeholder="Descripcion" name="descripcion" class="full" title="Descripcion" maxlength="299">
+						<div class="input-group valor_cantidad">
+							<input type="number" placeholder="Valor KG" name="valor" required="" title="Valor KG" max="9999999999" min="0">
+							<input type="number" placeholder="Cantidad KG" name="cantidad" required="" title="Cantidad KG" maxlength="9999999999" min="0">
 						</div>
-						<input type="number" placeholder="Total" class="full" name="total" id="total" title="Total">
+						<input type="number" placeholder="Total" class="full" name="total" id="total" title="Total" readonly>
 
 						<div class="cta-group">
-							<input type="hidden" name="id_old">
+							<input type="hidden" name="codigo_old">
 							<input type="hidden" name="nombre_old">
 							<input type="hidden" name="foto_old">
+							<input type="hidden" name="id">
 							<input type="reset" value="Cancelar" id="cerrar_editar">
 							<input type="submit">
 
@@ -302,7 +305,7 @@ if (isset($_SESSION['ident'])) {
 
 				let cerrar = document.getElementById('cerrar_ingresar')
 				cerrar.addEventListener('click', ()=>{
-					$('#img_agregar').attr("src",'../../admin/img/productos/defecto.jpg');
+					$('#img_agregar').attr("src",'../../admin/img/productos/defecto/defecto.jpg');
 				})
 			});
 

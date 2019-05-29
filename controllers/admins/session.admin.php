@@ -1,10 +1,10 @@
 <?php
 include('../conexion.php');
-$id = $_POST['id'];
+$cc = $_POST['id'];
 $password = $_POST['password'];
 
 
-$query= "SELECT * FROM admins WHERE id = '$id' AND estado = 'activo';";
+$query= "SELECT * FROM admins WHERE cc = '$cc' AND estado = 'activo';";
 $consulta = mysqli_query($conexion, $query);
 
 if ($consulta->num_rows > 0){
@@ -14,7 +14,7 @@ if ($consulta->num_rows > 0){
     session_start();
     session_destroy();
   	session_start();
-  	$_SESSION['ident'] = $id;
+  	$_SESSION['ident'] = $consulta['id'];
 
    echo '<script languaje="javascript">
 		window.location.href= "../../admin/views/index.php#mostrar"

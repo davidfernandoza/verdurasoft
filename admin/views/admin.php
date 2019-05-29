@@ -140,7 +140,7 @@ if (isset($_SESSION['ident'])) {
 
 									?>
 									<tr>
-										<td> <?php echo $mostrar2['id']; ?> </td>
+										<td> <?php echo $mostrar2['cc']; ?> </td>
 										<td> <?php echo $mostrar2['nombre'];?> </td>
 										<td> <?php echo $mostrar2['apellido'];?> </td>
 										<td class="lower-case"><?php echo $mostrar2['email'];?> </td>
@@ -170,18 +170,18 @@ if (isset($_SESSION['ident'])) {
 				<div class="container-formulario-img">
 					<div class="container-img" id="container">
 						<div class="img_contenedor">
-							<img id="agregar_img" src="../img/avatar/defecto.png">
+							<img id="agregar_img" src="../img/avatar/defecto/defecto.png">
 						</div>
 						<input type="file" name="foto" id="agregar_foto" >
 					</div>
 					<div class="form-content">
-						<input type="number" placeholder="Cédula" name="id" class="full" maxlength="12" required="">
+						<input type="number" placeholder="Cédula" name="id" class="full" max="999999999999" min="100000" required="">
 						<div class="input-group">
-							<input type="text" placeholder="Nombres" name="nombre" maxlength="50" required>
-							<input type="text" placeholder="Apellidos" name="apellido" maxlength="50" required>
+							<input type="text" placeholder="Nombres" name="nombre" maxlength="44" required>
+							<input type="text" placeholder="Apellidos" name="apellido" maxlength="44" required>
 						</div>
-						<input type="email" class="full" placeholder="Correo electrónico" name="email" maxlength="50" minlength="5" required="">
-						<input type="number" placeholder="Telefono" class="full" name="telefono" min="1000000" max="999999999999999" required="">
+						<input type="email" class="full" placeholder="Correo electrónico" name="email" maxlength="149" minlength="5" required="">
+						<input type="number" placeholder="Telefono" class="full" name="telefono" min="1000000" max="99999999999999" required="">
 						<div class="cta-group">
 							<input type="reset" value="Cancelar" id="cerrar_ingresar">
 							<input type="submit">
@@ -230,7 +230,7 @@ if (isset($_SESSION['ident'])) {
 
 			let cerrar = document.getElementById('cerrar_ingresar')
 			cerrar.addEventListener('click', ()=>{
-				$('#agregar_img').attr("src", "../img/avatar/defecto.png");
+				$('#agregar_img').attr("src", "../img/avatar/defecto/defecto.png");
 			})
 		});
 

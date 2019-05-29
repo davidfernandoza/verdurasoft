@@ -27,7 +27,7 @@ else {
 		$opciones = [  'cost' => 12, ];
 		$password = password_hash($password, PASSWORD_BCRYPT, $opciones);
 
-		$query= "INSERT INTO usuarios (id, cc, nombre, apellido, email, password, direccion, telefono, estado)VALUES('0', $cc, '$nombre', '$apellido', '$email' , '$password', '$direccion' , '$telefono', 'activo');";
+		$query= "INSERT INTO usuarios (id, cc, nombre, apellido, email, password, direccion, telefono, estado)VALUES(NULL, $cc, '$nombre', '$apellido', '$email' , '$password', '$direccion' , '$telefono', 'activo');";
 
 		$consulta = mysqli_query($conexion, $query);
 

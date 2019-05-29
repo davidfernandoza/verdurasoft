@@ -42,14 +42,14 @@ $consulta = mysqli_query($conexion, $query);
 					</li>
 				<?php }else{?>
 					<li class="nav-item">
-						<a class="nav-link" href="../../../controllers/public/session.salir.usuario.php">Cerrar sesion</a>
+						<a class="nav-link" href="../../../controllers/public/session.salir.usuario.php">Cerrar Sesión</a>
 					</li>
 
 				<?php }?>
 			</ul>
 			<div>
 				<a class="usuario_log" href="../login/login.usuario.php">
-					<img src="../../../admin/img/avatar/defecto.png" width="30">
+					<img src="../../../admin/img/avatar/defecto/defecto.png" width="30">
 				<?php
 				if(isset($_SESSION['id_usuario'])){
 				?>
@@ -71,39 +71,39 @@ $consulta = mysqli_query($conexion, $query);
     <div class="galeria-content">
 
     <?php
-    while($fila = mysqli_fetch_row($consulta)){
-      if ($fila[5] > 0) {
+    while($fila = mysqli_fetch_array($consulta)){
+      if ($fila['cantidad'] > 0) {
         ?>
 
         <!-- Tarjeta -->
-        <div class="card" id='<?php echo $fila[1]?>'>
+        <div class="card" id='<?php echo $fila['id']?>'>
           <figure>
 
             <!-- Foto -->
-            <img src="<?php echo '../../../admin/'.$fila[2] ?>" alt="foto-<?php echo $fila[3] ?>">
+            <img src="<?php echo '../../../admin/'.$fila['foto'] ?>" alt="foto-<?php echo $fila['nombre'] ?>">
           </figure>
           <div class="contenido_card">
             <div class="info_card">
 
               <!-- Nombre -->
-              <h3><?php echo $fila[3] ?></h3>
+              <h3><?php echo $fila['nombre'] ?></h3>
 
               <!-- Descripcion -->
-              <p><?php echo $fila[4] ?></p>
+              <p><?php echo $fila['descripcion'] ?></p>
             </div>
             <div class="accion_card">
 
               <!-- Precio -->
-              <p>Precio KG: $<span id="<?php echo 'precio'.$fila[0]?>"><?php echo $fila[6] ?></span> COP</p>
+              <p>Precio KG: $<span id="<?php echo 'precio'.$fila['id']?>"><?php echo $fila['valor'] ?></span> COP</p>
 
               <!-- Cantidad disponible-->
-              <p>Cantidad disponible: <span id="<?php echo 'cantidad'.$fila[0]?>"><?php echo $fila[5] ?></span> KG</p>
+              <p>Cantidad disponible: <span id="<?php echo 'cantidad'.$fila['id']?>"><?php echo $fila['cantidad'] ?></span> KG</p>
 
               <!-- Agregar a carrito -->
-              <button onclick="addCarrito(<?php echo $fila[0] ?>)" class="agregar">Agregar a carrito</button>
+              <button onclick="addCarrito(<?php echo $fila['id'] ?>)" class="agregar">Agregar a carrito</button>
 
               <!-- Cantidad original de la tarjeta -->
-              <input type="hidden" id="<?php echo 'cantidadTarjeta'.$fila[0];?>" value="<?php echo $fila[5];?>">
+              <input type="hidden" id="<?php echo 'cantidadTarjeta'.$fila['id'];?>" value="<?php echo $fila['cantidad'];?>">
             </div>
           </div>
         </div>

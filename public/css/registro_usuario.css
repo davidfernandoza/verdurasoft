@@ -43,6 +43,16 @@ body{
 	border:1px solid black;
 	box-shadow: 2px 2px 7px #000;
 }
+
+.formulario-edit{
+	border-radius: 10px;
+	overflow: hidden;
+	background-color: #fff;
+	height: 780px;
+	width: 400px;
+	border:1px solid black;
+	box-shadow: 2px 2px 7px #000;
+}
 .titulo{
 	background: #05B329;
 	text-align: center;
@@ -73,11 +83,23 @@ body{
 	justify-content: space-between;
 	align-items: flex-end;
 	border-radius: 5px;
+	flex-wrap: wrap;
+}
+
+.cambioPass{
+	margin-top: 40px;
+	text-decoration: none;
+	width: 100%;
+	color:  #05B329;
+}
+
+.cambioPass:hover{
+	color:  #05B329;
 }
 
 .Cancelar{
 	height: 35px;
-	width: 70px;
+	width: 80px;
 	background: #C00505;
 	color: #fff;
 	border-radius: 5px;
@@ -88,6 +110,12 @@ body{
 	align-items: center;
 	text-decoration: none;
 }
+.Cancelar:hover{
+	background: #fff;
+	color: #C00505;
+	border: 1px solid #C00505;
+	text-decoration: none;
+}
 .enviar{
 	height: 35px;
 	width: 100px;
@@ -96,6 +124,12 @@ body{
 	border-radius: 5px;
 	border:none;
 	outline:none;
+}
+.enviar:hover{
+	background: #fff;
+	color: #19AF02;
+	border-radius: 5px;
+	border: 1px solid  #19AF02;
 }
 .usuario_log{
 	display: flex;

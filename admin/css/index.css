@@ -150,12 +150,14 @@ body:after{
 .content-menu{
 	position: absolute;
 	top:0;
-	margin-top: 8vh;
+	margin-top: 9vh;
 	right: 0;
 	width: 200px;
 	background-color: #05B329 ;
 	list-style: none;
+	z-index: 90;
 }
+
 .container-menu .icon{
 	width: 30px;
 	height: 30px;
@@ -245,6 +247,12 @@ section{
 	display: flex;
 	justify-content: space-between;
 	margin: 15px 0 15px;
+}
+.valor_cantidad{
+	display: flex;
+}
+.valor_cantidad input{
+	width: 50%;
 }
 .input-group a{
 	padding: 10px 20px;

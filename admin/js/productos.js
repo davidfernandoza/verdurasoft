@@ -44,6 +44,9 @@ for (var i = document.getElementsByClassName('editar-formulario').length - 1; i 
 		// Codigo
 		document.getElementById('form-content-actualizar').childNodes[1].childNodes[1].value = text[1].innerHTML
 
+
+		console.log(document.getElementById('form-content-actualizar').childNodes[1].childNodes[1]);
+
 		// Nombre
 		document.getElementById('form-content-actualizar').childNodes[1].childNodes[3].value = text[3].innerHTML
 
@@ -56,7 +59,7 @@ for (var i = document.getElementsByClassName('editar-formulario').length - 1; i 
 		// Cantidad
 		document.getElementById('form-content-actualizar').childNodes[5].childNodes[3].value = text[9].innerHTML
 
-		// id hidden
+		// codigo hidden
 		document.getElementById('form-content-actualizar').childNodes[9].childNodes[1].value = text[1].innerHTML
 
 		// nombre hidden
@@ -64,6 +67,10 @@ for (var i = document.getElementsByClassName('editar-formulario').length - 1; i 
 
 		// foto hidden
 		document.getElementById('form-content-actualizar').childNodes[9].childNodes[5].value = text[19].innerHTML
+
+		// foto hidden
+		document.getElementById('form-content-actualizar').childNodes[9].childNodes[7].value = text[21].innerHTML
+
 
 		precio = document.getElementById('form-content-actualizar').childNodes[5].childNodes[1].value
 		cu = document.getElementById('form-content-actualizar').childNodes[5].childNodes[3].value

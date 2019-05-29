@@ -50,8 +50,8 @@ else {
 								<!-- confirmar password -->
 								<input type="password" placeholder="Confirma la Contraseña" name="confirPassword" maxlength="16" minlength="8" required title="Repetir Contraseña Nueva">
 
-								<!-- confirmar password -->
-								<input type="password" placeholder="Contraseña Actual" name="password_old" maxlength="16" minlength="8" required title="Contraseña Actual">
+								<!-- password actual -->
+								<input type="password" placeholder="Contraseña Actual" name="password_old" required title="Contraseña Actual">
 
 								<!-- password de base de datos -->
 								<input type="hidden" name="password_db" value="<?php echo $fila['password']?>" >

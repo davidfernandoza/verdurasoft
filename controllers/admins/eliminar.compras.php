@@ -6,14 +6,14 @@ $query= "UPDATE compras set estado ='inactivo' WHERE factura = '".$factura."'";
 $consulta= mysqli_query($conexion,$query);
 if ($consulta) {
 	echo '<script languaje="javascript">
-	var mensaje ="La compra fue ELIMINADA correctamente";
+	var mensaje ="La compra fue eliminada correctamente";
 	alert(mensaje);
 	window.location.href= "../../admin/views/compras.php"
 	</script>';
 }
 else {
 	echo '<script languaje="javascript">
-	var mensaje ="La compra no se pudo ELIMINAR, intenta mas tarde.";
+	var mensaje ="La compra no se pudo eliminar, intenta mas tarde.";
 	alert(mensaje);
 	window.location.href= "../../admin/views/compras.php"
 	</script>';
