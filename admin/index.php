@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <?php
 session_start();
 if (isset($_SESSION['ident'])) {
@@ -7,6 +8,8 @@ if (isset($_SESSION['ident'])) {
 }
 else {
 ?>
+=======
+>>>>>>> 9019f5ef6dd6faa370230cb428f1840a3b32e772
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -50,7 +53,10 @@ else {
 	<script src="./js/login.js"></script>
 </body>
 </html>
+<<<<<<< HEAD
 
 <?php
 }
  ?>
+=======
+>>>>>>> 9019f5ef6dd6faa370230cb428f1840a3b32e772

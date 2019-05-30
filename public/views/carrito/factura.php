@@ -1,6 +1,7 @@
 <?php
 session_start();
 if(!isset($_SESSION['id_usuario'])){
+<<<<<<< HEAD
 	// echo "<script languaje='javascript'>window.location.href= '../../../'</script>";
 }
 else if (!isset($_GET['factura'])) {
@@ -212,3 +213,28 @@ else {
 		</script>
 	</body>
 	</html>
+=======
+	  echo "<script languaje='javascript'>window.location.href= './carrito.php'</script>";
+}
+?>
+<!DOCTYPE html>
+<html lang="es" dir="ltr">
+  <head>
+		<meta charset="UTF-8">
+	  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<link href="https://fonts.googleapis.com/css?family=Baloo+Bhai" rel="stylesheet">
+    <title>Factura</title>
+  </head>
+  <body>
+    <h1>Compra realizada</h1>
+	  <p><a href="./carrito.php">Productos</a></p>
+		<p><a href="../../../">Inicio</a></p>
+
+		<script type="text/javascript" src="../../js/jquery.js">
+		</script>
+		<script type="text/javascript" src="../../js/bootstrap.js">
+		</script>
+  </body>
+</html>
+>>>>>>> 9019f5ef6dd6faa370230cb428f1840a3b32e772

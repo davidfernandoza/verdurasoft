@@ -38,6 +38,7 @@ else {
 			<div class="container-formulario  registro" > <!-- mostrar-formulario -->
 				<form action="../../../controllers/admins/update.admin.php" method="post" class="form-register"   enctype="multipart/form-data"> <!-- mostrar-->
 					<div class="form-title">
+<<<<<<< HEAD
 						<h1>Editar Perfil </h1>
 					</div>
 
@@ -66,10 +67,30 @@ else {
 
 								<!-- apellidos -->
 								<input type="text" placeholder="Apellidos" name="apellido" maxlength="50" required value="<?php echo $fila['apellido']?>" title="Apellidos">
+=======
+						<h1>Editar Administrador </h1>
+					</div>
+
+					<div class="container-formulario-img">
+						<div class="container-img">
+
+							<!-- elegir foto -->
+							<input type="file" name="foto" id="" placeholder="Tu foto">
+						</div>
+						<div class="form-content">
+							<div class="input-group">
+
+								<!-- nombres -->
+								<input type="text" class="nombre" placeholder="Nombres" name="nombre" maxlength="45" required value="<?php echo $fila['nombre']  ?>" >
+
+								<!-- apellidos -->
+								<input type="text" placeholder="Apellidos" name="apellido" maxlength="50" required value="<?php echo $fila['apellido']?>" >
+>>>>>>> 9019f5ef6dd6faa370230cb428f1840a3b32e772
 
 							</div>
 
 							<!-- Email -->
+<<<<<<< HEAD
 							<input type="email" class="full" placeholder="Correo electrónico" name="email" maxlength="150" minlength="5" required value="<?php echo $fila['email']  ?>" title="Correo Electrónico">
 
 							<!-- Telefono -->
@@ -81,13 +102,30 @@ else {
 
 								<input type="hidden" name="password_db" value="<?php echo $fila['password']?>" >
 
+=======
+							<input type="email" class="full" placeholder="Correo electrónico" name="email" maxlength="150" minlength="5" required value="<?php echo $fila['email']  ?>" >
+
+							<!-- Telefono -->
+							<input type="number" placeholder="Telefono" class="full" name="telefono" max="999999999999999" min="1000000" required value="<?php echo $fila['telefono']  ?>">
+							<div class="input-group">
+
+								<!-- password -->
+								<input type="password" placeholder="Contraseña" name="password" maxlength="16" minlength="8" required>
+
+								<!-- confirmar password -->
+								<input type="password" placeholder="Repetir contraseña" name="confirPassword" maxlength="16" minlength="8" required>
+>>>>>>> 9019f5ef6dd6faa370230cb428f1840a3b32e772
 							</div>
 							<div class="cta-group">
 								<!-- id oculto-->
 								<input type="hidden" name="id" value="<?php echo $fila['id']  ?>" >
 
 								<!-- botones -->
+<<<<<<< HEAD
 								<a href="../" class="Cancelar">Cancelar</a>
+=======
+								<a href="../admin.php" class="Cancelar">Cancelar</a>
+>>>>>>> 9019f5ef6dd6faa370230cb428f1840a3b32e772
 								<input type="submit" value="Actualizar">
 							</div>
 						</div>
@@ -95,6 +133,7 @@ else {
 				</form>
 			</div>
 		</div>
+<<<<<<< HEAD
 
 		<script src="../../../public/js/jquery.js"></script>
 		<script type="text/javascript">
@@ -128,6 +167,8 @@ else {
 		});
 
 		</script>
+=======
+>>>>>>> 9019f5ef6dd6faa370230cb428f1840a3b32e772
 		</body>
 		</html>
 		<?php

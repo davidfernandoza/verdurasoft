@@ -53,14 +53,23 @@ if(isset($_SESSION['id_usuario'])){
 				$productos_id = $row['id'];
 				$cantidad = $row['cantidad'];
 				$valor = $row['subtotal'];
+<<<<<<< HEAD
 				$fecha = date("Y-m-d");
+=======
+>>>>>>> 9019f5ef6dd6faa370230cb428f1840a3b32e772
 
 				$query1= "SELECT * FROM productos WHERE id = '$productos_id';";
 				$consulta1 = mysqli_query($conexion, $query1);
 				$consulta1 = mysqli_fetch_row($consulta1);
 
+<<<<<<< HEAD
 				$query2 = "INSERT INTO compras(id, usuarios_id, productos_id, factura, cantidad, valor, fecha, estado)
 				VALUES($id, '$usuarios_id', '$productos_id', '$factura', '$cantidad', '$valor', '$fecha', 'espera');";
+=======
+				$query2 = "INSERT INTO compras(id, usuarios_id, productos_id, factura, cantidad, valor, estado)
+				VALUES($id, '$usuarios_id', '$productos_id', '$factura', '$cantidad', '$valor', 'espera');";
+				var_dump($query2);
+>>>>>>> 9019f5ef6dd6faa370230cb428f1840a3b32e772
 				$consulta2 = mysqli_query($conexion, $query2);
 
 				$cantidad = $consulta1[5] - $cantidad;
@@ -70,6 +79,7 @@ if(isset($_SESSION['id_usuario'])){
 
 			}
 
+<<<<<<< HEAD
 			echo '
 			<script src="../../public/js/browser.js"></script>
 			<script languaje="javascript">
@@ -84,6 +94,13 @@ if(isset($_SESSION['id_usuario'])){
 			}
 			</script>';
 
+=======
+			echo '<script languaje="javascript">
+			var mensaje ="La compra fue hecha, haz el pago en un Efecty con este codigo:' . $factura .' ";
+			alert(mensaje);
+			window.location.href= "../../public/views/carrito/factura.php"
+			</script>';
+>>>>>>> 9019f5ef6dd6faa370230cb428f1840a3b32e772
 		}
 		else {
 			echo 'none';

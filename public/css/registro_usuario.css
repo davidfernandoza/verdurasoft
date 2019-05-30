@@ -38,7 +38,11 @@ body{
 	border-radius: 10px;
 	overflow: hidden;
 	background-color: #fff;
+<<<<<<< HEAD
 	height: 900px;
+=======
+	height: 800px;
+>>>>>>> 9019f5ef6dd6faa370230cb428f1840a3b32e772
 	width: 400px;
 	border:1px solid black;
 	box-shadow: 2px 2px 7px #000;

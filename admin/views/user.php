@@ -82,6 +82,7 @@
     				</div>
 					<img class="icon" id="menu" src="../img/user-solid.svg">
 					<ul class="content-menu">
+<<<<<<< HEAD
 						<li class="item">
 							<a href="./auth/editar.admin.php?id= <?php echo $id?>" class="link">Editar perfil</a>
 						</li>
@@ -91,6 +92,10 @@
 						<li class="item">
 							<a href="../../controllers/admins/session.salir.admin.php" class="link">Cerrar Sesión</a>
 						</li>
+=======
+						<li class="item"><a href="./auth/editar.admin.php?id= <?php echo $id?>" class="link">Editar perfil</a></li>
+						<li class="item"><a href="../../controllers/admins/session.salir.admin.php" class="link">Cerrar sesión</a></li>
+>>>>>>> 9019f5ef6dd6faa370230cb428f1840a3b32e772
 					</ul>
 				</div>
 			</nav>
@@ -122,23 +127,40 @@
 			<article  class="container-article">
 					<div class="input-group">
 						<a href="#" id="ingresar-usuario">Ingresar usuario</a>
+<<<<<<< HEAD
+=======
+						<form class="content-search" action="../index.html">
+							<input type="search" name="search" placeholder="Cedula de usuario">
+						</form>
+>>>>>>> 9019f5ef6dd6faa370230cb428f1840a3b32e772
 					</div>
 					<div class="container-info">
 						<div class="content-info">
 							<table border="1px" id="table_id">
 								<thead>
 									<tr>
+<<<<<<< HEAD
 										<th>CC/NIT</th>
+=======
+										<th>Cedula</th>
+>>>>>>> 9019f5ef6dd6faa370230cb428f1840a3b32e772
 										<th>Nombre</th>
 										<th>Apellido</th>
 										<th>Correo electrónico</th>
 										<th>Dirección</th>
+<<<<<<< HEAD
 										<th>Estado</th>
 										<th>Télefono</th>
 										<th><img src="../img/editar.svg" alt="Editar"></th>
 										<th><img src="../img/borrar.svg" alt="Borrar"></th>
 										<th><img src="../img/check.svg" alt="Agregar"></th>
 										<th class="no-mostrar">id</th>
+=======
+										<th>Télefono</th>
+										<th>Estado</th>
+										<th><img src="../img/editar.svg" alt="Editar"></th>
+										<th><img src="../img/borrar.svg" alt="Borrar"></th>
+>>>>>>> 9019f5ef6dd6faa370230cb428f1840a3b32e772
 									</tr>
 								</thead>
 								<tbody>
@@ -147,17 +169,30 @@
 									while ($mostrar2 = mysqli_fetch_array($consulta2)) {
 										?>
 										<tr>
+<<<<<<< HEAD
 											<td><?php echo $mostrar2['cc']; ?></td>
+=======
+
+
+											<td><?php echo $mostrar2['id']; ?></td>
+>>>>>>> 9019f5ef6dd6faa370230cb428f1840a3b32e772
 											<td><?php echo $mostrar2['nombre']; ?></td>
 											<td><?php echo $mostrar2['apellido']; ?></td>
 											<td class="lower-case"><?php echo $mostrar2['email']; ?></td>
 											<td><?php echo $mostrar2['direccion']; ?></td>
+<<<<<<< HEAD
 											<td><?php echo $mostrar2['estado']; ?></td>
 											<td><?php echo $mostrar2['telefono']; ?></td>
 											<td class="center"><img src="../img/editando.svg" alt="Editando" class="editar-formulario"></td>
 											<td class="center"><a href="../../controllers/admins/eliminar.usuario.php?id=<?php echo $mostrar2['id']; ?>"><img src="../img/borrando.svg" alt="Eliminar" class="eliminar-formulario"></a></td>
 											<td class="center"><a href="../../controllers/admins/activar.usuario.php?id=<?php echo $mostrar2['id']; ?>"><img src="../img/plus.svg" alt="Activar" class="eliminar-formulario"></a></td>
 											<td class="no-mostrar"><?php echo $mostrar2['id']; ?></td>
+=======
+											<td><?php echo $mostrar2['telefono']; ?></td>
+											<td><?php echo $mostrar2['estado']; ?></td>
+											<td class="center"><img src="../img/editando.svg" alt="Editando" class="editar-formulario"></td>
+											<td class="center"><a href="../../controllers/admins/eliminar.usuario.php?id=<?php echo $mostrar2['id']; ?>"><img src="../img/borrando.svg" alt="Eliminar" class="eliminar-formulario"></a></td>
+>>>>>>> 9019f5ef6dd6faa370230cb428f1840a3b32e772
 										</tr>
 											<?php
 										}
@@ -174,11 +209,15 @@
 
 	<div class="container-formulario  registro" id="content-form"> <!-- mostrar-formulario -->
 		<form action="../../controllers/admins/guardar.usuario.php" method="post" class="form-register" id="form-register"> <!-- mostrar-->
+<<<<<<< HEAD
 
+=======
+>>>>>>> 9019f5ef6dd6faa370230cb428f1840a3b32e772
 			<div class="form-title">
 				<h1>Ingresar Usuario </h1>
 			</div>
 			<div class="form-content">
+<<<<<<< HEAD
 				<input type="number" placeholder="Cédula/Nit" name="cc" class="full" max="999999999999999" min="10000000" required="">
 				<div class="input-group">
 					<input type="text" placeholder="Nombres" name="nombre" required  maxlength="45">
@@ -187,12 +226,27 @@
 				<input type="email" class="full" placeholder="Correo Electronico" name="email" required="" maxlength="150">
 				<input type="text" class="full" placeholder="Dirección-Ciudad-Departamento" name="direccion" required="" maxlength="100">
 				<input type="number" class="full" placeholder="Telefono/Celular" name="telefono" required="" max="999999999999999" min="10000000">
+=======
+				<input type="number" placeholder="Cedula" name="id" class="full" maxlength="12" required="">
+				<div class="input-group">
+					<input type="text" placeholder="Nombres" name="nombre" required pattern="[A-Za-z]">
+					<input type="text" placeholder="Apellidos" name="apellido" required pattern="[A-Za-z]">
+				</div>
+				<input type="email" class="full" placeholder="Correo electronico" name="email" required="">
+				<input type="text" class="full" placeholder="Direccion" name="direccion" required="">
+				<input type="number" class="full" placeholder="Celular" name="telefono" required="">
+				<div class="input-group">
+					<input type="password" placeholder="Contraseña" name="password" required="">
+					<input type="password" placeholder="Repetir contraseña" name="confirPassword" required="">
+				</div>
+>>>>>>> 9019f5ef6dd6faa370230cb428f1840a3b32e772
 				<div class="cta-group">
 					<input type="reset" value="Cancelar" id="cerrar-ingresar">
 					<input type="submit">
 				</div>
 			</div>
 		</form>
+<<<<<<< HEAD
 
 <!-- Actualizar -->
 		<form action="../../controllers/admins/update.usuario.php" method="post" class="form-actualizar " id="form-actualizar" > <!-- mostrar -->
@@ -218,6 +272,30 @@
 				<input type="number" class="full" placeholder="Telefono/Celular" title="Telefono/Celular" name="telefono" required="" max="999999999999999" min="10000000">
 				<div class="cta-group">
 					<input type="hidden" name="id" >
+=======
+		<form action="../../controllers/admins/update.usuario.php" method="post" class="form-actualizar " id="form-actualizar" > <!-- mostrar -->
+			<div class="form-title">
+				<h1>Editar Usuario </h1>
+			</div>
+			<div class="form-content" id="form-content-actualizar">
+				<input type="text" placeholder="Cedula" name="id" class="full" readonly=""  >
+				<div class="input-group">
+					<input type="text" placeholder="Nombres" name="nombre" required>
+					<input type="text" placeholder="Apellidos" name="apellido" required>
+				</div>
+				<input type="email" class="full" placeholder="Correo electronico" name="email" required="">
+				<input type="text" class="full" placeholder="Direccion" name="direccion" required="">
+				<input type="number" class="full" placeholder="Celular" name="telefono" required="">
+				<div class="input-group select">
+					<label for="select">Estado:</label>
+					<select name="estado" id="" required="">
+						<option value="">Seleccione un estado</option>
+						<option value="Activo">Activo</option>
+						<option value="Inactivo">Inactivo</option>
+					</select>
+				</div>
+				<div class="cta-group">
+>>>>>>> 9019f5ef6dd6faa370230cb428f1840a3b32e772
 					<input type="reset" value="Cancelar" id="cerrar-actualizar">
 					<input type="submit">
 				</div>
@@ -226,11 +304,26 @@
 
 	</div>
 
+<<<<<<< HEAD
+=======
+
+
+
+
+>>>>>>> 9019f5ef6dd6faa370230cb428f1840a3b32e772
 	<script src="../../public/js/jquery.js"></script>
 	<script src="../js/dataTables.js"></script>
 	<script src="../js/index.js"></script>
 	<script src="../js/user.js"></script>
+<<<<<<< HEAD
 	<script src="../js/config.js">
+=======
+
+	<script>
+	$(document).ready( function () {
+		$('#table_id').DataTable();
+	} );
+>>>>>>> 9019f5ef6dd6faa370230cb428f1840a3b32e772
 	</script>
 </body>
 </html>

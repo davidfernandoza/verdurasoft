@@ -2,7 +2,11 @@
 session_start();
 $_SESSION['detalle'] = array();
 include './controllers/conexion.php';
+<<<<<<< HEAD
 $query1 = "SELECT * FROM productos LIMIT 1, 5";
+=======
+$query1 = "SELECT * FROM productos LIMIT 0, 4";
+>>>>>>> 9019f5ef6dd6faa370230cb428f1840a3b32e772
 $consulta1 = mysqli_query($conexion, $query1);
 
 $query2 = "SELECT * FROM productos LIMIT 5, 4";
@@ -76,6 +80,10 @@ $consulta2 = mysqli_query($conexion, $query2);
       <li data-target="#carouselExampleCaptions" data-slide-to="2"></li>
 			<li data-target="#carouselExampleCaptions" data-slide-to="3"></li>
       <li data-target="#carouselExampleCaptions" data-slide-to="4"></li>
+<<<<<<< HEAD
+=======
+			<li data-target="#carouselExampleCaptions" data-slide-to="5"></li>
+>>>>>>> 9019f5ef6dd6faa370230cb428f1840a3b32e772
     </ol>
     <div class="carousel-inner">
       <div class="carousel-item active">
@@ -261,8 +269,12 @@ $consulta2 = mysqli_query($conexion, $query2);
 	</div>
 	<footer>
 		<div class="Nombre">
+<<<<<<< HEAD
 		<a href="./"><img src="./public/img/favicon.png" width="50px" class="logo"> VerduraSoft</a>
 		</div>
+=======
+			<img src="./public/img/favicon.png" width="50px" class="logo">VerduraSoft</div>
+>>>>>>> 9019f5ef6dd6faa370230cb428f1840a3b32e772
 		<div class="contenido">
 			<li><a href="#inicio">Inicio</a></li>
 			<li><a href="#nosotros">Nosotros</a></li>

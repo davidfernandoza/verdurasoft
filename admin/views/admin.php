@@ -77,6 +77,7 @@ if (isset($_SESSION['ident'])) {
 						</div>
 						<img class="icon" id="menu" src="../img/user-solid.svg">
 						<ul class="content-menu">
+<<<<<<< HEAD
 							<li class="item">
 								<a href="./auth/editar.admin.php?id= <?php echo $id?>" class="link">Editar perfil</a>
 							</li>
@@ -86,6 +87,10 @@ if (isset($_SESSION['ident'])) {
 							<li class="item">
 								<a href="../../controllers/admins/session.salir.admin.php" class="link">Cerrar Sesión</a>
 							</li>
+=======
+							<li class="item"><a href="./auth/editar.admin.php?id= <?php echo $id?>" class="link">Editar perfil</a></li>
+							<li class="item"><a href="../../controllers/admins/session.salir.admin.php" class="link">Cerrar sesión</a></li>
+>>>>>>> 9019f5ef6dd6faa370230cb428f1840a3b32e772
 						</ul>
 					</div>
 				</nav>
@@ -131,6 +136,7 @@ if (isset($_SESSION['ident'])) {
 										<th>Teléfono</th>
 										<th>Estado</th>
 										<th><img src="../img/borrar.svg" alt="Borrar"></th>
+<<<<<<< HEAD
 										<th><img src="../img/check.svg" alt="Agregar"></th>
 									</tr>
 								</thead>
@@ -139,6 +145,15 @@ if (isset($_SESSION['ident'])) {
 								while ($mostrar2 = mysqli_fetch_array($consulta2)) {
 
 									?>
+=======
+									</tr>
+								</thead>
+									<?php
+
+									while ($mostrar2 = mysqli_fetch_array($consulta2)) {
+
+										?>
+>>>>>>> 9019f5ef6dd6faa370230cb428f1840a3b32e772
 									<tr>
 										<td> <?php echo $mostrar2['id']; ?> </td>
 										<td> <?php echo $mostrar2['nombre'];?> </td>
@@ -147,11 +162,18 @@ if (isset($_SESSION['ident'])) {
 										<td> <?php echo $mostrar2['telefono'];?> </td>
 										<td> <?php echo $mostrar2['estado'];?> </td>
 										<td class="center"><a href="../../controllers/admins/eliminar.admin.php?id=<?php echo $mostrar2['id'] ?>"><img src="../img/borrando.svg" ></a></td>
+<<<<<<< HEAD
 										<td class="center"><a href="../../controllers/admins/activar.admin.php?id=<?php echo $mostrar2['id'] ?>"><img src="../img/plus.svg" alt="Activar" class="activar-formulario"></a></td>
 									</tr>
 									<?php
 								}
 								?>
+=======
+									</tr>
+										<?php
+									}
+									?>
+>>>>>>> 9019f5ef6dd6faa370230cb428f1840a3b32e772
 
 							</table>
 						</div>
@@ -168,11 +190,16 @@ if (isset($_SESSION['ident'])) {
 					<h1>Ingresar Administrador </h1>
 				</div>
 				<div class="container-formulario-img">
+<<<<<<< HEAD
 					<div class="container-img" id="container">
 						<div class="img_contenedor">
 							<img id="agregar_img" src="../img/avatar/defecto.png">
 						</div>
 						<input type="file" name="foto" id="agregar_foto" >
+=======
+					<div class="container-img">
+						<input type="file" name="foto" id="" placeholder="Tu foto">
+>>>>>>> 9019f5ef6dd6faa370230cb428f1840a3b32e772
 					</div>
 					<div class="form-content">
 						<input type="number" placeholder="Cédula" name="id" class="full" maxlength="12" required="">
@@ -182,6 +209,13 @@ if (isset($_SESSION['ident'])) {
 						</div>
 						<input type="email" class="full" placeholder="Correo electrónico" name="email" maxlength="50" minlength="5" required="">
 						<input type="number" placeholder="Telefono" class="full" name="telefono" min="1000000" max="999999999999999" required="">
+<<<<<<< HEAD
+=======
+						<div class="input-group">
+							<input type="password" placeholder="Contraseña" name="password" maxlength="16" minlength="8" required="">
+							<input type="password" placeholder="Repetir contraseña" name="confirPassword" maxlength="16" minlength="8" required="">
+						</div>
+>>>>>>> 9019f5ef6dd6faa370230cb428f1840a3b32e772
 						<div class="cta-group">
 							<input type="reset" value="Cancelar" id="cerrar_ingresar">
 							<input type="submit">
@@ -198,6 +232,7 @@ if (isset($_SESSION['ident'])) {
 		<script src="../js/dataTables.js"></script>
 		<script src="../js/index.js"></script>
 		<script src="../js/admin.js"></script>
+<<<<<<< HEAD
 		<script src="../js/config.js">
 		</script>
 		<script type="text/javascript">
@@ -234,6 +269,13 @@ if (isset($_SESSION['ident'])) {
 			})
 		});
 
+=======
+
+		<script>
+		$(document).ready( function () {
+			$('#table_id').DataTable();
+		} );
+>>>>>>> 9019f5ef6dd6faa370230cb428f1840a3b32e772
 		</script>
 
 	</body>

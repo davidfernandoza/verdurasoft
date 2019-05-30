@@ -9,7 +9,11 @@ if (isset($_SESSION['ident'])) {
 	$consulta = mysqli_query($conexion, $query);
 	$mostrar = mysqli_fetch_array($consulta);
 
+<<<<<<< HEAD
 	$query2= "select c.fecha as fecha, c.id as id_compras, c.factura as factura, c.cantidad as cantidad, c.valor as valor, c.estado as estado, p.id as id_productos, p.nombre as nombre_productos, u.id as id_usuarios, u.nombre as nombre_usuarios from compras as c left join usuarios as u on u.id = c.usuarios_id left join productos as p on p.id = c.productos_id;";
+=======
+	$query2= "select c.id as id_compras, c.factura as factura, c.cantidad as cantidad, c.valor as valor, c.estado as estado, p.id as id_productos, p.nombre as nombre_productos, u.id as id_usuarios, u.nombre as nombre_usuarios from compras as c left join usuarios as u on u.id = c.usuarios_id left join productos as p on p.id = c.productos_id;";
+>>>>>>> 9019f5ef6dd6faa370230cb428f1840a3b32e772
 	$consulta2 = mysqli_query($conexion, $query2);
 
 	$consulta3 = "SELECT SUM(valor) as TotalPrecios FROM compras WHERE estado = 'activo' ";
@@ -88,6 +92,7 @@ if (isset($_SESSION['ident'])) {
 						</div>
 						<img class="icon" id="menu" src="../img/user-solid.svg">
 						<ul class="content-menu">
+<<<<<<< HEAD
 							<li class="item">
 								<a href="./auth/editar.admin.php?id= <?php echo $id?>" class="link">Editar perfil</a>
 							</li>
@@ -97,6 +102,10 @@ if (isset($_SESSION['ident'])) {
 							<li class="item">
 								<a href="../../controllers/admins/session.salir.admin.php" class="link">Cerrar Sesión</a>
 							</li>
+=======
+							<li class="item"><a href="./auth/editar.admin.php?id= <?php echo $id?>" class="link">Editar perfil</a></li>
+							<li class="item"><a href="../../controllers/admins/session.salir.admin.php" class="link">Cerrar sesión</a></li>
+>>>>>>> 9019f5ef6dd6faa370230cb428f1840a3b32e772
 						</ul>
 					</div>
 				</nav>
@@ -135,11 +144,17 @@ if (isset($_SESSION['ident'])) {
 										<th>Producto</th>
 										<th>Factura</th>
 										<th>Cantidad</th>
+<<<<<<< HEAD
 										<th>Subtotales</th>
 										<th>Estado</th>
 										<th>Fecha</th>
 										<th><img src="../img/borrar.svg" alt="Borrar"></th>
 										<th><img src="../img/check.svg" alt="Agregar"></th>
+=======
+										<th>Valor Total</th>
+										<th>Estado</th>
+										<th><img src="../img/borrar.svg" alt="Borrar"></th>
+>>>>>>> 9019f5ef6dd6faa370230cb428f1840a3b32e772
 									</tr>
 								</thead>
 								<?php
@@ -153,6 +168,7 @@ if (isset($_SESSION['ident'])) {
 										<td id="cantidad"><?php echo $mostrar2['cantidad']; ?></td>
 										<td id="valor"><?php echo $mostrar2['valor']; ?></td>
 										<td><?php echo $mostrar2['estado']; ?></td>
+<<<<<<< HEAD
 										<td><?php
 											$fecha = date("d/m/Y", strtotime( $mostrar2['fecha'] ));
 										 echo $fecha ; ?></td>
@@ -162,6 +178,12 @@ if (isset($_SESSION['ident'])) {
 										</td>
 											<td class="center"><a href="../../controllers/admins/activar.compras.php?factura=<?php echo $mostrar2['factura'] ?>"><img src="../img/plus.svg" alt="Activar" class="activar-formulario"></a>
 											</td>
+=======
+										<td class="center">
+											<a href="../../controllers/admins/eliminar.compras.php?id=<?php echo $mostrar2['id_compras']; ?>"><img src="../img/borrando.svg" class="eliminar-formulario" class="eliminar-formulario" alt="Eliminar">
+											</a>
+										</td>
+>>>>>>> 9019f5ef6dd6faa370230cb428f1840a3b32e772
 									</tr>
 									<?php
 								}
@@ -170,6 +192,7 @@ if (isset($_SESSION['ident'])) {
 							</table>
 						</div>
 						<div class="total">
+<<<<<<< HEAD
 						<span><p>Total recaudado: <?php
 						if ($TotalPrecios) {
 							echo '$ ' . $TotalPrecios;
@@ -178,6 +201,9 @@ if (isset($_SESSION['ident'])) {
 							echo '$ ' . 0;
 						}
 						 ;?></p> </span>
+=======
+						<span><p>Total recaudado:</p> <?php echo $TotalPrecios ;?></span>
+>>>>>>> 9019f5ef6dd6faa370230cb428f1840a3b32e772
 					</div>
 				</div>
 			</article>
@@ -189,9 +215,20 @@ if (isset($_SESSION['ident'])) {
 	<script src="../js/dataTables.js"></script>
 	<script src="../js/index.js"></script>
 	<script src="../js/compras.js"></script>
+<<<<<<< HEAD
 	<script src="../js/config.js">
 	</script>
 
+=======
+
+	<script>
+	$(document).ready( function () {
+		$('#table_id').DataTable();
+	} );
+	</script>
+
+
+>>>>>>> 9019f5ef6dd6faa370230cb428f1840a3b32e772
 </body>
 </html>
 

@@ -80,6 +80,7 @@ if (isset($_SESSION['ident'])) {
 						</div>
 						<img class="icon" id="menu" src="../img/user-solid.svg">
 						<ul class="content-menu">
+<<<<<<< HEAD
 							<li class="item">
 								<a href="./auth/editar.admin.php?id= <?php echo $id?>" class="link">Editar perfil</a>
 							</li>
@@ -89,6 +90,10 @@ if (isset($_SESSION['ident'])) {
 							<li class="item">
 								<a href="../../controllers/admins/session.salir.admin.php" class="link">Cerrar Sesión</a>
 							</li>
+=======
+							<li class="item"><a href="./auth/editar.admin.php?id= <?php echo $id?>" class="link">Editar perfil</a></li>
+							<li class="item"><a href="../../controllers/admins/session.salir.admin.php" class="link">Cerrar sesión</a></li>
+>>>>>>> 9019f5ef6dd6faa370230cb428f1840a3b32e772
 						</ul>
 					</div>
 				</nav>
@@ -130,6 +135,7 @@ if (isset($_SESSION['ident'])) {
 										<th>Codigo</th>
 										<th>Nombre</th>
 										<th>Descripción</th>
+<<<<<<< HEAD
 										<th>Valor KG</th>
 										<th>Cantidad KG</th>
 										<th>Estado</th>
@@ -137,6 +143,13 @@ if (isset($_SESSION['ident'])) {
 										<th><img src="../img/borrar.svg" alt="Borrar"></th>
 										<th><img src="../img/check.svg" alt="Agregar"></th>
 										<th class="no-mostrar"></th>
+=======
+										<th>Valor</th>
+										<th>Cantidad</th>
+										<th>Estado</th>
+										<th><img src="../img/editar.svg" alt="Editar"></th>
+										<th><img src="../img/borrar.svg" alt="Borrar"></th>
+>>>>>>> 9019f5ef6dd6faa370230cb428f1840a3b32e772
 									</tr>
 								</thead>
 								<tbody>
@@ -153,9 +166,12 @@ if (isset($_SESSION['ident'])) {
 											<td class="center"><img src="../img/editando.svg" class="editar-formulario" class="eliminar-formulario" alt="Editando">
 											</td>
 											<td class="center"><a href="../../controllers/admins/eliminar.productos.php?id=<?php echo $mostrar2['id']; ?>"><img src="../img/borrando.svg" class="eliminar-formulario" class="eliminar-formulario" alt="Eliminar"></a></td>
+<<<<<<< HEAD
 											<td class="center"><a href="../../controllers/admins/activar.productos.php?id=<?php echo $mostrar2['id'] ?>&cantidad=<?php echo $mostrar2['cantidad'] ?>"><img src="../img/plus.svg" alt="Activar" class="activar-formulario"></a>
 											</td>
 											<td class="no-mostrar"><?php echo $mostrar2['foto']; ?></td>
+=======
+>>>>>>> 9019f5ef6dd6faa370230cb428f1840a3b32e772
 										</tr>
 										<?php
 									}
@@ -179,21 +195,34 @@ if (isset($_SESSION['ident'])) {
 				</div>
 				<div class="container-formulario-img">
 					<div class="container-img">
+<<<<<<< HEAD
 						<div class="contenedor_img">
 							<img src="../../admin/img/productos/defecto.jpg" id="img_agregar">
 						</div>
 						<input type="file" name="foto" id="foto_agregar" placeholder="Tu foto">
+=======
+						<input type="file" name="foto" id="" placeholder="Tu foto">
+>>>>>>> 9019f5ef6dd6faa370230cb428f1840a3b32e772
 
 					</div>
 					<div class="form-content" id="form-content-register">
 						<div class="input-group">
+<<<<<<< HEAD
 							<input type="number" placeholder="Codigo" name="id" required>
+=======
+							<input type="number" placeholder="codigo" name="id" required>
+>>>>>>> 9019f5ef6dd6faa370230cb428f1840a3b32e772
 							<input type="text" placeholder="Nombre" name="nombre" required>
 						</div>
 						<input type="text" placeholder="Descripcion" name="descripcion" class="full" required>
 						<div class="input-group">
+<<<<<<< HEAD
 							<input type="number" placeholder="Valor KG" name="valor" required>
 							<input type="number" placeholder="Cantidad KG" name="cantidad" required>
+=======
+							<input type="number" placeholder="Valor" name="valor" required>
+							<input type="number" placeholder="Cantidad" name="cantidad" required>
+>>>>>>> 9019f5ef6dd6faa370230cb428f1840a3b32e772
 						</div>
 						<input type="number" placeholder="Total" name="total" id="total" class="full">
 
@@ -212,6 +241,7 @@ if (isset($_SESSION['ident'])) {
 				<div class="form-title">
 					<h1>Editar producto </h1>
 				</div>
+<<<<<<< HEAD
 
 				<div class="container-formulario-img">
 					<div class="container-img" id="container">
@@ -219,10 +249,17 @@ if (isset($_SESSION['ident'])) {
 							<img id="img_editar">
 						</div>
 						<input type="file" name="foto" id="foto_editar" >
+=======
+				<div class="container-formulario-img">
+					<div class="container-img" id="container">
+						<img src="<?php echo '../'.$mostrar2[2]; ?>" alt="">
+						<input type="file" name="foto" id="" placeholder="Tu foto" >
+>>>>>>> 9019f5ef6dd6faa370230cb428f1840a3b32e772
 					</div>
 					<div class="form-content" id="form-content-actualizar">
 						<div class="input-group">
 
+<<<<<<< HEAD
 							<input type="text" placeholder="codigo" name="id" required="" title="Codigo" >
 							<input type="text" placeholder="nombre" name="nombre" required="" title="Nombre">
 						</div>
@@ -237,6 +274,19 @@ if (isset($_SESSION['ident'])) {
 							<input type="hidden" name="id_old">
 							<input type="hidden" name="nombre_old">
 							<input type="hidden" name="foto_old">
+=======
+							<input type="text" placeholder="codigo" name="id" readonly="" required="" >
+							<input type="text" placeholder="nombre" name="nombre" required="">
+						</div>
+						<input type="text" placeholder="Descripcion" name="descripcion" class="full">
+						<div class="input-group">
+							<input type="number" placeholder="Valor" name="valor" required="">
+							<input type="number" placeholder="Cantidad" name="cantidad" required="">
+						</div>
+						<input type="number" placeholder="Total" class="full" name="total" id="total">
+
+						<div class="cta-group">
+>>>>>>> 9019f5ef6dd6faa370230cb428f1840a3b32e772
 							<input type="reset" value="Cancelar" id="cerrar_editar">
 							<input type="submit">
 
@@ -251,6 +301,7 @@ if (isset($_SESSION['ident'])) {
 			<script src="../js/dataTables.js"></script>
 			<script src="../js/index.js"></script>
 			<script src="../js/productos.js"></script>
+<<<<<<< HEAD
 			<script src="../js/config.js">
 			</script>
 			<script type="text/javascript">
@@ -310,6 +361,15 @@ if (isset($_SESSION['ident'])) {
 
 
 
+=======
+
+			<script>
+			$(document).ready( function () {
+				$('#table_id').DataTable();
+			} );
+			</script>
+
+>>>>>>> 9019f5ef6dd6faa370230cb428f1840a3b32e772
 		</body>
 		</html>
 

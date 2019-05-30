@@ -5,7 +5,11 @@ document.getElementById("ingresar-usuario").addEventListener('click', function()
 
 document.getElementById("cerrar-ingresar").addEventListener('click', function(){
 	document.getElementById("content-form").classList.remove('mostrar-formulario')
+<<<<<<< HEAD
 	document.getElementById("form-register").classList.remove('mostrar')
+=======
+	document.getElementById("form-register").classList.remove('mostrar')	
+>>>>>>> 9019f5ef6dd6faa370230cb428f1840a3b32e772
 })
 for (var i = document.getElementsByClassName('eliminar-formulario').length - 1; i >= 0; i--) {
 	document.getElementsByClassName('eliminar-formulario')[i].addEventListener('click', function(){
@@ -39,6 +43,7 @@ for (var i = document.getElementsByClassName("editar-formulario").length - 1; i 
 	document.getElementsByClassName("editar-formulario")[i].addEventListener("click", function(){
 		var text = this.parentElement.parentElement.childNodes
 
+<<<<<<< HEAD
 		// CC/Nit:
 		document.getElementById('form-content-actualizar').childNodes[3].value = text[1].innerHTML;
 
@@ -59,6 +64,18 @@ for (var i = document.getElementsByClassName("editar-formulario").length - 1; i 
 
 		// ID Hidden
 		document.getElementById('form-content-actualizar').childNodes[19].childNodes[1].value = text[21].innerHTML
+=======
+		document.getElementById('form-content-actualizar').childNodes[1].value = text[1].innerHTML
+		document.getElementById('form-content-actualizar').childNodes[3].childNodes[1].value = text[3].innerHTML
+		document.getElementById('form-content-actualizar').childNodes[3].childNodes[1].value = text[3].innerHTML
+		document.getElementById('form-content-actualizar').childNodes[3].childNodes[3].value = text[5].innerHTML
+		document.getElementById('form-content-actualizar').childNodes[5].value = text[7].innerHTML
+		document.getElementById('form-content-actualizar').childNodes[7].value = text[9].innerHTML
+		document.getElementById('form-content-actualizar').childNodes[9].value = text[11].innerHTML
+
+
+
+>>>>>>> 9019f5ef6dd6faa370230cb428f1840a3b32e772
 
 
 		document.getElementById("content-form").classList.add('mostrar-formulario')
@@ -70,5 +87,13 @@ for (var i = document.getElementsByClassName("editar-formulario").length - 1; i 
 
 document.getElementById("cerrar-actualizar").addEventListener('click', function(){
 	document.getElementById("content-form").classList.remove('mostrar-formulario')
+<<<<<<< HEAD
 	document.getElementById("form-actualizar").classList.remove('mostrar')
 })
+=======
+	document.getElementById("form-actualizar").classList.remove('mostrar')	
+})
+
+
+
+>>>>>>> 9019f5ef6dd6faa370230cb428f1840a3b32e772

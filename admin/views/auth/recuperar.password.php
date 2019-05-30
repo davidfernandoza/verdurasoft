@@ -1,5 +1,6 @@
 <?php
 session_start();
+<<<<<<< HEAD
 if (isset($_SESSION['ident'])) {
 	echo '<script languaje="javascript">
 	window.location.href= "../"
@@ -7,6 +8,10 @@ if (isset($_SESSION['ident'])) {
 }
 else {
 ?>
+=======
+session_destroy();
+ ?>
+>>>>>>> 9019f5ef6dd6faa370230cb428f1840a3b32e772
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -45,6 +50,9 @@ else {
 	<script src="../../js/login.js"></script>
 </body>
 </html>
+<<<<<<< HEAD
 <?php
 }
  ?>
+=======
+>>>>>>> 9019f5ef6dd6faa370230cb428f1840a3b32e772

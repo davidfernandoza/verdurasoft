@@ -1,11 +1,15 @@
 <?php
 include('../conexion.php');
+<<<<<<< HEAD
 $new_id = $_POST['id_new'];
+=======
+>>>>>>> 9019f5ef6dd6faa370230cb428f1840a3b32e772
 $id = $_POST['id'];
 $nombre = $_POST['nombre'];
 $apellido = $_POST['apellido'];
 $email = $_POST['email'];
 $password = $_POST['password'];
+<<<<<<< HEAD
 $hash_BD =$_POST['password_db'];
 $telefono = $_POST['telefono'];
 $foto = $_POST['foto_old'];
@@ -103,4 +107,31 @@ else {
 	window.location.href= "../../admin/views/auth/editar.admin.php?id='.$id.'"
 	</script>';
 }
+=======
+$confirPassword = $_POST['confirPassword'];
+$telefono = $_POST['telefono'];
+
+if ($password == $confirPassword) {
+
+
+	$opciones = [  'cost' => 12, ];
+	$password = password_hash($password, PASSWORD_BCRYPT, $opciones);
+
+	$query= "UPDATE admins set nombre ='".$nombre."', apellido='".$apellido."', email='".$email."', password='".$password."', telefono='".$telefono."' WHERE id = '".$id."'";
+	$consulta= mysqli_query($conexion,$query);
+	echo '<script languaje="javascript">
+		var mensaje ="El administrador fue ACTUALIZADO correctamente";
+		alert(mensaje);
+		window.location.href= "../../admin/views/index.php"
+		</script>';
+}
+else {
+	echo '<script languaje="javascript">
+	var mensaje ="Las contraseñas no coinciden";
+	alert(mensaje);
+	window.location.href= "../../views/index.php"
+	</script>';
+	}
+
+>>>>>>> 9019f5ef6dd6faa370230cb428f1840a3b32e772
 ?>
