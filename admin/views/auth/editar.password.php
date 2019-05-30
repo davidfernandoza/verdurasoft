@@ -25,7 +25,7 @@ else {
 			<link rel="shortcut icon" href="../../../public/img/favicon.png">
 
 			<!-- faltan los estilos para esta vista -->
-			<link rel="stylesheet" href="../../css/editar_admin.css">
+			<link rel="stylesheet" href="../../css/editar_password.css">
 
 			<link rel="shortcut icon" href="../../public/img/favicon.png">
 			<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
@@ -36,7 +36,7 @@ else {
 			<!-- Contenedor formulario -->
 		<div class="contenedortotalform">
 			<div class="container-formulario  registro" > <!-- mostrar-formulario -->
-				<form action="../../../controllers/admins/update.password.php" method="post" class="form-register" > <!-- mostrar-->
+				<form action="../../../controllers/admins/update.password.php" method="post" class="form-content" > <!-- mostrar-->
 					<div class="form-title">
 						<h1>Cambiar Contraseña</h1>
 					</div>

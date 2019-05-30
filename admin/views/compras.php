@@ -157,10 +157,10 @@ if (isset($_SESSION['ident'])) {
 											$fecha = date("d/m/Y", strtotime( $mostrar2['fecha'] ));
 										 echo $fecha ; ?></td>
 										<td class="center">
-											<a href="../../controllers/admins/eliminar.compras.php?factura=<?php echo $mostrar2['factura']; ?>"><img src="../img/borrando.svg" class="eliminar-formulario" class="eliminar-formulario" alt="Eliminar">
+											<a href="../../controllers/admins/eliminar.compras.php?factura=<?php echo $mostrar2['factura']; ?>&estado=<?php echo $mostrar2['estado'];?>"><img src="../img/borrando.svg" class="eliminar-formulario" class="eliminar-formulario" alt="Eliminar">
 											</a>
 										</td>
-											<td class="center"><a href="../../controllers/admins/activar.compras.php?factura=<?php echo $mostrar2['factura'] ?>"><img src="../img/plus.svg" alt="Activar" class="activar-formulario"></a>
+											<td class="center"><a href="../../controllers/admins/activar.compras.php?factura=<?php echo $mostrar2['factura'] ?>&estado=<?php echo $mostrar2['estado'];?>"><img src="../img/plus.svg" alt="Activar" class="activar-formulario"></a>
 											</td>
 									</tr>
 									<?php

@@ -46,7 +46,7 @@ if(isset($_SESSION['id_usuario'])){
 		case 3:
 		if ($_SESSION['detalle'] != '') {
 			$factura = rand().$_SESSION['id_usuario'];
-			// var_dump($_SESSION['detalle']);
+
 			foreach ($_SESSION['detalle'] as $row) {
 				$id = 0;
 				$usuarios_id = $_SESSION['id_usuario'];
@@ -62,10 +62,14 @@ if(isset($_SESSION['id_usuario'])){
 				$query2 = "INSERT INTO compras(id, usuarios_id, productos_id, factura, cantidad, valor, fecha, estado)
 				VALUES($id, '$usuarios_id', '$productos_id', '$factura', '$cantidad', '$valor', '$fecha', 'espera');";
 				$consulta2 = mysqli_query($conexion, $query2);
-
 				$cantidad = $consulta1['cantidad'] - $cantidad;
+				$estadop = 'activo';
 
-				$query3 = "UPDATE productos SET cantidad = '$cantidad' WHERE id = '$productos_id';";
+				if ($cantidad <= 0) {
+					$estadop = 'inactivo';
+				}
+
+				$query3 = "UPDATE productos SET cantidad = '$cantidad', estado = '$estadop' WHERE id = '$productos_id';";
 				$consulta3 = mysqli_query($conexion, $query3);
 
 			}
