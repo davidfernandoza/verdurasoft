@@ -1,0 +1,135 @@
+body{
+	width: 100%;
+}
+html, body {
+    font-family: Verdana,sans-serif;
+    font-size: 15px;
+    line-height: 1.5;
+}
+section.container-carrito{
+	background-image: url('../img/general.jpg');
+	background-repeat: no-repeat;
+	background-position: center;
+	-webkit-background-size: cover;
+	background-size: cover;
+	background-attachment: center;
+	display: flex;
+	position: absolute;
+	top: 0;
+	z-index: -1;
+	padding: 20px 0 0;
+	height: 100%;
+}
+
+.galeria{
+	width: 65vw;
+	overflow-y: scroll;
+	background-color: rgba(217, 217, 217, .5);
+	padding: 30px 0;
+}
+
+.galeria .galeria-content{
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-around;
+	-ms-align-items: center;
+	align-items: center;
+	margin-top: 40px;
+}
+
+.card{
+	position: relative;
+	width: 250px;
+	margin: 10px;
+}
+
+
+.card figure{
+	width: 100%;
+	padding: 0;
+	margin: 0;
+}
+
+.card figure img{
+	width: 100%;
+	display: block;
+
+}
+
+.card .contenido_card{
+	background-color: black;
+	text-align: center;
+}
+
+.card .contenido_card .info_card{
+	background-color: rgba(5, 179, 41, .7);
+	padding:  10px 5px;
+
+}
+
+.card .contenido_card .info_card h3{
+	color:white;
+	font-size: 20px;
+	font-weight: 700;
+}
+
+.card .contenido_card .info_card p{
+	color: yellow;
+	font-size: 15px;
+	display: none;
+}
+.card .contenido_card .accion_card{
+	background-color: #fff;
+	padding: 15px 10px;
+}
+
+.card .contenido_card .accion_card button{
+	border: none;
+	border-radius: 5px;
+	background-color: var(--danger);
+	color:white;
+	padding: 10px;
+	transition: all linear .3s;
+	border: double 2px var(--danger);
+
+}
+
+.card .contenido_card .accion_card button:hover{
+	background-color: transparent;
+	color:black;
+	border: solid 2px var(--danger);
+}
+
+
+.carrito{
+	display: flex;
+	justify-content: center;
+	-ms-align-items: center;
+	align-items: center;
+	flex-direction: column;
+	width: 35vw;
+	background-color: rgba(255,255,255,.8);
+}
+
+.carrito table .eliminar-producto{
+	border: none;
+	border-radius: 5px;
+	background-color: var(--danger);
+	color:white;
+	padding: 5px;
+
+}
+
+.carrito table .eliminar-producto:after{
+	content:"X";
+	margin: 5px;
+	padding: 5px;
+}
+
+.carrito form input{
+	border: none;
+	border-radius: 5px;
+	background-color: var(--green);
+	color:white;
+	padding: 5px;
+}

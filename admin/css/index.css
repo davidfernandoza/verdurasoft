@@ -1,0 +1,595 @@
+
+body:after{
+	content:"Hecho por compañia S.S ";
+	position: absolute;
+	bottom: 0;
+	right: 0;
+	width: 100vw;
+	background-color: black;
+	color:white;
+	text-align: right;
+	padding: 5px 30px;
+	font-size: 12px;
+}
+
+
+*{
+
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+.contenedor_img{
+	width: 400px;
+	height: 250px;
+	overflow:hidden;
+	margin: 10px 0 20px 0;
+	border-radius: 20px;
+}
+.contenedor_img img{
+	width: 400px;
+	height: 250px;
+	border-radius: 20px;
+}
+
+
+.img_contenedor{
+	overflow: hidden;
+	position: relative;
+	top: -20px;
+	border-radius: 50%;
+	width: 200px;
+	height: 200px;
+	border: 1px solid grey;
+}
+.img_contenedor img{
+	width: 205px;
+	height: 205px;
+}
+
+
+.container{
+	position: relative;
+	width: 100%;
+	height: 100vh;
+	background-color: #ccc;
+	overflow-y:scroll;
+}
+
+.content-header{
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	background-color: #05B329;
+	z-index: 100000;
+	padding-right: 20px;
+
+}
+
+
+.content-header .main-nav{
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	/* margin: auto; */
+	height: 8vh;
+
+}
+
+.content-header .main-nav .content-user{
+	display: flex;
+	align-items: center;
+	font-size: 18px;
+	color:white;
+	text-transform: capitalize;
+	padding-left: 20px;
+	cursor:none;
+}
+
+.content-img{
+	width: 40px;
+	height: 40px;
+	border-radius: 50%;
+	margin-right: 30px;
+	margin-right: 20px;
+
+}
+
+.container-menu{
+	position: relative;
+	width: 50%;
+	padding: 20px;
+	display: flex;
+	justify-content: flex-end;
+}
+
+.todo{
+	position: relative;
+	top: 0;
+	left: 0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	color:white;
+}
+.caja{
+	width: 100%;
+	display: flex;
+}
+
+.caja p{
+	font-size: 16px;
+	margin: 2px;
+
+}
+.fecha{
+	display: flex;
+	align-items: center;
+	font-family: Oswald,arial;
+}
+.reloj{
+	display: flex;
+	font-family: oswald,arial;
+	width: 100%;
+	border-left: 1px solid white;
+	margin: 0 10px;
+	padding:0 10px;
+}
+.reloj .caja-segundos{
+}
+.reloj .segundos,
+.reloj .ampm{
+}
+
+
+
+
+.content-menu{
+	position: absolute;
+	top:0;
+	margin-top: 8vh;
+	right: 0;
+	width: 200px;
+	background-color: #05B329 ;
+	list-style: none;
+}
+.container-menu .icon{
+	width: 30px;
+	height: 30px;
+}
+.container-menu .icon:hover{
+	cursor:pointer;
+}
+.container-menu .icon.active + .content-menu {
+	height: 117px;
+}
+.content-menu {
+	background: #05B329;
+	height: 0;
+	overflow: hidden;
+	transition: all linear .3s;
+}
+.content-menu .link{
+	display: block;
+	padding: 10px;
+	color:white;
+	text-decoration: none;
+	border-bottom: 1px solid white;
+}
+
+.content-menu .link:hover{
+	background-color:#fff;
+	color: #000;
+}
+
+
+
+section{
+	display: flex;
+}
+
+
+/* aside */
+
+
+.container-aside{
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 20%;
+	height: 93vh;
+	background-color: rgba(255,255,255,.8);
+	margin-top: 8vh;
+
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	padding: 0 0 20px;
+}
+.container-aside .aside-list a{
+	display: block;
+	padding: 20px;
+	text-decoration: none;
+	text-transform: capitalize;
+	transition: all linear .3s;
+	color:black;
+}
+.container-aside .aside-list a:hover{
+	background-color: #05B329;
+	padding-left: 25px;
+	color:#fff;
+}
+
+
+
+/**
+ *
+ * tablas
+ *
+ */
+
+
+.container-article{
+	position: relative;
+	width: 80%;
+	height: 90vh;
+	padding: 20px;
+	margin-left: 20%;
+	margin-top: 8vh;
+
+}
+.container-article .input-group{
+	display: flex;
+	justify-content: space-between;
+	margin: 15px 0 15px;
+}
+.input-group a{
+	padding: 10px 20px;
+	background-color: #05B329;
+	color:white;
+	text-decoration: none;
+	border-radius: 8px;
+	transition: all linear .3s;
+}
+.input-group a:hover{
+	box-shadow: 5px 5px 10px rgba(0,0,0,.5);
+	transform: scale(1.02);
+	background-color: #fff;
+	color: #000;
+
+}
+.input-group a:active{
+	box-shadow: 0 0 4px rgba(0,0,0,.5);
+	transform: none;
+
+}
+.container-article .content-search{
+	display: flex;
+}
+
+.container-article .content-search input {
+	outline: none;
+}
+.container-article .content-search input[type=search] {
+	-webkit-appearance: textfield;
+	-webkit-box-sizing: content-box;
+	font-family: inherit;
+	font-size: 100%;
+}
+.container-article .content-search input::-webkit-search-decoration,
+.container-article .content-search input::-webkit-search-cancel-button {
+	display: none;
+}
+
+
+.container-article .content-search input[type=search] {
+	background: #ededed url(https://static.tumblr.com/ftv85bp/MIXmud4tx/search-icon.png) no-repeat 9px center;
+	border: solid 1px #ccc;
+	border-radius: 10em;
+
+	transition: all .5s;
+
+	width: 15px;
+	padding: 10px 11px;
+	color: transparent;
+	cursor: pointer;
+}
+
+.container-article .content-search input[type=search]:focus {
+	box-shadow: 0 0 5px rgba(109,207,246,.5);
+
+	width: 130px;
+	padding-left: 32px;
+	color: #000;
+	background-color: #fff;
+	cursor: auto;
+
+}
+
+.container-article .content-search input[type=search]:hover {
+	background-color: #fff;
+}
+.container-article .content-search input::placeholder {
+	color: transparent;
+}
+
+
+
+/**
+ *
+ * tabla
+ *
+ */
+
+
+
+ .container-info{
+ 	position: relative;
+ 	width: 100%;
+ 	height: 90%;
+
+ 	display: flex;
+ 	flex-direction: column;
+ 	justify-content: center;
+ 	align-items: flex-end;
+
+ }
+
+ .container-info .content-info{
+	position: relative;
+	width: 100%;
+	height: 80%;
+	overflow-y:scroll;
+ }
+.container-info .content-info table{
+	width: 100%;
+	border-collapse: collapse;
+}
+.container-info .content-info table th{
+	background-color:#05B329;
+	color:white;
+	padding: 10px;
+	cursor:pointer;
+	text-transform: uppercase;
+}
+.container-info .content-info table img{
+	width: 20px;
+	cursor:pointer;
+}
+.container-info .sin-fondo{
+	display: none;
+}
+.container-info .content-info table td,
+.container-info .content-info table tr{
+	transition: all linear .3s;
+}
+
+.container-info .content-info table td{
+	padding: 5px;
+	text-transform: capitalize;
+}
+
+.container-info .content-info table td.lower-case{
+	text-transform: lowercase;
+}
+.container-info .content-info table td.center{
+	text-align: center;
+}
+.container-info .content-info table tr:nth-child(2n){
+	background-color:hsla(132, 97%, 36%, 0.1) ;
+}
+
+
+.container-info .content-info table tr:hover td{
+	background-color:hsla(132, 97%, 36%, 0.4);
+	color: #000;
+}
+
+.container-info .total{
+	font-size: 20px;
+	padding: 20px;
+}
+
+.container-info .total p{
+	padding: 10px 20px;
+	background-color: #05B329;
+	display: inline-block;
+	color:white;
+}
+
+
+
+/**
+ *
+ * formularios
+ *
+ */
+
+
+.container-formulario{
+	position: fixed;
+	top: 0;
+	height: 100%;
+	left: 0;
+	width: 100%;
+
+	z-index: 10000000;
+
+	background-color: rgba(0,0,0,.8);
+
+	display: none;
+	justify-content: center;
+	align-items: center;
+}
+
+.container-formulario.mostrar-formulario{
+	display: flex;
+}
+
+.container-formulario.mostrar-formulario .mostrar{
+	display: block;
+}
+
+.form-register,
+.form-actualizar{
+	background-color: #fff;
+	border-radius: 20px;
+	display:flex;
+	flex-direction: column;
+	justify-content: space-between;
+	overflow: hidden;
+	display: none;
+}
+.form-title{
+	padding: 10px;
+}
+
+.form-content{
+	padding: 20px;
+}
+
+.form-title{
+	width: 100%;
+	background-color: #05B329;
+	text-align: center;
+}
+
+.form-title h1{
+	color:white;
+	padding: 10px;
+}
+.form-content{
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.form-content .input-group{
+	width: 100%;
+	text-align: center;
+
+}
+.form-content input{
+	padding: 10px 10px;
+	margin:5px;
+	outline-color: #05B329;
+	font-size: 15px;
+	box-shadow: none;
+}
+
+input.full{
+	width: 98%;
+
+}
+.input-group.select{
+	position: relative;
+	margin: 10px 0 20px;
+
+}
+
+.input-group.select select{
+	width: 50%;
+	padding: 10px;
+	border:none;
+	outline: none;
+	cursor:pointer;
+	/*background-color: hsla(16,83%, 50%, .5);*/
+}
+.input-group.select label::before{
+	content:"";
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	height: 5px;
+	border-radius: 50px;
+	background-color:#e95420 ;
+	transition: all linear .3s;
+}
+
+.input-group.select:hover label::before{
+	width: 400%;
+}
+
+.input-group label{
+	padding: 10px;
+	color:white;
+	background-color: #e95420;
+	margin: 0;
+	position: relative;
+}
+
+.cta-group{
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
+}
+
+.cta-group input{
+	padding: 15px;
+	border-radius: 10px;
+	border:none;
+
+}
+
+.cta-group input{
+	color:white;
+	cursor:pointer;
+	transition:  all linear .3s;
+	outline: 0;
+}
+
+.cta-group input:hover{
+	transform: scale(1.1);
+	box-shadow: 2px 2px 10px rgba(0,0,0,.5)
+}
+
+.cta-group input:active{
+	transform: none;
+	box-shadow:none;
+}
+.cta-group input[type="submit"]{
+	background-color: #24da1b;
+
+}
+.cta-group input[type="reset"]{
+	background-color: #da1b1b;
+}
+
+/**
+ *
+ * estilos form admin
+ *
+ */
+
+ .container-formulario-img{
+	display: flex;
+	align-items: center;
+
+}
+.container-formulario-img  .form-content {
+	padding-left: 10px;
+}
+.container-formulario-img .container-img{
+	display: flex;
+	padding-left: 20px;
+	margin: 10px;
+	flex-direction: column;
+
+}
+
+.container-formulario-img .container-img img{
+	display: block;
+
+}
+
+.container-img{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
